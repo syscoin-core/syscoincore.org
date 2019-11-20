@@ -7,7 +7,7 @@ permalink: en/doc/0.18.0/rpc/rawtransactions/decodepsbt/
 
 decodepsbt "psbt"
 
-Return a JSON object representing the serialized, base64-encoded partially signed Bitcoin transaction.
+Return a JSON object representing the serialized, base64-encoded partially signed Syscoin transaction.
 
 Arguments:
 1. psbt    (string, required) The PSBT base64 string
@@ -27,12 +27,12 @@ Result:
         ...
       },
       "witness_utxo" : {            (json object, optional) Transaction output for witness UTXOs
-        "amount" : x.xxx,           (numeric) The value in BTC
+        "amount" : x.xxx,           (numeric) The value in SYS
         "scriptPubKey" : {          (json object)
           "asm" : "asm",            (string) The asm
           "hex" : "hex",            (string) The hex
           "type" : "pubkeyhash",    (string) The type, eg 'pubkeyhash'
-          "address" : "address"     (string) Bitcoin address if there is one
+          "address" : "address"     (string) Syscoin address if there is one
         }
       },
       "partial_signatures" : {             (json object, optional)
@@ -101,6 +101,6 @@ Result:
 }
 
 Examples:
-> bitcoin-cli decodepsbt "psbt"
+> syscoin-cli decodepsbt "psbt"
 
 

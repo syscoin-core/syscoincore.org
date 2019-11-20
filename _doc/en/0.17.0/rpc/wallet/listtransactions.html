@@ -9,7 +9,7 @@ listtransactions (dummy count skip include_watchonly)
 
 Returns up to 'count' most recent transactions skipping the first 'from' transactions for account 'account'.
 Note that the "account" argument and "otheraccount" return value have been removed in V0.17. To use this RPC with an "account" argument, restart
-bitcoind with -deprecatedrpc=accounts
+syscoind with -deprecatedrpc=accounts
 
 Arguments:
 1. "dummy"    (string, optional) If set, should be "*" for backwards compatibility.
@@ -20,13 +20,13 @@ Arguments:
 Result:
 [
   {
-    "address":"address",    (string) The bitcoin address of the transaction.
+    "address":"address",    (string) The syscoin address of the transaction.
     "category":"send|receive", (string) The transaction category.
-    "amount": x.xxx,          (numeric) The amount in BTC. This is negative for the 'send' category, and is positive
+    "amount": x.xxx,          (numeric) The amount in SYS. This is negative for the 'send' category, and is positive
                                         for the 'receive' category,
     "label": "label",       (string) A comment for the address/transaction, if any
     "vout": n,                (numeric) the vout value
-    "fee": x.xxx,             (numeric) The amount of the fee in BTC. This is negative and only available for the 
+    "fee": x.xxx,             (numeric) The amount of the fee in SYS. This is negative and only available for the 
                                          'send' category of transactions.
     "confirmations": n,       (numeric) The number of confirmations for the transaction. Negative confirmations indicate the
                                          transaction conflicts with the block chain
@@ -48,10 +48,10 @@ Result:
 Examples:
 
 List the most recent 10 transactions in the systems
-> bitcoin-cli listtransactions 
+> syscoin-cli listtransactions 
 
 List transactions 100 to 120
-> bitcoin-cli listtransactions "*" 20 100
+> syscoin-cli listtransactions "*" 20 100
 
 As a json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listtransactions", "params": ["*", 20, 100] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/

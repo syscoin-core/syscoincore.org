@@ -9,4 +9,4 @@ Contains the script `github-merge.py` for merging github pull requests securely 
 Tool to verify that every merge commit was signed by a developer using the above `github-merge.py` script.
 
 ### [RPC documentation generation](/contrib/doc-gen) ###
-Script for generating RPC documentation files from a running Bitcoin Core instance.
+Script for generating RPC documentation files from a running Syscoin Core instance.

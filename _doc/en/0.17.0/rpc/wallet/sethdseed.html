@@ -21,9 +21,9 @@ Arguments:
                              The seed value can be retrieved using the dumpwallet command. It is the private key marked hdseed=1
 
 Examples:
-> bitcoin-cli sethdseed 
-> bitcoin-cli sethdseed false
-> bitcoin-cli sethdseed true "wifkey"
+> syscoin-cli sethdseed 
+> syscoin-cli sethdseed false
+> syscoin-cli sethdseed true "wifkey"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sethdseed", "params": [true, "wifkey"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
 
 

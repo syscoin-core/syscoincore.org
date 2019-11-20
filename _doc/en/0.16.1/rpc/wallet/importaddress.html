@@ -25,10 +25,10 @@ as change, and not show up in many RPCs.
 Examples:
 
 Import a script with rescan
-> bitcoin-cli importaddress "myscript"
+> syscoin-cli importaddress "myscript"
 
 Import using a label without rescan
-> bitcoin-cli importaddress "myscript" "testing" false
+> syscoin-cli importaddress "myscript" "testing" false
 
 As a JSON-RPC call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importaddress", "params": ["myscript", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/

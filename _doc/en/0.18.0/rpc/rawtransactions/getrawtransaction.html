@@ -54,7 +54,7 @@ Result (if verbose is set to true):
   ],
   "vout" : [              (array of json objects)
      {
-       "value" : x.xxx,            (numeric) The value in BTC
+       "value" : x.xxx,            (numeric) The value in SYS
        "n" : n,                    (numeric) index
        "scriptPubKey" : {          (json object)
          "asm" : "asm",          (string) the asm
@@ -62,7 +62,7 @@ Result (if verbose is set to true):
          "reqSigs" : n,            (numeric) The required sigs
          "type" : "pubkeyhash",  (string) The type, eg 'pubkeyhash'
          "addresses" : [           (json array of string)
-           "address"        (string) bitcoin address
+           "address"        (string) syscoin address
            ,...
          ]
        }
@@ -76,10 +76,10 @@ Result (if verbose is set to true):
 }
 
 Examples:
-> bitcoin-cli getrawtransaction "mytxid"
-> bitcoin-cli getrawtransaction "mytxid" true
+> syscoin-cli getrawtransaction "mytxid"
+> syscoin-cli getrawtransaction "mytxid" true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getrawtransaction", "params": ["mytxid", true] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
-> bitcoin-cli getrawtransaction "mytxid" false "myblockhash"
-> bitcoin-cli getrawtransaction "mytxid" true "myblockhash"
+> syscoin-cli getrawtransaction "mytxid" false "myblockhash"
+> syscoin-cli getrawtransaction "mytxid" true "myblockhash"
 
 

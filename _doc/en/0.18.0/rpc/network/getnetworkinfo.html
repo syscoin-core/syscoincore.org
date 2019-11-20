@@ -28,8 +28,8 @@ Result:
   }
   ,...
   ],
-  "relayfee": x.xxxxxxxx,                (numeric) minimum relay fee for transactions in BTC/kB
-  "incrementalfee": x.xxxxxxxx,          (numeric) minimum fee increment for mempool limiting or BIP 125 replacement in BTC/kB
+  "relayfee": x.xxxxxxxx,                (numeric) minimum relay fee for transactions in SYS/kB
+  "incrementalfee": x.xxxxxxxx,          (numeric) minimum fee increment for mempool limiting or BIP 125 replacement in SYS/kB
   "localaddresses": [                    (array) list of local addresses
   {
     "address": "xxxx",                 (string) network address
@@ -42,7 +42,7 @@ Result:
 }
 
 Examples:
-> bitcoin-cli getnetworkinfo 
+> syscoin-cli getnetworkinfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworkinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
 
 

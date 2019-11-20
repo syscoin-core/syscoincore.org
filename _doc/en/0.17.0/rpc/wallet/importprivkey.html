@@ -21,16 +21,16 @@ may report that the imported key exists but related transactions are still missi
 Examples:
 
 Dump a private key
-> bitcoin-cli dumpprivkey "myaddress"
+> syscoin-cli dumpprivkey "myaddress"
 
 Import the private key with rescan
-> bitcoin-cli importprivkey "mykey"
+> syscoin-cli importprivkey "mykey"
 
 Import using a label and without rescan
-> bitcoin-cli importprivkey "mykey" "testing" false
+> syscoin-cli importprivkey "mykey" "testing" false
 
 Import using default blank label and without rescan
-> bitcoin-cli importprivkey "mykey" "" false
+> syscoin-cli importprivkey "mykey" "" false
 
 As a JSON-RPC call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importprivkey", "params": ["mykey", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/

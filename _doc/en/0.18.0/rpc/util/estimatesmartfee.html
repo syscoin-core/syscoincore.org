@@ -26,7 +26,7 @@ Arguments:
 
 Result:
 {
-  "feerate" : x.x,     (numeric, optional) estimate fee rate in BTC/kB
+  "feerate" : x.x,     (numeric, optional) estimate fee rate in SYS/kB
   "errors": [ str... ] (json array of strings, optional) Errors encountered during processing
   "blocks" : n         (numeric) block number where estimate was found
 }
@@ -37,6 +37,6 @@ An error is returned if not enough transactions and blocks
 have been observed to make an estimate for any number of blocks.
 
 Examples:
-> bitcoin-cli estimatesmartfee 6
+> syscoin-cli estimatesmartfee 6
 
 

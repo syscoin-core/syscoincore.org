@@ -1,12 +1,12 @@
-# [bitcoincore.org](https://bitcoincore.org) [![Build Status](https://travis-ci.org/bitcoin-core/bitcoincore.org.svg?branch=master)](https://travis-ci.org/bitcoin-core/bitcoincore.org)
+# [syscoincore.org](https://syscoincore.org) [![Build Status](https://travis-ci.org/syscoin-core/syscoincore.org.svg?branch=master)](https://travis-ci.org/syscoin-core/syscoincore.org)
 
-This repository is the source code of the Bitcoin Core project website built with Jekyll.
+This repository is the source code of the Syscoin Core project website built with Jekyll.
 
 ## Directory structure
 
   - `_posts/<lang>/posts` for blog articles.
   - `_posts/<lang>/pages` for static pages.
-  - `_posts/<lang>/releases` for Bitcoin Core release notes
+  - `_posts/<lang>/releases` for Syscoin Core release notes
 
 File names *must* be in the format `Y-m-d-title.md`, e.g. `2015-12-31-title.md`. File names can be translated.
 
@@ -45,8 +45,8 @@ locally, [install Ruby 2.2.2](https://gorails.com/setup) using system
 packages, [rvm](https://rvm.io), or another method.  Then clone this
 repository and change directory into it:
 
-    git clone https://github.com/bitcoin-core/bitcoincore.org.git
-    cd bitcoincore.org
+    git clone https://github.com/syscoin-core/syscoincore.org.git
+    cd syscoincore.org
 
 Install the `bundle` utility using the Ruby package manager, `gem`, and
 then use `bundle` to install the rest of the Ruby packages needed to

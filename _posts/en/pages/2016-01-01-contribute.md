@@ -12,7 +12,7 @@ redirect_from:
 ---
 
 You are welcome to contribute to the project!
-Our main source code repository is [hosted on GitHub](https://github.com/bitcoin/bitcoin/) and there are several aspects you can help on:
+Our main source code repository is [hosted on GitHub](https://github.com/syscoin/syscoin/) and there are several aspects you can help on:
 
   - Improving our documentation (see [README.md][README.md] and [doc folder][doc])
   - [Translations][translation_process.md]
@@ -25,15 +25,15 @@ Feel free to report [issues][issues] and open [pull requests][pulls], but please
 
 **Discussion**
 
-Most Bitcoin Core related discussion happens in the [#bitcoin-core-dev] IRC channel on irc.freenode.net or [bitcoin-core-dev][] mailing list. There is also a mailing list for Bitcoin protocol discussion [bitcoin-dev][] and a general Bitcoin discussion [bitcoin-discuss][].
+Most Syscoin Core related discussion happens in the [#syscoin-core-dev] IRC channel on irc.freenode.net or [syscoin-core-dev][] mailing list. There is also a mailing list for Syscoin protocol discussion [syscoin-dev][] and a general Syscoin discussion [syscoin-discuss][].
 
 **Contribute to this website**
 
 You can also translate or contribute to this [website][website-contrib].
 
-[README.md]: https://github.com/bitcoin/bitcoin/blob/master/README.md
-[doc]: https://github.com/bitcoin/bitcoin/tree/master/doc
-[translation_process.md]: https://github.com/bitcoin/bitcoin/blob/master/doc/translation_process.md
-[website-contrib]: https://github.com/bitcoin-core/bitcoincore.org/blob/master/CONTRIBUTING.md
+[README.md]: https://github.com/syscoin/syscoin/blob/master/README.md
+[doc]: https://github.com/syscoin/syscoin/tree/master/doc
+[translation_process.md]: https://github.com/syscoin/syscoin/blob/master/doc/translation_process.md
+[website-contrib]: https://github.com/syscoin-core/syscoincore.org/blob/master/CONTRIBUTING.md
 
 {% include references.md %}

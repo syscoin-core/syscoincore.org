@@ -22,13 +22,13 @@ Result:
 Examples:
 
 List account balances where there at least 1 confirmation
-> bitcoin-cli listaccounts 
+> syscoin-cli listaccounts 
 
 List account balances including zero confirmation transactions
-> bitcoin-cli listaccounts 0
+> syscoin-cli listaccounts 0
 
 List account balances for 6 or more confirmations
-> bitcoin-cli listaccounts 6
+> syscoin-cli listaccounts 6
 
 As json rpc call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaccounts", "params": [6] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/

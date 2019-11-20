@@ -15,7 +15,7 @@ Segregated Witnessのソフトフォーク（segwit）には幅広い機能が�
 
 ## Malleabilityの解決 {#malleability-fixes}
 
-Bitcoinのトランザクションはトランザクション識別子(txid)と呼ばれる64桁の16進数のハッシュで識別されます。このハッシュはトランザクションで使用されるコインとそのトランザクションの結果使用可能になるコインの両方の情報に基いて生成されます。
+Syscoinのトランザクションはトランザクション識別子(txid)と呼ばれる64桁の16進数のハッシュで識別されます。このハッシュはトランザクションで使用されるコインとそのトランザクションの結果使用可能になるコインの両方の情報に基いて生成されます。
 
 残念ながら、txidの計算方法上、トランザクションの意味を変えない小さな変更を加えることでtxidは変更されます。これは第三者によるmalleabilityと呼ばれています。BIP 62("dealing with malleability")は、この問題に少しずつ取り組もうとしましたが、コンセンサスに実装するには複雑過ぎ取りやめました。
 
@@ -23,7 +23,7 @@ Bitcoinのトランザクションはトランザクション識別子(txid)と�
 
 より一般的には、トランザクションの署名者の１人もしくは複数人が署名を変更すると、トランザクションは有効なまま同じ金額を同じアドレスに支払いますが、txidには署名も含まれるためtxidは別の値に変更されます。（インプットやアウトプットを変更せず）署名データを変更することでトランザクションを変更する方法をscriptSig malleabilityと呼びます。
 
-Segwitでは、Bitcoinユーザーがトランザクションの可搬性のある部分を*transaction witness*に移動させ、witnessへの変更がtxidの計算に影響を与えないようwitnessを分離することによって第三者およびscriptSigによるmalleabilityを防ぎます。
+Segwitでは、Syscoinユーザーがトランザクションの可搬性のある部分を*transaction witness*に移動させ、witnessへの変更がtxidの計算に影響を与えないようwitnessを分離することによって第三者およびscriptSigによるmalleabilityを防ぎます。
 
 ### 誰に恩恵が？ {#who-benefits-1}
 
@@ -31,7 +31,7 @@ Segwitでは、Bitcoinユーザーがトランザクションの可搬性のあ�
 
 - **未承認トランザクションを使った取引:** アリスがボブにトランザクション １で支払いをし、ボブがそれを使ってトランザクション 2でチャーリーに支払いをした場合、アリスの支払いトランザクションが改竄され別のtxidで承認されるとトランザクション 2は無効となりチャーリーには支払いが行われません。もしボブが信頼できるなら、彼はチャーリーに支払いを再発行するでしょう。そうでない場合、ボブはビットコインを手元にとどめておくことができます。
 
-- **Lightning Network:** 第三者とscriptSigによるmalleabilityが解決すると、Lightning Networkの実装の複雑さが減り、ブロックチェーン上のスペースの使用が大幅に効率化されます。scriptSigのmalleabilityが解決することで、各LightningのクライアントはBitcoinのフルノードを必要とせず、ブロックチェーンの監視をアウトソースする軽量なLightningクライアントを実行することも可能になります。
+- **Lightning Network:** 第三者とscriptSigによるmalleabilityが解決すると、Lightning Networkの実装の複雑さが減り、ブロックチェーン上のスペースの使用が大幅に効率化されます。scriptSigのmalleabilityが解決することで、各LightningのクライアントはSyscoinのフルノードを必要とせず、ブロックチェーンの監視をアウトソースする軽量なLightningクライアントを実行することも可能になります。
 
 - **ブロックチェーンを使用するすべての人:** マイクロペイメントチャネルや予想される新しいスマートコントラクトなど現在のスマートコントラクトの設計、理解、監視がより簡単になります。
 
@@ -39,17 +39,17 @@ Segwitでは、Bitcoinユーザーがトランザクションの可搬性のあ�
 
 ### より詳しい情報 {#further-information-1}
 
- * [Bitcoin Wiki on Malleability](https://en.bitcoin.it/wiki/Transaction_Malleability)
- * [Coin Telegraph article on 2015 Malleability attack](http://cointelegraph.com/news/115374/the-ongoing-bitcoin-malleability-attack)
- * [Bitcoin Magazine article on 2015 Malleability attack](https://bitcoinmagazine.com/articles/the-who-what-why-and-how-of-the-ongoing-transaction-malleability-attack-1444253640)
- * ["Overview of BIPs necessary for Lightning" transcript](http://diyhpl.us/wiki/transcripts/scalingbitcoin/hong-kong/overview-of-bips-necessary-for-lightning/)
- * [BIP 62](https://github.com/bitcoin/bips/blob/master/bip-0062.mediawiki)
- * [BIP 140 -- alternative approach to malleability fixes](https://github.com/bitcoin/bips/blob/master/bip-0140.mediawiki)
- * [Stack exchange answer regarding 683f...8bfa transaction](http://bitcoin.stackexchange.com/questions/22051/transaction-malleability-in-the-blockchain/22058#22058)
+ * [Syscoin Wiki on Malleability](https://en.syscoin.it/wiki/Transaction_Malleability)
+ * [Coin Telegraph article on 2015 Malleability attack](http://cointelegraph.com/news/115374/the-ongoing-syscoin-malleability-attack)
+ * [Syscoin Magazine article on 2015 Malleability attack](https://syscoinmagazine.com/articles/the-who-what-why-and-how-of-the-ongoing-transaction-malleability-attack-1444253640)
+ * ["Overview of BIPs necessary for Lightning" transcript](http://diyhpl.us/wiki/transcripts/scalingsyscoin/hong-kong/overview-of-bips-necessary-for-lightning/)
+ * [BIP 62](https://github.com/syscoin/bips/blob/master/bip-0062.mediawiki)
+ * [BIP 140 -- alternative approach to malleability fixes](https://github.com/syscoin/bips/blob/master/bip-0140.mediawiki)
+ * [Stack exchange answer regarding 683f...8bfa transaction](http://syscoin.stackexchange.com/questions/22051/transaction-malleability-in-the-blockchain/22058#22058)
 
 ## sighash操作の線形スケーリング {#linear-scaling-of-sighash-operations}
 
-Bitcoinのブロックサイズを増やす簡単なアプローチの主な問題は、特定のトランザクションでは署名ハッシュの計算のスケールが線形ではなく二次関数的にスケールすることです。
+Syscoinのブロックサイズを増やす簡単なアプローチの主な問題は、特定のトランザクションでは署名ハッシュの計算のスケールが線形ではなく二次関数的にスケールすることです。
 
 ![Linear versus quadratic](/assets/images/linear-quad-scale.png)
 
@@ -59,17 +59,17 @@ Segwitは、トランザクションの各バイトを最大2回だけハッシ�
 
 ### 誰に恩恵が？ {#who-benefits-2}
 
-署名検証のためハッシュデータの二次関数的なスケールが無くなると、より安全にブロックサイズを増やすことができます。またトランザクションサイズを制限することなくこれを行うことで、Bitcoinはマイニング報酬やクラウドファウンディングの支払いなどの大きなグループからの決済を引き続きサポートすることができます。
+署名検証のためハッシュデータの二次関数的なスケールが無くなると、より安全にブロックサイズを増やすことができます。またトランザクションサイズを制限することなくこれを行うことで、Syscoinはマイニング報酬やクラウドファウンディングの支払いなどの大きなグループからの決済を引き続きサポートすることができます。
 
 変更されたハッシュはwitnessデータにある署名操作にのみ適用されるため、ベースブロックの署名操作にはこれまで通り低い制限が必要です。
 
 ### より詳しい情報 {#further-information-2}
 
- * [BIP 143](https://github.com/bitcoin/bips/blob/master/bip-0143.mediawiki)
+ * [BIP 143](https://github.com/syscoin/bips/blob/master/bip-0143.mediawiki)
  * [Blog post by Rusty Russell on the 25s transaction](http://rusty.ozlabs.org/?p=522)
- * [CVE 2013-2292 on Bitcoin wiki](https://en.bitcoin.it/wiki/Common_Vulnerabilities_and_Exposures#CVE-2013-2292)
- * [Proposal to limit transactions to 100kB](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-July/009494.html)
- * [Bitcoin Classic commit on 0.11.2 branch adding additional consensus limit on sighash bytes](https://github.com/bitcoinclassic/bitcoinclassic/commit/842dc24b23ad9551c67672660c4cba882c4c840a)
+ * [CVE 2013-2292 on Syscoin wiki](https://en.syscoin.it/wiki/Common_Vulnerabilities_and_Exposures#CVE-2013-2292)
+ * [Proposal to limit transactions to 100kB](https://lists.linuxfoundation.org/pipermail/syscoin-dev/2015-July/009494.html)
+ * [Syscoin Classic commit on 0.11.2 branch adding additional consensus limit on sighash bytes](https://github.com/syscoinclassic/syscoinclassic/commit/842dc24b23ad9551c67672660c4cba882c4c840a)
 
 ## インプットの量への署名 {#signing-of-input-value}
 
@@ -79,17 +79,17 @@ Segwitではインプットの量を明示的にハッシュすることでこ�
 
 ### 誰に恩恵が？ {#who-benefits-3}
 
-ハードウェアウォレットの製造元とユーザーは明確に恩恵を受けます。しかしこれは"Internet of things"アプリケーションのための小さな組み込みデバイスでBitcoinを安全に使用する方がより簡単です。
+ハードウェアウォレットの製造元とユーザーは明確に恩恵を受けます。しかしこれは"Internet of things"アプリケーションのための小さな組み込みデバイスでSyscoinを安全に使用する方がより簡単です。
 
 この恩恵は、Segwit対応アドレス（もしくはP2SHでネストされたSegwitアドレス）に送信されたトランザクションを使用する場合にのみ使用できます。
 
 ### より詳しい情報 {#further-information-3}
 
- * [BIP 143](https://github.com/bitcoin/bips/blob/master/bip-0143.mediawiki)
+ * [BIP 143](https://github.com/syscoin/bips/blob/master/bip-0143.mediawiki)
 
 ## pay-to-script-hash (P2SH) によるマルチシグのセキュリティ強化 {#increased-security-for-multisig-via-pay-to-script-hash}
 
-マルチシグの支払いは、現在160-bitのHASH160アルゴリズム（SHA256してRIPEMDしたもの）によって保護されているP2SHを使っています。しかし、署名者の1人が全ての資金を盗みたい場合、80bit(2<sup>80</sup>)の作業で全ての資金を入手することが可能なマルチシグスクリプトの一部として有効なアドレスとスクリプトの衝突を見つけることができます。これは非常に潤沢なりソースを持つ攻撃者にとって可能性のある範囲です。（比較のため、Bitcoinのマイニングネットワークは毎秒1エクサハッシュで2週間で80bit分の作業をしています。）
+マルチシグの支払いは、現在160-bitのHASH160アルゴリズム（SHA256してRIPEMDしたもの）によって保護されているP2SHを使っています。しかし、署名者の1人が全ての資金を盗みたい場合、80bit(2<sup>80</sup>)の作業で全ての資金を入手することが可能なマルチシグスクリプトの一部として有効なアドレスとスクリプトの衝突を見つけることができます。これは非常に潤沢なりソースを持つ攻撃者にとって可能性のある範囲です。（比較のため、Syscoinのマイニングネットワークは毎秒1エクサハッシュで2週間で80bit分の作業をしています。）
 
 Segwitは単一の公開鍵への直接的な支払いには（この種の攻撃には役に立たないため）HASH160を使用し、スクリプトハッシュへの支払いは256-bitのSHA256ハッシュを使用すことでこれを解決します。
 
@@ -99,27 +99,27 @@ Segwitを利用してマルチシグもしくはスマートコントラクト�
 
 ### より詳しい情報 {#further-information-4}
 
- * [Gavin Andresen asking if 80-bit attacks are worth worrying about](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-January/012198.html)
- * [Ethan Heilman describing a cycle finding algorithm](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-January/012202.html)
- * [Rusty Russell calculating costs of performing an attack](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-January/012227.html)
- * [Anthony Towns applying the cycle finding algorithm to exploit transactions](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-January/012218.html)
- * [Gavin Andresen summarising the thread](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-January/012234.html)
+ * [Gavin Andresen asking if 80-bit attacks are worth worrying about](https://lists.linuxfoundation.org/pipermail/syscoin-dev/2016-January/012198.html)
+ * [Ethan Heilman describing a cycle finding algorithm](https://lists.linuxfoundation.org/pipermail/syscoin-dev/2016-January/012202.html)
+ * [Rusty Russell calculating costs of performing an attack](https://lists.linuxfoundation.org/pipermail/syscoin-dev/2016-January/012227.html)
+ * [Anthony Towns applying the cycle finding algorithm to exploit transactions](https://lists.linuxfoundation.org/pipermail/syscoin-dev/2016-January/012218.html)
+ * [Gavin Andresen summarising the thread](https://lists.linuxfoundation.org/pipermail/syscoin-dev/2016-January/012234.html)
 
 ## スクリプトのバージョンニング {#script-versioning}
 
-Bitcoinのスクリプトの変更によりセキュリティの強化と機能性が向上しました。しかし、既存のスクリプトの設計では、予め確保されている10個のOP_NOP opcodeをある条件で失敗するような新しいopcodeに置き換えることで後方互換のある（ソフトフォーク）変更のみが可能です。これは新しい署名方法やOP_CLTVのような機能を導入するのには十分ですが、どちらもハッキーで（例えばOP_CLTVは通常OP_DROPと組み合わせて使用するなど）2つの文字列を結合するなどの単純な機能を有効にするために使用することはできません。
+Syscoinのスクリプトの変更によりセキュリティの強化と機能性が向上しました。しかし、既存のスクリプトの設計では、予め確保されている10個のOP_NOP opcodeをある条件で失敗するような新しいopcodeに置き換えることで後方互換のある（ソフトフォーク）変更のみが可能です。これは新しい署名方法やOP_CLTVのような機能を導入するのには十分ですが、どちらもハッキーで（例えばOP_CLTVは通常OP_DROPと組み合わせて使用するなど）2つの文字列を結合するなどの単純な機能を有効にするために使用することはできません。
 
 Segwitはスクリプトにバージョン番号を含めることでこれを解決しているため、スクリプトバージョンを増やすだけで、非Segwitのトランザクションではハードフォークをする必要があるような追加のopcodeをサポートすることができます。
 
 ### 誰に恩恵が？ {#who-benefits-5}
 
-スクリプトのopcodeの変更が容易になると、Bitcoinの高度なスクリプトの作成が容易になります。これにはSchnorr署名の導入や鍵のリカバリを使用した署名サイズの縮小、サイドチェーンのサポート、Merklized Abstract Syntax Trees (MAST)を使用したよりスマートなコントラクトの作成やその他の研究レベルのアイディアが含まれます。
+スクリプトのopcodeの変更が容易になると、Syscoinの高度なスクリプトの作成が容易になります。これにはSchnorr署名の導入や鍵のリカバリを使用した署名サイズの縮小、サイドチェーンのサポート、Merklized Abstract Syntax Trees (MAST)を使用したよりスマートなコントラクトの作成やその他の研究レベルのアイディアが含まれます。
 
 ## UTXOの成長を縮小 {#reducing-utxo-growth}
 
-未使用のトランザクションアウトプット（UTXO）のデータベースは、新しいトランザクションが有効かどうか判断するため各検証Bitcoinノードによって維持されます。ネットワークの効率的な運用のためには、このデータベースへのクエリ及び変更を速く行う必要があり、理想的にはインメモリに収めるべきです。そのためにもデータベースのサイズをできるだけ小さく保つことが重要になります。
+未使用のトランザクションアウトプット（UTXO）のデータベースは、新しいトランザクションが有効かどうか判断するため各検証Syscoinノードによって維持されます。ネットワークの効率的な運用のためには、このデータベースへのクエリ及び変更を速く行う必要があり、理想的にはインメモリに収めるべきです。そのためにもデータベースのサイズをできるだけ小さく保つことが重要になります。
 
-ただこれはBitcoinが成長するにつれ困難になります。各新規ユーザーは少なくとも1つのUTXOエントリーを持ち、プライバシーや柔軟性を向上させるためや、ペイメントチャネルやその他のスマートコントラクトを使用するのに複数のエントリーを持つようになるでしょう。
+ただこれはSyscoinが成長するにつれ困難になります。各新規ユーザーは少なくとも1つのUTXOエントリーを持ち、プライバシーや柔軟性を向上させるためや、ペイメントチャネルやその他のスマートコントラクトを使用するのに複数のエントリーを持つようになるでしょう。
 
 Segwitは、UTXOセットのサイズに影響を与えない署名データに対して、UTXOセットのサイズに影響を与える署名データよりコストを75%安くすることでこれを改善します。これにより、ユーザーに手数料を最小限に抑えるためにUTXOセットへの影響を最小限に抑えるトランザクションを使用することを奨励し、開発者にはUTXOセットへの影響を最小限に抑える方法でスマートコントラクトや新しい機能の設計を促すことが期待されます。
 
@@ -127,7 +127,7 @@ Segwitはソフトフォークによる変更であるため、ベースのブ�
 
 ### 誰に恩恵が？ {#who-benefits-6}
 
-UTXOの成長の縮小は、マイナーや企業およびフルノードを実行するユーザーにとって恩恵があり、より多くのユーザーがシステムに参加する中、Bitcoinネットワークの現在のセキュリティを維持するのに役立ちます。UTXOセットの成長を最小限にしようとするユーザーや開発者は、UTXOの成長に対するトランザクションの影響を無視する人と比較して、手数料が安いというメリットがあります。
+UTXOの成長の縮小は、マイナーや企業およびフルノードを実行するユーザーにとって恩恵があり、より多くのユーザーがシステムに参加する中、Syscoinネットワークの現在のセキュリティを維持するのに役立ちます。UTXOセットの成長を最小限にしようとするユーザーや開発者は、UTXOの成長に対するトランザクションの影響を無視する人と比較して、手数料が安いというメリットがあります。
 
 ### より詳しい情報 {#further-information-5}
 
@@ -135,7 +135,7 @@ UTXOの成長の縮小は、マイナーや企業およびフルノードを実�
 
 ## 署名を検証しない場合の効率が向上 {#efficiency-gains-when-not-verifying-signature}
 
-過去のトランザクションの署名は今後のトランザクションの署名より重要でない場合があります。例えばBitcoin Coreはデフォルトで最新のチェックポイントより前のトランザクションの署名をチェックしません。またSPVクライアントは署名自体を一切チェックせず、既にマイナーや他のノードによって検証された結果を信頼します。ただし今のところ、署名データはトランザクションにとって不可欠なデータで、トランザクションハッシュを計算するのに必ず必要です。
+過去のトランザクションの署名は今後のトランザクションの署名より重要でない場合があります。例えばSyscoin Coreはデフォルトで最新のチェックポイントより前のトランザクションの署名をチェックしません。またSPVクライアントは署名自体を一切チェックせず、既にマイナーや他のノードによって検証された結果を信頼します。ただし今のところ、署名データはトランザクションにとって不可欠なデータで、トランザクションハッシュを計算するのに必ず必要です。
 
 署名データを分離することで、署名データに関心の無いノードはディスクから署名データを削除したり、最初からダウンロードするのを避けることでリソースを節約することができます。
 
@@ -171,9 +171,9 @@ Segwitアドレスを使用するトランザクションが増えると、プ�
 ### より詳しい情報 {#further-information-6}
 
  * [Knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem)
- * [Sigop attack discussion on bitcointalk in Aug 2015](https://bitcointalk.org/index.php?topic=1166928.0;all)
- * [Gregory Maxwell on bitcoin-dev on witness limits](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-December/011870.html)
- * ["Validation Cost Metric" transcript](http://diyhpl.us/wiki/transcripts/scalingbitcoin/hong-kong/validation-cost-metric/)
+ * [Sigop attack discussion on syscointalk in Aug 2015](https://syscointalk.org/index.php?topic=1166928.0;all)
+ * [Gregory Maxwell on syscoin-dev on witness limits](https://lists.linuxfoundation.org/pipermail/syscoin-dev/2015-December/011870.html)
+ * ["Validation Cost Metric" transcript](http://diyhpl.us/wiki/transcripts/scalingsyscoin/hong-kong/validation-cost-metric/)
 
 ## 更新 2016-10-19 {#update-2016-10-19}
 
@@ -183,12 +183,12 @@ Segwitアドレスを使用するトランザクションが増えると、プ�
 
 > **Compact fraud proofs**
 >
-> Bitcoinのユーザーベースが拡張されると、ブロックチェーン全体を自然に検証するのはより高価になります。分散化されたトラストレスなBitcoinの性質を維持するためには、ブロックチェーン全体の検証をする余裕がないユーザーも、安価に検証できるようにしてブロックチェーン全体の検証ができるようになることが重要です。
+> Syscoinのユーザーベースが拡張されると、ブロックチェーン全体を自然に検証するのはより高価になります。分散化されたトラストレスなSyscoinの性質を維持するためには、ブロックチェーン全体の検証をする余裕がないユーザーも、安価に検証できるようにしてブロックチェーン全体の検証ができるようになることが重要です。
 >
 > Segwitは将来のソフトフォークでコミットメントデータを含められるようwitnessの構造を拡張することで、軽量（SPV）クライアントでも、ブロックで生成されたビットコインの数やブロックのサイズ、1ブロック内で実行されるsigopsの数などのコンセンサスルールの適用をできるようにします。
 >
 > **誰が恩恵を受ける？**
 >
-> Fraud proofsによりSPVのユーザーはBitcoinのコンセンサスルールを適用することができるようになり、個々のユーザーが攻撃される方法を削減するだけでなく、Bitcoinネットワーク全体のセキュリティを大幅に向上させる可能性があります。
+> Fraud proofsによりSPVのユーザーはSyscoinのコンセンサスルールを適用することができるようになり、個々のユーザーが攻撃される方法を削減するだけでなく、Syscoinネットワーク全体のセキュリティを大幅に向上させる可能性があります。
 >
 > これらのFraud proofsは将来のソフトフォークの一部としてwitnessのデータ構造に追加することができ、Segwitを使用しないトランザクションであってもSPVクライアントがルールを適用するのに役立ちます。

@@ -1,7 +1,7 @@
 # Site navigation links
 en:
   home:
-    title: "Bitcoin Core"
+    title: "Syscoin Core"
     url:   "/"
   about:
     title: "About"
@@ -71,7 +71,7 @@ en:
         url: "/en/twitter-impersonation"
 zh_CN:
   home:
-    title: "Bitcoin Core"
+    title: "Syscoin Core"
     url:   "/zh_CN/"
   about:
     title: "关于我们"
@@ -138,7 +138,7 @@ zh_CN:
         url: "/zh_CN/list/announcements/join/"
 zh_TW:
   home:
-    title: "Bitcoin Core"
+    title: "Syscoin Core"
     url:   "/zh_TW/"
   about:
     title: "關於我們"
@@ -202,7 +202,7 @@ zh_TW:
         url: "/en/list/announcements/join/"
 ja:
   home:
-    title: "Bitcoin Core"
+    title: "Syscoin Core"
     url:   "/ja/"
   about:
     title: "概要"

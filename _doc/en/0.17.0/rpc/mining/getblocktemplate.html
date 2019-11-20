@@ -10,10 +10,10 @@ getblocktemplate ( TemplateRequest )
 If the request parameters include a 'mode' key, that is used to explicitly select between the default 'template' request or a 'proposal'.
 It returns data needed to construct a block to work on.
 For full specification, see BIPs 22, 23, 9, and 145:
-    https://github.com/bitcoin/bips/blob/master/bip-0022.mediawiki
-    https://github.com/bitcoin/bips/blob/master/bip-0023.mediawiki
-    https://github.com/bitcoin/bips/blob/master/bip-0009.mediawiki#getblocktemplate_changes
-    https://github.com/bitcoin/bips/blob/master/bip-0145.mediawiki
+    https://github.com/syscoin/bips/blob/master/bip-0022.mediawiki
+    https://github.com/syscoin/bips/blob/master/bip-0023.mediawiki
+    https://github.com/syscoin/bips/blob/master/bip-0009.mediawiki#getblocktemplate_changes
+    https://github.com/syscoin/bips/blob/master/bip-0145.mediawiki
 
 Arguments:
 1. template_request         (json object, optional) A json object in the following spec
@@ -76,7 +76,7 @@ Result:
 }
 
 Examples:
-> bitcoin-cli getblocktemplate 
+> syscoin-cli getblocktemplate 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblocktemplate", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
 
 

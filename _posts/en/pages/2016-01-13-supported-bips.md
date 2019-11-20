@@ -1,5 +1,5 @@
 ---
-title: Bitcoin Core Supported BIPs
+title: Syscoin Core Supported BIPs
 name: supported-bips
 type: pages
 layout: page
@@ -9,6 +9,6 @@ version: 2
 redirect_from:
   - /zh_TW/bips/
 ---
-Bitcoin Core supports the following [BIPs][BitcoinCoreDocBips].
+Syscoin Core supports the following [BIPs][SyscoinCoreDocBips].
 
 {% include references.md %}

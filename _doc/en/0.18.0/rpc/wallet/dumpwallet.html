@@ -13,7 +13,7 @@ Note that if your wallet contains keys which are not derived from your HD seed (
 only backing up the seed itself, and must be backed up too (e.g. ensure you back up the whole dumpfile).
 
 Arguments:
-1. filename    (string, required) The filename with path (either absolute or relative to bitcoind)
+1. filename    (string, required) The filename with path (either absolute or relative to syscoind)
 
 Result:
 {                           (json object)
@@ -21,7 +21,7 @@ Result:
 }
 
 Examples:
-> bitcoin-cli dumpwallet "test"
+> syscoin-cli dumpwallet "test"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "dumpwallet", "params": ["test"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
 
 

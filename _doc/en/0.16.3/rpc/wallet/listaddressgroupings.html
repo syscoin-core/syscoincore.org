@@ -15,8 +15,8 @@ Result:
 [
   [
     [
-      "address",            (string) The bitcoin address
-      amount,                 (numeric) The amount in BTC
+      "address",            (string) The syscoin address
+      amount,                 (numeric) The amount in SYS
       "account"             (string, optional) DEPRECATED. The account
     ]
     ,...
@@ -25,7 +25,7 @@ Result:
 ]
 
 Examples:
-> bitcoin-cli listaddressgroupings 
+> syscoin-cli listaddressgroupings 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaddressgroupings", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
 
 

@@ -14,7 +14,7 @@ http://opensource.org/licenses/MIT.
 - [Charlie Lee](https://github.com/coblee)
 - [Chris Arnesen](https://github.com/carnesen)
 - [Christian Decker](https://github.com/cdecker)
-- [Cøbra](https://github.com/cobra-bitcoin)
+- [Cøbra](https://github.com/cobra-syscoin)
 - [Cory Fields](https://github.com/theuni)
 - [Craig Watkins](https://github.com/crwatkins)
 - [Daniel](https://github.com/arowser)

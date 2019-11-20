@@ -1,10 +1,10 @@
-// This is a golang script, needed for generating the RPC bitcoin documentation
+// This is a golang script, needed for generating the RPC syscoin documentation
 //
 // What is necessary to run this:
 // (1) install golang
-// (2) install bitcoin core, set it up to use regtest
-// (3) run bitcoind
-// (4) run this script with `go run generate.go` while being in contrib/doc-gen, and with bitcoin-cli in PATH
+// (2) install syscoin core, set it up to use regtest
+// (3) run syscoind
+// (4) run this script with `go run generate.go` while being in contrib/doc-gen, and with syscoin-cli in PATH
 // (5) add the generated files to git
 package main
 
@@ -19,7 +19,7 @@ import (
 	"text/template"
 )
 
-const BITCOIN_COMMAND = "bitcoin-cli"
+const SYSCOIN_COMMAND = "syscoin-cli"
 
 type Command struct {
 	Name        string
@@ -158,9 +158,9 @@ func open(path string) io.Writer {
 }
 
 func run(args ...string) string {
-	out, err := exec.Command(BITCOIN_COMMAND, args...).CombinedOutput()
+	out, err := exec.Command(SYSCOIN_COMMAND, args...).CombinedOutput()
 	if err != nil {
-		log.Fatalf("Cannot run bitcoin-cli: %s, is bitcoind running?", err.Error())
+		log.Fatalf("Cannot run syscoin-cli: %s, is syscoind running?", err.Error())
 	}
 
 	return string(out)

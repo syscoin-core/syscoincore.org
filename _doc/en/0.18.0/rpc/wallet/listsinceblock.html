@@ -21,17 +21,17 @@ Arguments:
 Result:
 {
   "transactions": [
-    "address":"address",    (string) The bitcoin address of the transaction.
+    "address":"address",    (string) The syscoin address of the transaction.
     "category":               (string) The transaction category.
                 "send"                  Transactions sent.
                 "receive"               Non-coinbase transactions received.
                 "generate"              Coinbase transactions received with more than 100 confirmations.
                 "immature"              Coinbase transactions received with 100 or fewer confirmations.
                 "orphan"                Orphaned coinbase transactions received.
-    "amount": x.xxx,          (numeric) The amount in BTC. This is negative for the 'send' category, and is positive
+    "amount": x.xxx,          (numeric) The amount in SYS. This is negative for the 'send' category, and is positive
                                          for all other categories
     "vout" : n,               (numeric) the vout value
-    "fee": x.xxx,             (numeric) The amount of the fee in BTC. This is negative and only available for the 'send' category of transactions.
+    "fee": x.xxx,             (numeric) The amount of the fee in SYS. This is negative and only available for the 'send' category of transactions.
     "confirmations": n,       (numeric) The number of confirmations for the transaction.
                                           When it's < 0, it means the transaction conflicted that many blocks ago.
     "blockhash": "hashvalue",     (string) The block hash containing the transaction.
@@ -55,8 +55,8 @@ Result:
 }
 
 Examples:
-> bitcoin-cli listsinceblock 
-> bitcoin-cli listsinceblock "000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad" 6
+> syscoin-cli listsinceblock 
+> syscoin-cli listsinceblock "000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad" 6
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listsinceblock", "params": ["000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
 
 

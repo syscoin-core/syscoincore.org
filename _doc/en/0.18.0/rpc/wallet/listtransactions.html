@@ -21,18 +21,18 @@ Arguments:
 Result:
 [
   {
-    "address":"address",    (string) The bitcoin address of the transaction.
+    "address":"address",    (string) The syscoin address of the transaction.
     "category":               (string) The transaction category.
                 "send"                  Transactions sent.
                 "receive"               Non-coinbase transactions received.
                 "generate"              Coinbase transactions received with more than 100 confirmations.
                 "immature"              Coinbase transactions received with 100 or fewer confirmations.
                 "orphan"                Orphaned coinbase transactions received.
-    "amount": x.xxx,          (numeric) The amount in BTC. This is negative for the 'send' category, and is positive
+    "amount": x.xxx,          (numeric) The amount in SYS. This is negative for the 'send' category, and is positive
                                         for all other categories
     "label": "label",       (string) A comment for the address/transaction, if any
     "vout": n,                (numeric) the vout value
-    "fee": x.xxx,             (numeric) The amount of the fee in BTC. This is negative and only available for the 
+    "fee": x.xxx,             (numeric) The amount of the fee in SYS. This is negative and only available for the 
                                          'send' category of transactions.
     "confirmations": n,       (numeric) The number of confirmations for the transaction. Negative confirmations indicate the
                                          transaction conflicts with the block chain
@@ -54,10 +54,10 @@ Result:
 Examples:
 
 List the most recent 10 transactions in the systems
-> bitcoin-cli listtransactions 
+> syscoin-cli listtransactions 
 
 List transactions 100 to 120
-> bitcoin-cli listtransactions "*" 20 100
+> syscoin-cli listtransactions "*" 20 100
 
 As a JSON-RPC call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listtransactions", "params": ["*", 20, 100] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/

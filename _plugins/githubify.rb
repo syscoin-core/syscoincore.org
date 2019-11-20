@@ -5,7 +5,7 @@
 ## commits using pattern matches
 
 ## Example (URL is the repository to link to):
-## {% githubify https://github.com/bitcoin/bitcoin %}
+## {% githubify https://github.com/syscoin/syscoin %}
 ## ...content...
 ## {% endgithubify %}
 

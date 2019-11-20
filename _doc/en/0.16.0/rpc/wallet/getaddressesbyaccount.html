@@ -14,12 +14,12 @@ Arguments:
 
 Result:
 [                     (json array of string)
-  "address"         (string) a bitcoin address associated with the given account
+  "address"         (string) a syscoin address associated with the given account
   ,...
 ]
 
 Examples:
-> bitcoin-cli getaddressesbyaccount "tabby"
+> syscoin-cli getaddressesbyaccount "tabby"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressesbyaccount", "params": ["tabby"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
 
 

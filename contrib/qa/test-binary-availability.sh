@@ -1,7 +1,7 @@
 #!/bin/bash 
 
-# Local builds and Travis CI builds of the BitcoinCore.org website do
-# not include the /bin directory holding Bitcoin Core binaries, so this
+# Local builds and Travis CI builds of the SyscoinCore.org website do
+# not include the /bin directory holding Syscoin Core binaries, so this
 # test extracts the local URLs from the download page and checks that
 # they exist on the remote server.  Only the file's HTTP headers are
 # downloaded, not the entire binaries.
@@ -22,7 +22,7 @@ do
   ## Handle relative and absolute URLs differently
   if [ "${url##http*}" ]
   then
-    curl -sI "https://bitcoincore.org${url}"
+    curl -sI "https://syscoincore.org${url}"
   else
     curl -sI "$url"
   fi | egrep -q '(200 OK|HTTP/2 200)' || echo "Error: Could not retrieve $url"

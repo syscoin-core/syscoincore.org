@@ -5,9 +5,9 @@
   {% assign custom_title = page.name | append: " (" | append: page.btcversion | append: " RPC)" %}
 {% else %}
   {% if page.btcversion != "index" %}
-    {% assign custom_title = "Bitcoin Core " | append: page.btcversion | append: " RPC" %}
+    {% assign custom_title = "Syscoin Core " | append: page.btcversion | append: " RPC" %}
   {% else %}
-    {% assign custom_title = "Bitcoin Core RPC" %}
+    {% assign custom_title = "Syscoin Core RPC" %}
   {% endif %}
 {% endif %}
 {% include head.html %}
@@ -24,7 +24,7 @@
     <div>
       <p>
         {% if page.btcversion != "index" %}
-          Documentation exported from <a href="https://github.com/bitcoin/bitcoin/tree/v{{page.btcversion}}">Bitcoin Core {{page.btcversion}}</a>
+          Documentation exported from <a href="https://github.com/syscoin/syscoin/tree/v{{page.btcversion}}">Syscoin Core {{page.btcversion}}</a>
         {% endif %}
       </p>
     </div>

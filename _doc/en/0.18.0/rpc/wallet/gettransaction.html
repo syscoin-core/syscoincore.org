@@ -15,8 +15,8 @@ Arguments:
 
 Result:
 {
-  "amount" : x.xxx,        (numeric) The transaction amount in BTC
-  "fee": x.xxx,            (numeric) The amount of the fee in BTC. This is negative and only available for the 
+  "amount" : x.xxx,        (numeric) The transaction amount in SYS
+  "fee": x.xxx,            (numeric) The amount of the fee in SYS. This is negative and only available for the 
                               'send' category of transactions.
   "confirmations" : n,     (numeric) The number of confirmations
   "blockhash" : "hash",  (string) The block hash
@@ -29,17 +29,17 @@ Result:
                                                    may be unknown for unconfirmed transactions not in the mempool
   "details" : [
     {
-      "address" : "address",          (string) The bitcoin address involved in the transaction
+      "address" : "address",          (string) The syscoin address involved in the transaction
       "category" :                      (string) The transaction category.
                    "send"                  Transactions sent.
                    "receive"               Non-coinbase transactions received.
                    "generate"              Coinbase transactions received with more than 100 confirmations.
                    "immature"              Coinbase transactions received with 100 or fewer confirmations.
                    "orphan"                Orphaned coinbase transactions received.
-      "amount" : x.xxx,                 (numeric) The amount in BTC
+      "amount" : x.xxx,                 (numeric) The amount in SYS
       "label" : "label",              (string) A comment for the address/transaction, if any
       "vout" : n,                       (numeric) the vout value
-      "fee": x.xxx,                     (numeric) The amount of the fee in BTC. This is negative and only available for the 
+      "fee": x.xxx,                     (numeric) The amount of the fee in SYS. This is negative and only available for the 
                                            'send' category of transactions.
       "abandoned": xxx                  (bool) 'true' if the transaction has been abandoned (inputs are respendable). Only available for the 
                                            'send' category of transactions.
@@ -50,8 +50,8 @@ Result:
 }
 
 Examples:
-> bitcoin-cli gettransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
-> bitcoin-cli gettransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d" true
+> syscoin-cli gettransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
+> syscoin-cli gettransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d" true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettransaction", "params": ["1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
 
 

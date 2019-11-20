@@ -54,7 +54,7 @@ echo '|-----------------|---------------------------|'
 cat | sed 's/ (.*//; s/ //g;' | while read line
 do
     case "$line" in
-      gribble|lightningbot|bitcoin-git)
+      gribble|lightningbot|syscoin-git)
         continue
       ;;
     esac

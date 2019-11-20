@@ -10,7 +10,7 @@ version: 3
 ---
 
 あなたのプロジェクトへの貢献を歓迎します！
-私達の主なソースコードリポジトリは[GitHubでホストされており](https://github.com/bitcoin/bitcoin/)、いくつかの面で貢献できます：
+私達の主なソースコードリポジトリは[GitHubでホストされており](https://github.com/syscoin/syscoin/)、いくつかの面で貢献できます：
 
   - ドキュメンテーションの改善（[README.md][README.md]および[docフォルダ][doc]参照）
   - [翻訳][translation_process.md]
@@ -23,15 +23,15 @@ version: 3
 
 **議論**
 
-Bitcoin Coreに関する議論の大部分は、irc.freenode.netの[#bitcoin-core-dev] IRCチャネルもしくは[bitcoin-core-dev][]メーリングリストで行われます。Bitcoinプロトコルについて議論する[bitcoin-dev][]や一般的なBitcoinの議論をする[bitcoin-discuss][]などのメーリングリストもあります。
+Syscoin Coreに関する議論の大部分は、irc.freenode.netの[#syscoin-core-dev] IRCチャネルもしくは[syscoin-core-dev][]メーリングリストで行われます。Syscoinプロトコルについて議論する[syscoin-dev][]や一般的なSyscoinの議論をする[syscoin-discuss][]などのメーリングリストもあります。
 
 **このウェブサイトへの貢献**
 
 この[ウェブサイト][website-contrib]に貢献したり、翻訳したりすることもできます。
 
-[README.md]: https://github.com/bitcoin/bitcoin/blob/master/README.md
-[doc]: https://github.com/bitcoin/bitcoin/tree/master/doc
-[translation_process.md]: https://github.com/bitcoin/bitcoin/blob/master/doc/translation_process.md
-[website-contrib]: https://github.com/bitcoin-core/bitcoincore.org/blob/master/CONTRIBUTING.md
+[README.md]: https://github.com/syscoin/syscoin/blob/master/README.md
+[doc]: https://github.com/syscoin/syscoin/tree/master/doc
+[translation_process.md]: https://github.com/syscoin/syscoin/blob/master/doc/translation_process.md
+[website-contrib]: https://github.com/syscoin-core/syscoincore.org/blob/master/CONTRIBUTING.md
 
 {% include references.md %}

@@ -26,6 +26,6 @@ branches:
 notifications:
   irc:
     channels:
-      - "chat.freenode.net#bitcoin-core-website"
+      - "chat.freenode.net#syscoin-core-website"
     on_success: change
     on_failure: change

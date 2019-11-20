@@ -37,7 +37,7 @@ Result:
   ],
   "vout" : [             (array of json objects)
      {
-       "value" : x.xxx,            (numeric) The value in BTC
+       "value" : x.xxx,            (numeric) The value in SYS
        "n" : n,                    (numeric) index
        "scriptPubKey" : {          (json object)
          "asm" : "asm",          (string) the asm
@@ -45,7 +45,7 @@ Result:
          "reqSigs" : n,            (numeric) The required sigs
          "type" : "pubkeyhash",  (string) The type, eg 'pubkeyhash'
          "addresses" : [           (json array of string)
-           "12tvKAXCxZjSmdNbao16dKXC8tRWfcF5oc"   (string) bitcoin address
+           "12tvKAXCxZjSmdNbao16dKXC8tRWfcF5oc"   (string) syscoin address
            ,...
          ]
        }
@@ -55,7 +55,7 @@ Result:
 }
 
 Examples:
-> bitcoin-cli decoderawtransaction "hexstring"
+> syscoin-cli decoderawtransaction "hexstring"
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decoderawtransaction", "params": ["hexstring"] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
 
 

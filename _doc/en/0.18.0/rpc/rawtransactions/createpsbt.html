@@ -26,7 +26,7 @@ Arguments:
                                accepted as second parameter.
      [
        {                       (json object)
-         "address": amount,    (numeric or string, required) A key-value pair. The key (string) is the bitcoin address, the value (float or string) is the amount in BTC
+         "address": amount,    (numeric or string, required) A key-value pair. The key (string) is the syscoin address, the value (float or string) is the amount in SYS
        },
        {                       (json object)
          "data": "hex",        (string, required) A key-value pair. The key must be "data", the value is hex-encoded data
@@ -41,6 +41,6 @@ Result:
   "psbt"        (string)  The resulting raw transaction (base64-encoded string)
 
 Examples:
-> bitcoin-cli createpsbt "[{\"txid\":\"myid\",\"vout\":0}]" "[{\"data\":\"00010203\"}]"
+> syscoin-cli createpsbt "[{\"txid\":\"myid\",\"vout\":0}]" "[{\"data\":\"00010203\"}]"
 
 

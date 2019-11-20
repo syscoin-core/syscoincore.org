@@ -11,7 +11,7 @@ Mine blocks immediately to a specified address (before the RPC call returns)
 
 Arguments:
 1. nblocks     (numeric, required) How many blocks are generated immediately.
-2. address     (string, required) The address to send the newly generated bitcoin to.
+2. address     (string, required) The address to send the newly generated syscoin to.
 3. maxtries    (numeric, optional, default=1000000) How many iterations to try.
 
 Result:
@@ -20,8 +20,8 @@ Result:
 Examples:
 
 Generate 11 blocks to myaddress
-> bitcoin-cli generatetoaddress 11 "myaddress"
-If you are running the bitcoin core wallet, you can get a new address to send the newly generated bitcoin to with:
-> bitcoin-cli getnewaddress 
+> syscoin-cli generatetoaddress 11 "myaddress"
+If you are running the syscoin core wallet, you can get a new address to send the newly generated syscoin to with:
+> syscoin-cli getnewaddress 
 
 

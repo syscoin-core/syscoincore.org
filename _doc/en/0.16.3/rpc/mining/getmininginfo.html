@@ -18,11 +18,11 @@ Result:
   "pooledtx": n              (numeric) The size of the mempool
   "chain": "xxxx",           (string) current network name as defined in BIP70 (main, test, regtest)
   "warnings": "..."          (string) any network and blockchain warnings
-  "errors": "..."            (string) DEPRECATED. Same as warnings. Only shown when bitcoind is started with -deprecatedrpc=getmininginfo
+  "errors": "..."            (string) DEPRECATED. Same as warnings. Only shown when syscoind is started with -deprecatedrpc=getmininginfo
 }
 
 Examples:
-> bitcoin-cli getmininginfo 
+> syscoin-cli getmininginfo 
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmininginfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
 
 

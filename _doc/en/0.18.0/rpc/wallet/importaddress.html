@@ -17,7 +17,7 @@ Note: If you import a non-standard raw script in hex form, outputs sending to it
 as change, and not show up in many RPCs.
 
 Arguments:
-1. address    (string, required) The Bitcoin address (or hex-encoded script)
+1. address    (string, required) The Syscoin address (or hex-encoded script)
 2. label      (string, optional, default="") An optional label
 3. rescan     (boolean, optional, default=true) Rescan the wallet for transactions
 4. p2sh       (boolean, optional, default=false) Add the P2SH version of the script as well
@@ -25,10 +25,10 @@ Arguments:
 Examples:
 
 Import an address with rescan
-> bitcoin-cli importaddress "myaddress"
+> syscoin-cli importaddress "myaddress"
 
 Import using a label without rescan
-> bitcoin-cli importaddress "myaddress" "testing" false
+> syscoin-cli importaddress "myaddress" "testing" false
 
 As a JSON-RPC call
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importaddress", "params": ["myaddress", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/

@@ -45,7 +45,7 @@ version: 1
     * <code>flag</code>は必ず<code>0x01</code>です。
     * <code>witness</code>はトランザクションの全witnessデータをシリアライズしたデータです。
         * 各txinはwitnessフィールドに関連付けられています。その結果、witnessフィールドの数を示すフィールドは無く、暗黙的に<code>txins</code>の数がその数を示します。
-        * 各witnessフィールドは対応する<code>txin</code>のスタックアイテムの数を示す<code>compactSize</code> [integer](https://bitcoin.org/en/developer-reference#compactsize-unsigned-integers) で始まります。その後に対応する<code>txin</code>のwitnessスタックアイテムが続きます。
+        * 各witnessフィールドは対応する<code>txin</code>のスタックアイテムの数を示す<code>compactSize</code> [integer](https://syscoin.org/en/developer-reference#compactsize-unsigned-integers) で始まります。その後に対応する<code>txin</code>のwitnessスタックアイテムが続きます。
         * 各witnessスタックアイテムは、そのスタックアイテムのバイト数を示す<code>compactSize</code> integerで始まります。
         * <code>txin</code>がwitnessデータと関連付けられていない場合は、対応するwitnessフィールドの値は<code>0x00</code>となり、witnessスタックアイテムの数がゼロであることを示します。
 * トランザクション内の全ての<code>txins</code>がwitnessデータに関連付けられていない場合は、トランザクションは<code>marker</code>や<code>flag</code>、<code>witness</code>が無いオリジナルのトランザクションフォーマットでシリアライズされなければなりません。例えば、トランザクションの<code>txins</code>が全てsegwitのUTXOではない場合、そのトランザクションはオリジナルのトランザクションフォーマットでシリアライズされなければなりません。（コインベーストランザクションを除く）
@@ -67,10 +67,10 @@ version: 1
 * P2SH-P2WPKHのUTXOを使用する場合：
     * <code>scriptSig</code>には<code>redeemScript</code>しかプッシュしてはいけません。
     * 対応するwitnessフィールドには署名がプッシュされ、その次に公開鍵がプッシュされなければなりません。
-    * segwit scriptのための新しい署名生成アルゴリズムが[BIP143][]に定義されています。開発者は注意深くその指示に従い、[BIP143](https://github.com/bitcoin/bips/blob/master/bip-0143.mediawiki#P2SHP2WPKH)のexampleを参考に<code>sighash</code>を再現できるか確認する必要があります。
+    * segwit scriptのための新しい署名生成アルゴリズムが[BIP143][]に定義されています。開発者は注意深くその指示に従い、[BIP143](https://github.com/syscoin/bips/blob/master/bip-0143.mediawiki#P2SHP2WPKH)のexampleを参考に<code>sighash</code>を再現できるか確認する必要があります。
     * [BIP143][]の署名生成アルゴリズムは、使用される入力のコインの量をカバーしており、軽量ウォレットやハードウェアウォレットの設計のエアギャップを簡素化します。
     * P2SH-P2WPKHの場合、<code>scriptCode</code>は先頭のバイトを含めて常に26バイトで、<code>0x1976a914{20-byte keyhash}88ac</code>となります。<code>redeemScript</code>でも<code>scriptPubKey</code>でもないので注意してください。
-    * [Example](http://n.bitcoin.ninja/checktx?txid=8139979112e894a14f8370438a471d23984061ff83a9eba0bc7a34433327ec21)
+    * [Example](http://n.syscoin.ninja/checktx?txid=8139979112e894a14f8370438a471d23984061ff83a9eba0bc7a34433327ec21)
     
 #### ネットワークサービス（オプション） {#network-services}
 
@@ -84,7 +84,7 @@ version: 1
 #### ユーザーのプライバシー {#user-privacy}
 
 * segwitがアクティベートされて数日は、ネットワーク内に流れるsegwitトランザクション数は限られたものでしょう。
-* その間segwitのトランザクションを使用するとBitcoinの追跡が容易になる場合があります。
+* その間segwitのトランザクションを使用するとSyscoinの追跡が容易になる場合があります。
 * デフォルトのお釣りの出力にP2SH-P2WPKHを使用すると、プライバシーに影響を与える可能性があります。
 
 #### トランザクション手数料の見積もり {#transaction-fee-estimation}
@@ -123,7 +123,7 @@ version: 1
 * スクリプトの制限事項
     * スクリプトの評価に失敗してはならず、評価後のスタックにはただ１つTRUEとなるスタックアイテムが残っている状態でないといけません。それ以外の場合、評価は失敗します。
     * P2SH-P2WSHスクリプト内の公開鍵は圧縮公開鍵でなければならず、それ以外の場合資金が永久に失われる可能性があります。
-    * OP_IFやOP_NOTIFが使われている場合、その引数は空のvector（false）か<code>0x01</code>（true）でなければなりません。他の値を使うと資金が永久に失われる可能性があります。 ([BIP draft](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-August/013014.html))
+    * OP_IFやOP_NOTIFが使われている場合、その引数は空のvector（false）か<code>0x01</code>（true）でなければなりません。他の値を使うと資金が永久に失われる可能性があります。 ([BIP draft](https://lists.linuxfoundation.org/pipermail/syscoin-dev/2016-August/013014.html))
     * OP_CHECKSIGやOP_CHECKMULTISIGがfailを返す場合、全ての署名は空のvectorでなければなりません。それ以外の場合、資金が永久に失われる可能性があります。  ([BIP146][])
     * <code>witnessScript</code>のデフォルトポリシー制限は3600バイトです。<code>witnessScript</code>を除いて、witnessスタックアイテムは最大100個で、それぞれ最大で80バイトです。これらの制限を超えるトランザクションは中継されずブロックにも入れられません。
     * スクリプトサイズの10000バイト制限や、201 <code>nOpCount</code>などの元々のコンセンサスの制約の多くは、そのままP2SH-P2WSHにも適用されます。
@@ -139,7 +139,7 @@ version: 1
         * あまり一般的ではありませんがOP_CODESEPARATORを含むスクリプトについては、[BIP143][]を参照ください。
     * <code>witnessScript</code>より前のwitnessスタックアイテムはスクリプトを評価する際の入力スタックとして使われます。入力スタックはスクリプトとしては解釈されません。そのため、例えば大きなデータをプッシュするのに<code>0x4c</code> (OP_PUSHDATA1) を使う必要はありません。
     * 署名の生成とスタック上のシリアライズされた署名が正しいか検証するには、[BIP143][]のexampleを参考にテストしてください。
-    * [Example](http://n.bitcoin.ninja/checktx?txid=954f43dbb30ad8024981c07d1f5eb6c9fd461e2cf1760dd1283f052af746fc88)
+    * [Example](http://n.syscoin.ninja/checktx?txid=954f43dbb30ad8024981c07d1f5eb6c9fd461e2cf1760dd1283f052af746fc88)
 
 ### 高度な設計 {#advanced-designs}
 
@@ -150,14 +150,14 @@ version: 1
 * Native P2WPKHは22バイトの<code>scriptPubKey</code>です。この<code>scriptPubKey</code>は<code>OP_0</code>で始まり、その後に<code>keyhash</code>がプッシュされます。（例：<code>0x0014{20-byte keyhash}</code>）
 * P2SH-P2WPKHと同様、<code>keyhash</code>は圧縮公開鍵をRIPEMD160(SHA256)した値です。
 * Native P2WPKHを使用する際は、<code>scriptSig</code>は必ず空で、witnessスタックの形式と署名の生成ルールはP2SH-P2WPKHと同じです（圧縮公開鍵を使用する要件含め）。
-* [Example](http://n.bitcoin.ninja/checktx?txid=d869f854e1f8788bcff294cc83b280942a8c728de71eb709a2c29d10bfe21b7c)
+* [Example](http://n.syscoin.ninja/checktx?txid=d869f854e1f8788bcff294cc83b280942a8c728de71eb709a2c29d10bfe21b7c)
 
 #### Native Pay-to-Witness-Script-Hash (P2WSH) {#native-pay-to-witness-script-hash}
 
 * Native P2WSHは34バイトの<code>scriptPubKey</code>です。この<code>scriptPubKey</code>は<code>OP_0</code>から始まり、その後に<code>scripthash</code>がプッシュされます。（例：<code>0x0020{32-byte scripthash}</code>）
 * P2SH-P2WSHと同様、<code>scripthash</code>は<code>witnessScript</code>をSHA256した値です。
 * Native P2WSHを使用する際は、<code>scriptSig</code>は必ず空で、witnessスタックの形式と署名の生成ルールはP2SH-P2WSHと同じです（圧縮公開鍵を使用する要件含め）。
-* [Example](http://n.bitcoin.ninja/checktx?txid=78457666f82c28aa37b74b506745a7c7684dc7842a52a457b09f09446721e11c)
+* [Example](http://n.syscoin.ninja/checktx?txid=78457666f82c28aa37b74b506745a7c7684dc7842a52a457b09f09446721e11c)
 
 #### Native P2WPKHやP2WSHはどうやって使うのか? {#why-and-how-to-use-native-p2wpkh-and-p2wsh}
 
@@ -169,9 +169,9 @@ version: 1
 
 ### スクリプトとトランザクションの例 {#scripts-and-transactions-example}
 
-* [Examples of different witness transaction types and transaction validity checking tool](http://n.bitcoin.ninja/checktx)
+* [Examples of different witness transaction types and transaction validity checking tool](http://n.syscoin.ninja/checktx)
 * [BIP141][]
 * [BIP143][]
-* [Script tests](https://github.com/bitcoin/bitcoin/blob/master/src/test/data/script_tests.json)
-* [Valid transaction tests](https://github.com/bitcoin/bitcoin/blob/master/src/test/data/tx_valid.json)
-* [Invalid transaction tests](https://github.com/bitcoin/bitcoin/blob/master/src/test/data/tx_invalid.json)
+* [Script tests](https://github.com/syscoin/syscoin/blob/master/src/test/data/script_tests.json)
+* [Valid transaction tests](https://github.com/syscoin/syscoin/blob/master/src/test/data/tx_valid.json)
+* [Invalid transaction tests](https://github.com/syscoin/syscoin/blob/master/src/test/data/tx_invalid.json)

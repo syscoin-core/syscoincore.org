@@ -1,10 +1,10 @@
-Use this page to open Pull requests for changes to the Bitcoin Core project
-website at [bitcoincore.org](https://bitcoincore.org).
+Use this page to open Pull requests for changes to the Syscoin Core project
+website at [syscoincore.org](https://syscoincore.org).
 
-[bitcoin.org](https://bitcoin.org) is not connected with or maintained by the
-Bitcoin Core project contributors. Pull requests for changes to that website
-should be opened at [the bitcoin.org
-repository](https://github.com/bitcoin-dot-org/bitcoin.org/pulls).
+[syscoin.org](https://syscoin.org) is not connected with or maintained by the
+Syscoin Core project contributors. Pull requests for changes to that website
+should be opened at [the syscoin.org
+repository](https://github.com/syscoin-dot-org/syscoin.org/pulls).
 
-General bitcoin questions and/or support requests are best directed to the
-Bitcoin StackExchange at https://bitcoin.stackexchange.com.
+General syscoin questions and/or support requests are best directed to the
+Syscoin StackExchange at https://syscoin.stackexchange.com.

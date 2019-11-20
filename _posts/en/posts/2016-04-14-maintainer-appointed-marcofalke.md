@@ -7,13 +7,13 @@ permalink: /en/blog/2016/04/14/maintainer/
 type: posts
 layout: post
 author: laanwj
-tags: [bitcoin, maintainer]
+tags: [syscoin, maintainer]
 category: [announcements]
-canonical: https://lists.linuxfoundation.org/pipermail/bitcoin-core-dev/2016-April/000003.html
+canonical: https://lists.linuxfoundation.org/pipermail/syscoin-core-dev/2016-April/000003.html
 version: 1
 ---
 Hereby I'm announcing Marco Falke as the new Testing & QA maintainer for
-Bitcoin Core.
+Syscoin Core.
 
 Testing and QA has always been essential to this project, and with the growing
 pace of development it has become more critical than ever.

@@ -24,7 +24,7 @@ Result: (for verbose = true):
 {                           (json object)
   "transactionid" : {       (json object)
     "size" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
-    "fee" : n,              (numeric) transaction fee in BTC (DEPRECATED)
+    "fee" : n,              (numeric) transaction fee in SYS (DEPRECATED)
     "modifiedfee" : n,      (numeric) transaction fee with fee deltas used for mining priority (DEPRECATED)
     "time" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
     "height" : n,           (numeric) block height when transaction entered pool
@@ -36,10 +36,10 @@ Result: (for verbose = true):
     "ancestorfees" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one) (DEPRECATED)
     "wtxid" : hash,         (string) hash of serialized transaction, including witness data
     "fees" : {
-        "base" : n,         (numeric) transaction fee in BTC
-        "modified" : n,     (numeric) transaction fee with fee deltas used for mining priority in BTC
-        "ancestor" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one) in BTC
-        "descendant" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one) in BTC
+        "base" : n,         (numeric) transaction fee in SYS
+        "modified" : n,     (numeric) transaction fee with fee deltas used for mining priority in SYS
+        "ancestor" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one) in SYS
+        "descendant" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one) in SYS
     }
     "depends" : [           (array) unconfirmed transactions used as inputs for this transaction
         "transactionid",    (string) parent transaction id
@@ -51,7 +51,7 @@ Result: (for verbose = true):
 }
 
 Examples:
-> bitcoin-cli getrawmempool true
+> syscoin-cli getrawmempool true
 > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getrawmempool", "params": [true] }' -H 'content-type: text/plain;' http://127.0.0.1:8332/
 
 

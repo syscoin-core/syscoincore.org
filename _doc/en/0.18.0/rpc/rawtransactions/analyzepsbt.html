@@ -33,12 +33,12 @@ Result:
     ,...
   ]
   "estimated_vsize" : vsize       (numeric, optional) Estimated vsize of the final signed transaction
-  "estimated_feerate" : feerate   (numeric, optional) Estimated feerate of the final signed transaction in BTC/kB. Shown only if all UTXO slots in the PSBT have been filled.
+  "estimated_feerate" : feerate   (numeric, optional) Estimated feerate of the final signed transaction in SYS/kB. Shown only if all UTXO slots in the PSBT have been filled.
   "fee" : fee                     (numeric, optional) The transaction fee paid. Shown only if all UTXO slots in the PSBT have been filled.
   "next" : "role"                 (string) Role of the next person that this psbt needs to go to
 }
 
 Examples:
-> bitcoin-cli analyzepsbt "psbt"
+> syscoin-cli analyzepsbt "psbt"
 
 
