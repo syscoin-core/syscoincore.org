@@ -5,7 +5,6 @@
      http://opensource.org/licenses/MIT. -->
 {% assign VERSION_SORTED_RELEASES = site.releases | sort: 'release' | reverse %}
 {% capture CURRENT_RELEASE %}{% for subver in VERSION_SORTED_RELEASES[0].release %}{{subver}}{% unless forloop.last %}.{% endunless %}{% endfor %}{% endcapture %}
-{% assign magnet = VERSION_SORTED_RELEASES[0].optional_magnetlink %}
 {% capture PATH_PREFIX %}/bin/syscoin-core-{{CURRENT_RELEASE}}{% endcapture %}
 {% capture FILE_PREFIX %}syscoin-{{CURRENT_RELEASE}}{% endcapture %}
 {% assign SIGNING_KEY_FINGERPRINT = "01EA5486DE18A882D4C2684590C8019E36C2E964" %}
@@ -72,14 +71,12 @@
     </div>
     <p class="downloadmore">
       <a href="{{ PATH_PREFIX }}/SHA256SUMS.asc" class="dl">{{ page.downloadsig }}</a><br>
-      <a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX }}.torrent" class="dl">{{ page.downloadtorrent }}</a>
-        {% if magnet %} <a href="{{ magnet | replace: '&', '\&amp;'}}" class="magnetlink" data-proofer-ignore></a>{% endif %}<br>
       <a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX}}.tar.gz" class="dl">{{ page.source }}</a><br>
       <a href="/en/releases">{{ page.versionhistory }}</a>
     </p>
     <p class="downloadkeys">
       <span>{{ page.releasekeys }}</span>
-      v0.11.0+ <code title="{{page.pgp_key_fingerprint}}">{{SIGNING_KEY_FINGERPRINT}}</code><br>
+      v4.1.0+ <code title="{{page.pgp_key_fingerprint}}">{{SIGNING_KEY_FINGERPRINT}}</code><br>
       {% if page.version > 2 %}<i>{{page.key_refresh}}</i><br><code>gpg{{site.strings.gpg_keyserver}} --refresh-keys</code>{% endif %}
     </p>
   </div>
