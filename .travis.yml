@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - "2.2.2"
+  - "2.3.7"
 
 ## Save bundler deps.
 cache: bundler
@@ -23,9 +23,3 @@ branches:
   - master
   - /.*/
 
-notifications:
-  irc:
-    channels:
-      - "chat.freenode.net#syscoin-core-website"
-    on_success: change
-    on_failure: change
