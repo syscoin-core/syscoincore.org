@@ -16,7 +16,7 @@ and its contributors.
 If you see one of these accounts, you may [report it to Twitter][].  If
 you are reporting an issue about the Syscoin Core project and Twitter
 asks that you enter the project's official email address, please use:
-contact<span style="display:none"></span>@syscoincore.org
+contact<span style="display:none"></span>@syscoin
 
 This appears to be an unfortunately common issue on Twitter that affects
 many other projects and individuals as well, so we urge you to carefully
@@ -39,7 +39,7 @@ your Syscoin Core program to eliminate any immediate problems and give
 yourself time to investigate.
 
 Although Syscoin Core does have an official Twitter account,
-[@syscoincoreorg][], any important announcements about the project will
+[@syscoin][], any important announcements about the project will
 also sent to our low-traffic [announcements mailing list][] or posted on
 the [front page of this website][] (which also has an [RSS feed][]).  If
 you know how to use PGP security software, subscribing to the mailing
@@ -48,7 +48,7 @@ cryptographically signed by a developer.
 
 [Twitter's Impersonation Policy]: https://support.twitter.com/articles/18366#
 [report it to Twitter]: https://support.twitter.com/forms/impersonation
-[@syscoincoreorg]: https://twitter.com/syscoincoreorg
+[@syscoin]: https://twitter.com/syscoin
 [announcements mailing list]: /en/list/announcements/join/
 [front page of this website]: /
 [RSS feed]: /en/rss.xml

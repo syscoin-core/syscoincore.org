@@ -116,7 +116,7 @@
 [BIP173]: https://github.com/syscoin/bips/blob/master/bip-0173.mediawiki
 [BIP174]: https://github.com/syscoin/bips/blob/master/bip-0174.mediawiki
 
-[@syscoincoreorg]: https://twitter.com/syscoincoreorg
+[@syscoin]: https://twitter.com/syscoin
 [#syscoin-core-dev]: https://webchat.freenode.net?channels=%23syscoin-core-dev&uio=MTY9dHJ1ZSYxMT0yMTU87
 [issues]: https://github.com/syscoin/syscoin/issues
 [pulls]: https://github.com/syscoin/syscoin/pulls

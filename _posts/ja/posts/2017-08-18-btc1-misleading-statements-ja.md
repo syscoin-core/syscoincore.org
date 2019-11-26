@@ -16,7 +16,7 @@ Syscoinネットワークのコンセンサスルールと互換性のない変�
   
   * Segregated Witness（Segwit、数日以内にソフトフォークがアクティベートされます）は、Segwit2xのハードフォークとは関係ありません。Segregated Witnessは、これまでの全てのSyscoinソフトウェアと後方互換性があります。大多数のSyscoinユーザーは何もする必要はありません。
   
-  * [syscoincore.org](https://syscoincore.org) は公式ウェブサイトで、[@syscoincoreorg](https://twitter.com/syscoincoreorg) はSyscoin Coreの公式Twitterアカウントです。これ以外のプロジェクトを称する他のウェブサイトやTwitterアカウントは偽物です。Syscoin CoreはGithubのプロジェクトを介して、どなたからのコントリビュートやレビューも歓迎するオープンソースプロジェクトです。Syscoin Coreのバイナリは[syscoincore.org](https://syscoincore.org/bin/) と [syscoin.org](https://syscoin.org/bin/) から入手でき、常にリリースマネージャーの署名鍵でデジタル署名されています。Syscoin Coreの最新バージョンは0.14.2です。
+  * [syscoincore.org](https://syscoincore.org) は公式ウェブサイトで、[@syscoin](https://twitter.com/syscoin) はSyscoin Coreの公式Twitterアカウントです。これ以外のプロジェクトを称する他のウェブサイトやTwitterアカウントは偽物です。Syscoin CoreはGithubのプロジェクトを介して、どなたからのコントリビュートやレビューも歓迎するオープンソースプロジェクトです。Syscoin Coreのバイナリは[syscoincore.org](https://syscoincore.org/bin/) と [syscoin.org](https://syscoin.org/bin/) から入手でき、常にリリースマネージャーの署名鍵でデジタル署名されています。Syscoin Coreの最新バージョンは0.14.2です。
 
   * btc1がSyscoin Coreに接続されることはありません。Syscoin Coreのコントリビューターはbtc1をサポートしておらず、プロジェクトにも関わっていません。また提案されているハードフォークの設計にも関与していません。
    
