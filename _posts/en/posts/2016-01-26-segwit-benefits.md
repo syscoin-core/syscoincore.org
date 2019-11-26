@@ -171,7 +171,7 @@ This lets miners easily and accurately fill blocks while maximising fee income, 
 ### Further information
 
  * [Knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem)
- * [Sigop attack discussion on syscointalk in Aug 2015](https://syscointalk.org/index.php?topic=1166928.0;all)
+ * [Sigop attack discussion on syscointalk in Aug 2015](https://bitcointalk.org/index.php?topic=1166928.0;all)
  * [Gregory Maxwell on syscoin-dev on witness limits](https://lists.linuxfoundation.org/pipermail/syscoin-dev/2015-December/011870.html)
  * ["Validation Cost Metric" transcript](http://diyhpl.us/wiki/transcripts/scalingsyscoin/hong-kong/validation-cost-metric/)
 

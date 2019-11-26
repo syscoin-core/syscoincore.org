@@ -95,7 +95,7 @@ Soft forks are proposed through the [BIPs process][BIP1]. Active [BIP9][] soft f
 
 - <http://rusty.ozlabs.org/?p=576>
 - <https://github.com/syscoin/bips/blob/master/bip-0009.mediawiki>
-- <https://syscointalk.org/index.php?topic=1067693.msg11446462#msg11446462>
+- <https://bitcointalk.org/index.php?topic=1067693.msg11446462#msg11446462>
 
 {% include references.md %}
 

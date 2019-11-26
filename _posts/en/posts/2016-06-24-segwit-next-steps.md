@@ -149,7 +149,7 @@ Although signature aggregation is still being designed, it will be easy to add s
 [schnorr]: https://en.wikipedia.org/wiki/Schnorr_signature
 [ed25519 signature scheme]: http://ed25519.cr.yp.to/
 [libsecp256k1]: https://github.com/syscoin-core/secp256k1
-[signature aggregation]: https://syscointalk.org/index.php?topic=1377298.0
+[signature aggregation]: https://bitcointalk.org/index.php?topic=1377298.0
 
 ### MAST
 
@@ -163,4 +163,4 @@ This not only saves space but it may also help improve privacy.  For example, if
 
 Enabling MAST can be done using the versioning of Syscoin Script enabled by segwit.
 
-[todd mast]: https://syscointalk.org/index.php?topic=255145.msg2757327#msg2757327
+[todd mast]: https://bitcointalk.org/index.php?topic=255145.msg2757327#msg2757327

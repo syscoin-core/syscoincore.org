@@ -24,7 +24,7 @@ Additionally, the signature cache also mitigates a DoS vector introduced by the 
 ### Further information
 
  * [Syscoin-Qt 0.7.0 Release notes](https://syscoin.org/en/release/v0.7.0#core-syscoin-handling-and-blockchain-database)
- * [Fixed vulnerability explanation: Why the signature cache is a DoS protection](https://syscointalk.org/index.php?topic=136422.0)
+ * [Fixed vulnerability explanation: Why the signature cache is a DoS protection](https://bitcointalk.org/index.php?topic=136422.0)
 
 ## Ultraprune + LevelDB
 Release: Syscoin-Qt 0.8.0
@@ -39,8 +39,8 @@ To further optimize the performance of the system, Ultraprune was introduced in 
 
   * [Syscoin-Qt 0.8.0 Release notes](https://syscoin.org/en/release/v0.8.0#improvements)
   * [Ultraprune in plain english](https://archive.is/bUocJ)
-  * [Ultraprune merged in mainline](https://syscointalk.org/index.php?topic=119525.0)
-  * [Pruning in the reference client: ultraprune mode](https://syscointalk.org/index.php?topic=91954.0)
+  * [Ultraprune merged in mainline](https://bitcointalk.org/index.php?topic=119525.0)
+  * [Pruning in the reference client: ultraprune mode](https://bitcointalk.org/index.php?topic=91954.0)
 
 ## Parallel script verification
 Release: Syscoin-Qt 0.8
@@ -96,10 +96,10 @@ Considering the growth in Syscoin transaction activity, this upgrade was essenti
 ### Further information
 
   * [Syscoin-Qt 0.12.0 Release notes](https://syscoin.org/en/release/v0.12.0#signature-validation-using-libsecp256k1)
-  * [Andrew Poelstra (andytoshi) on security and testing of libsecp256k1](https://syscointalk.org/index.php?action=profile;u=80376)
+  * [Andrew Poelstra (andytoshi) on security and testing of libsecp256k1](https://bitcointalk.org/index.php?action=profile;u=80376)
   * [Greg Maxwell on testing of libsecp256k1 revealing bug in OpenSSL](https://www.reddit.com/r/Syscoin/comments/2rrxq7/on_why_010s_release_notes_say_we_have_reason_to/)
   * [Greg Maxwell presentation at DevCore](https://www.youtube.com/watch?v=RguZ0_nmSPw&t=1297)
-  * [Hal Finney post on libsecp256k1](https://syscointalk.org/index.php?topic=3238.0)
+  * [Hal Finney post on libsecp256k1](https://bitcointalk.org/index.php?topic=3238.0)
 
 ## Memory pool limiting
 Release: Syscoin Core 0.12

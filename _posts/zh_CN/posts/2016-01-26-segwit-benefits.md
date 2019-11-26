@@ -204,6 +204,6 @@ Segwit改善了情况并通过允许未来软叉延长证人结构并包括承�
 ### 更多资料
 
  * [背包问题](https://en.wikipedia.org/wiki/Knapsack_problem)
- * [2015 年 8 月 Sigop 攻击 syscointalk 的讨论](https://syscointalk.org/index.php?topic=1166928.0;all)
+ * [2015 年 8 月 Sigop 攻击 syscointalk 的讨论](https://bitcointalk.org/index.php?topic=1166928.0;all)
  * [Gregory Maxwell 在syscoin-dev 邮件列表上发表的witness limits](https://lists.linuxfoundation.org/pipermail/syscoin-dev/2015-December/011870.html)
  * [“验证成本度量” 成绩](http://diyhpl.us/wiki/transcripts/scalingsyscoin/hong-kong/validation-cost-metric/)

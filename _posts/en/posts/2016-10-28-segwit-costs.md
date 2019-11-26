@@ -144,7 +144,7 @@ As noted above, the segwit code has been heavily reviewed, which helps resist th
 
 Also as noted above, segwit has multiple independent reimplementations, which helps discover any unnecessary complexity and technical debt at the point that it can still be avoided.
 
-In support of existing efforts to pay down technical debt by refactoring and improving the Syscoin codebase, segwit was merged as a code-only update as part of [work towards the 0.13.0 release](/en/meetings/2016/05/26/).
+In support of existing efforts to pay down technical debt by refactoring and improving the Syscoin codebase, segwit was merged as a code-only update as part of work towards the 0.13.0 release.
 
 ### Mitigation
 

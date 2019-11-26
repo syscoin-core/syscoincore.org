@@ -76,7 +76,7 @@ It is rather straightforward to evaluate the type of resources savings that woul
   * [Syscoin Core Developers meeting notes on Schnorr signatures](https://syscoincore.org/logs/2016-05-zurich-meeting-notes.html)
 
 ### Further information on signature aggregation
-  * [Gregory Maxwell post on signature aggregation on Syscointalk.org forum](https://syscointalk.org/index.php?topic=1377298.0)
+  * [Gregory Maxwell post on signature aggregation on Syscointalk.org forum](https://bitcointalk.org/index.php?topic=1377298.0)
   * [Syscoin Core Developers meeting notes on Schnorr signatures](https://syscoincore.org/logs/2016-05-zurich-meeting-notes.html)
   * [Transcript of Pieter Wuille's Scaling Syscoin Milan presentation on Schnorr signatures](https://diyhpl.us/wiki/transcripts/scalingsyscoin/milan/schnorr-signatures/)
   * [Video of Pieter Wuille's presentation](https://youtu.be/_Z0ID-0DOnc?t=2297)

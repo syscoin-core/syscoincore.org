@@ -209,7 +209,7 @@ For testing changes on a segwit-enabled network, testnet (testnet3) has supporte
 
 A number of free and open source software Syscoin wallets and packages besides Syscoin Core have also already added segwit compatibility or have segwit-compatible code ready to deploy, so you may be able to use their code changes as an example for updating your software if their copyright license is compatible with your code.
 
-**Questions?** Syscoin development questions may be asked in the #syscoin-dev IRC chatroom on irc.freenode.net.  Questions may also be asked on Syscoin.StackExchange.com and the SyscoinTalk.org [technical discussion board.](https://syscointalk.org/index.php?board=6.0)
+**Questions?** Syscoin development questions may be asked in the #syscoin-dev IRC chatroom on irc.freenode.net.  Questions may also be asked on Syscoin.StackExchange.com and the SyscoinTalk.org [technical discussion board.](https://bitcointalk.org/index.php?board=6.0)
 
 [miners guide]: #miners
 [node guide]: #full-node-users

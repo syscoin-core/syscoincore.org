@@ -19,7 +19,7 @@ ECSDA签名验证是节点层面最耗计算资源的任务之一。因为每个
  
 ### 更多相关信息请参考：
  * [Syscoin-Qt 0.7.0 Release notes](https://syscoin.org/en/release/v0.7.0#core-syscoin-handling-and-blockchain-database)
- * [Fixed vulnerability explanation: Why the signature cache is a DoS protection](https://syscointalk.org/index.php?topic=136422.0)
+ * [Fixed vulnerability explanation: Why the signature cache is a DoS protection](https://bitcointalk.org/index.php?topic=136422.0)
 
  
 ## Ultraprune + LevelDB
@@ -31,8 +31,8 @@ Ultraprune（区块链高度精简）是比特币软件最重要的升级之一�
 ### 更多相关信息请参考：
 * [Syscoin-Qt 0.8.0 Release notes](https://syscoin.org/en/release/v0.8.0#improvements)
 * [Ultraprune in plain english](https://archive.is/bUocJ)
-* [Ultraprune merged in mainline](https://syscointalk.org/index.php?topic=119525.0)
-* [Pruning in the reference client: ultraprune mode](https://syscointalk.org/index.php?topic=91954.0)
+* [Ultraprune merged in mainline](https://bitcointalk.org/index.php?topic=119525.0)
+* [Pruning in the reference client: ultraprune mode](https://bitcointalk.org/index.php?topic=91954.0)
 
  
 ## 并行脚本验证
@@ -77,10 +77,10 @@ Ultraprune（区块链高度精简）是比特币软件最重要的升级之一�
  
 ### 更多相关信息请参考：
 * [Syscoin-Qt 0.12.0 Release notes](https://syscoin.org/en/release/v0.12.0#signature-validation-using-libsecp256k1)
-* [Andrew Poelstra (andytoshi) on security and testing of - libsecp256k1](https://syscointalk.org/index.php?action=profile;u=80376)
+* [Andrew Poelstra (andytoshi) on security and testing of - libsecp256k1](https://bitcointalk.org/index.php?action=profile;u=80376)
 * [Greg Maxwell on testing of libsecp256k1 revealing bug in OpenSSL](https://www.reddit.com/r/Syscoin/comments/2rrxq7/on_why_010s_release_notes_say_we_have_reason_to/)
 * [Greg Maxwell presentation at DevCore](https://www.youtube.com/watch?v=RguZ0_nmSPw&t=1297)
-* [Hal Finney post on libsecp256k1](https://syscointalk.org/index.php?topic=3238.0)
+* [Hal Finney post on libsecp256k1](https://bitcointalk.org/index.php?topic=3238.0)
 
  
 ## 内存池限制
