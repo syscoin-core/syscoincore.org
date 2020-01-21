@@ -7,7 +7,7 @@
 {% capture CURRENT_RELEASE %}{% for subver in VERSION_SORTED_RELEASES[0].release %}{{subver}}{% unless forloop.last %}.{% endunless %}{% endfor %}{% endcapture %}
 {% capture PATH_PREFIX %}https://github.com/syscoin/syscoin/releases/download/v{{CURRENT_RELEASE}}{% endcapture %}
 {% capture FILE_PREFIX %}syscoin-{{CURRENT_RELEASE}}{% endcapture %}
-{% assign SIGNING_KEY_FINGERPRINT = "01EA5486DE18A882D4C2684590C8019E36C2E964" %}
+{% assign SIGNING_KEY_FINGERPRINT = "79D00BAC68B56D422F945A8F8E3A8F3247DBCBBF" %}
 {% capture SIGNING_KEY_FINGERPRINT_EXPLODED %}{% include fingerprint-split.html hex=SIGNING_KEY_FINGERPRINT %}{% endcapture %}
 {% assign GPG_DOWNLOAD_URL = "https://www.gnupg.org/download/index.en.html#binary" %}
 {% assign GPG_MACOS_DOWNLOAD_URL = "https://gpgtools.org/" %}
