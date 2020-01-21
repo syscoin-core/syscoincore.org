@@ -5,7 +5,7 @@
      http://opensource.org/licenses/MIT. -->
 {% assign VERSION_SORTED_RELEASES = site.releases | sort: 'release' | reverse %}
 {% capture CURRENT_RELEASE %}{% for subver in VERSION_SORTED_RELEASES[0].release %}{{subver}}{% unless forloop.last %}.{% endunless %}{% endfor %}{% endcapture %}
-{% capture PATH_PREFIX %}/bin/syscoin-core-{{CURRENT_RELEASE}}{% endcapture %}
+{% capture PATH_PREFIX %}https://www.github.com/syscoin/syscoin/releases/download/v{{CURRENT_RELEASE}}{% endcapture %}
 {% capture FILE_PREFIX %}syscoin-{{CURRENT_RELEASE}}{% endcapture %}
 {% assign SIGNING_KEY_FINGERPRINT = "01EA5486DE18A882D4C2684590C8019E36C2E964" %}
 {% capture SIGNING_KEY_FINGERPRINT_EXPLODED %}{% include fingerprint-split.html hex=SIGNING_KEY_FINGERPRINT %}{% endcapture %}
@@ -24,7 +24,7 @@
       <div>
         <img src="/assets/images/os/med_win.png" alt="windows">
         <span>
-          <a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX }}-{{ site.data.binaries.win64exe }}" class="dl" id="downloadwinexe">Windows</a>
+          <a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX }}-{{ site.data.binaries.win64exe }}" class="dl" id="downloadwinexe">Windooows</a>
           <span><a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX }}-{{ site.data.binaries.win64exe }}" class="dl" id="win64exe">exe</a> -
             <a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX }}-{{ site.data.binaries.win64zip }}" class="dl" id="win64zip">zip</a></span>
         </span>
