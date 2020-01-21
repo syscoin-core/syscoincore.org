@@ -5,7 +5,7 @@
      http://opensource.org/licenses/MIT. -->
 {% assign VERSION_SORTED_RELEASES = site.releases | sort: 'release' | reverse %}
 {% capture CURRENT_RELEASE %}{% for subver in VERSION_SORTED_RELEASES[0].release %}{{subver}}{% unless forloop.last %}.{% endunless %}{% endfor %}{% endcapture %}
-{% capture PATH_PREFIX %}/bin/syscoin-core-{{CURRENT_RELEASE}}{% endcapture %}
+{% capture PATH_PREFIX %}https://github.com/syscoin/syscoin/releases/download/v{{CURRENT_RELEASE}}{% endcapture %}
 {% capture FILE_PREFIX %}syscoin-{{CURRENT_RELEASE}}{% endcapture %}
 {% assign SIGNING_KEY_FINGERPRINT = "01EA5486DE18A882D4C2684590C8019E36C2E964" %}
 {% capture SIGNING_KEY_FINGERPRINT_EXPLODED %}{% include fingerprint-split.html hex=SIGNING_KEY_FINGERPRINT %}{% endcapture %}
@@ -41,34 +41,20 @@
         <img src="/assets/images/os/med_linux.png" alt="linux">
         <span>
           <a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX }}-{{ site.data.binaries.lin64 }}" id="downloadlin">Linux (tgz)</a>
-          <span><a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX }}-{{ site.data.binaries.lin64 }}" class="dl" id="lin64">64 bit</a> -
-            <a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX }}-{{ site.data.binaries.lin32 }}" class="dl" id="lin32">32 bit</a></span>
+	  <span><a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX }}-{{ site.data.binaries.lin64 }}" class="dl" id="lin64">64 bit</a></span>
         </span>
       </div>
     </div>
+    <!--
     <div>
-      <div>
-        <img src="/assets/images/os/arm.png" alt="ARM Linux">
-        <span>
-          <a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX }}-arm-linux-gnueabihf.tar.gz" class="dl">ARM Linux</a>
-          	<span><a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX }}-aarch64-linux-gnu.tar.gz" class="dl" id="lin64arm">64 bit</a> -
-            	<a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX }}-arm-linux-gnueabihf.tar.gz" class="dl" id="lin32arm">32 bit</a></span>
-        </span>
-      </div>
-      <div>
-        <img src="/assets/images/os/but_riscv.svg" alt="RISC-V Linux">
-        <span>
-          <a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX }}-{{ site.data.binaries.riscv64 }}.tar.gz" class="dl">RISC-V Linux</a>
-            <span><a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX }}-{{ site.data.binaries.riscv64 }}.tar.gz" class="dl" id="lin64riscv">64 bit</a></span>
-        </span>
-      </div>
       <div>
         <img src="/assets/images/os/med_snap.svg" alt="Snap Store Linux">
         <span>
-          <a href="https://snapcraft.io/syscoin-core" class="dl">Snap Store Linux</a>
+          <a href="https://snapcraft.io" class="dl">Snap Store Linux</a>
         </span>
       </div>
     </div>
+    -->
     <p class="downloadmore">
       <a href="{{ PATH_PREFIX }}/SHA256SUMS.asc" class="dl">{{ page.downloadsig }}</a><br>
       <a href="{{ PATH_PREFIX }}/{{ FILE_PREFIX}}.tar.gz" class="dl">{{ page.source }}</a><br>
