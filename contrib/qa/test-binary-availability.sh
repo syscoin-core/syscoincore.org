@@ -25,5 +25,5 @@ do
     curl -sI "https://syscoincore.org${url}"
   else
     curl -sI "$url"
-  fi | egrep -q '(200 OK|HTTP/2 200|302 FOUND|HTTP/2 302)' || echo "Error: Could not retrieve $url"
+  fi | egrep -q '(200 OK|HTTP/2 200|302 FOUND|HTTP/1.1 302|HTTP/2 302)' || echo "Error: Could not retrieve $url"
 done | if grep . ; then sed 1iERROR ; false ; else true ; fi
