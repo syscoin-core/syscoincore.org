@@ -1,0 +1,72 @@
+---
+name: listassetindex
+btcversion: 4.1.2
+btcgroup: syscoin
+permalink: en/doc/4.1.2/rpc/syscoin/listassetindex/
+---
+
+listassetindex ( page ) [asset_guid,"address",...]
+
+Scan through asset index and return paged results of historical asset transactions. Requires assetindex config parameter enabled and optional assetindexpagesize which is 25 by default.
+
+Arguments:
+1. page               (numeric, optional, default=0) Return specific page number of transactions. Lower page number means more recent transactions.
+2. options            (json array, required) A json object with options to filter results
+     [
+       asset_guid,    (numeric, required) Asset GUID to filter.
+       "address",     (string) Address to filter.  Leave empty to scan globally through asset
+       ...
+     ]
+
+Result:
+If address option was omitted and transactions for asset is requested[
+  {
+    "txtype":       (string) The asset transaction type. One of 'assetactivate', 'assetupdate', or 'assettransfer'
+    "asset_guid":   (numeric) The asset guid
+    "symbol":       (string) The asset symbol
+    "txid":         (string) The transaction id that created this asset
+    "height":       (numeric) The height at which the transaction was confirmed
+    "public_value":  (string) The public value attached to this asset. Only returned value was changed.
+    "sender":        (string) The address that controls this asset
+    "contract":     (string) The ethereum contract address. Only returned if value was changed.
+    "balance":      (numeric) The current balance. Only exists if supply was changed.
+    "update_flag":  (numeric) The flag in decimal. Only exists if value was changed.
+    "total_supply": (numeric) The total supply of this asset. Only exists for 'assetactivate' txtype.
+    "max_supply":   (numeric) The maximum supply of this asset. Only exists for 'assetactivate' txtype.
+    "precision":    (numeric) The precision of this asset. Only exists for 'assetactivate' txtype.
+    "blockhash":    (string) Block hash that confirmed this transaction. Empty if not confirmed.
+  },
+  ...
+]
+If address is included and transactions for asset allocation is requested[
+  {
+    "txtype":            (string) The asset allocation transaction type. One of 'assetsend', 'assetallocationsend', 'assetallocationburntoethereum', 'assetallocationburntoethereum', 'assetallocationburntosyscoin', 'assetallocationmint', or 'assetallocationlock'
+    "asset_allocation":  (string) The unique key for this allocation
+    "asset_guid":        (numeric) The asset guid
+    "symbol":            (string) The asset symbol
+    "txid":              (string) The transaction id that created this asset
+    "height":            (numeric) The height at which the transaction was confirmed
+    "sender":            (string) The address that controls this asset allocation
+    "allocations" : [    (array of json objects)
+      {
+        "address": "address",    (string) The address of the receiver
+        "amount" : n,              (numeric) The amount of the transaction
+      },
+      ...
+    ]
+    "total":             (numeric) The total amount of asset sent.
+    "blockhash":         (string) Block hash that confirmed this transaction. Empty if not confirmed.
+    "ethereum_destination":   (string) Destination ethereum address for moving over the bridge from sys to eth. Only exists for 'assetallocationburntoethereum' txtype.
+    "ethereum_contract":      (string) Destination ethereum smart contract for moving over the bridge from sys to eth. Only exists for 'assetallocationburntoethereum' txtype.
+    "locked_outpoint":        (string) The txid+output index pair locking this asset allocation to an outpoint for future transactions. Only exists for 'assetallocationlock' txtype.
+  },
+  ...
+]
+
+Examples:
+> syscoin-cli listassetindex 0 '{"asset_guid":92922}'
+> syscoin-cli listassetindex 2 '{"asset_guid":92922, "address":"sys1qw40fdue7g7r5ugw0epzk7xy24tywncm26hu4a7"}'
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listassetindex", "params": [0, '{"asset_guid":92922}'] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listassetindex", "params": [2, '{"asset_guid":92922, "address":"sys1qw40fdue7g7r5ugw0epzk7xy24tywncm26hu4a7"}'] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

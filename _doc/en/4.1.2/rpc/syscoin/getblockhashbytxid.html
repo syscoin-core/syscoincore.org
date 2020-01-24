@@ -1,0 +1,24 @@
+---
+name: getblockhashbytxid
+btcversion: 4.1.2
+btcgroup: syscoin
+permalink: en/doc/4.1.2/rpc/syscoin/getblockhashbytxid/
+---
+
+getblockhashbytxid "txid"
+
+Returns hash of block in best-block-chain at txid provided.
+
+Arguments:
+1. txid    (string, required) A transaction that is in the block.
+
+Result:
+{
+  "hex": "hexstring"     (string) The block hash that contains the txid
+}
+
+Examples:
+> syscoin-cli getblockhashbytxid dfc7eac24fa89b0226c64885f7bedaf132fc38e8980b5d446d76707027254490
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockhashbytxid", "params": [dfc7eac24fa89b0226c64885f7bedaf132fc38e8980b5d446d76707027254490] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

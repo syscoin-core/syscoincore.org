@@ -1,0 +1,27 @@
+---
+name: assetallocationsend
+btcversion: 4.1.2
+btcgroup: syscoinwallet
+permalink: en/doc/4.1.2/rpc/syscoinwallet/assetallocationsend/
+---
+
+assetallocationsend asset_guid "address_sender" "address_receiver" amount
+
+Send an asset allocation you own to another address.
+
+Arguments:
+1. asset_guid          (numeric, required) The asset guid
+2. address_sender      (string, required) The address to send the allocation from
+3. address_receiver    (string, required) The address to send the allocation to
+4. amount              (numeric or string, required) The quantity of asset to send
+
+Result:
+{
+  "hex": "hexstring"       (string) the unsigned transaction hexstring.
+}
+
+Examples:
+> syscoin-cli assetallocationsend "assetguid" "addressfrom" "address" "amount"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "assetallocationsend", "params": ["assetguid", "addressfrom", "address", "amount"] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

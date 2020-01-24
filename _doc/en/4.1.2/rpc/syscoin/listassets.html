@@ -1,0 +1,51 @@
+---
+name: listassets
+btcversion: 4.1.2
+btcgroup: syscoin
+permalink: en/doc/4.1.2/rpc/syscoin/listassets/
+---
+
+listassets ( count from {"txid":"str","asset_guid":n,"addresses":["address",...]} )
+
+Scan through all assets.
+
+Arguments:
+1. count                   (numeric, optional, default=10) The number of results to return.
+2. from                    (numeric, optional, default=0) The number of results to skip.
+3. options                 (json object) A json object with options to filter results.
+     {
+       "txid": "str",      (string) Transaction ID to filter results for
+       "asset_guid": n,    (numeric) Asset GUID to filter
+       "addresses": [      (json array) A json array with owners
+         "address",        (string) Address to filter
+         ...
+       ],
+     }
+
+Result:
+[
+  {
+    "asset_guid":   (numeric) The asset guid
+    "symbol":       (string) The asset symbol
+    "txid":         (string) The transaction id that created this asset
+    "public_value":  (string) The public value attached to this asset
+    "address":      (string) The address that controls this asset
+    "contract":     (string) The ethereum contract address
+    "balance":      (numeric) The current balance
+    "total_supply": (numeric) The total supply of this asset
+    "max_supply":   (numeric) The maximum supply of this asset
+    "update_flag":  (numeric) The flag in decimal 
+    "precision":    (numeric) The precision of this asset 
+  },
+  ...
+]
+
+Examples:
+> syscoin-cli listassets 0
+> syscoin-cli listassets 10 10
+> syscoin-cli listassets 0 0 '{"addresses":[{"address":"sys1qw40fdue7g7r5ugw0epzk7xy24tywncm26hu4a7"},{"address":"sys1qw40fdue7g7r5ugw0epzk7xy24tywncm26hu4a7"}]}'
+> syscoin-cli listassets 0 0 '{"asset_guid":3473733}'
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listassets", "params": [0, 0, '{"addresses":[{"address":"sys1qw40fdue7g7r5ugw0epzk7xy24tywncm26hu4a7"},{"address":"sys1qw40fdue7g7r5ugw0epzk7xy24tywncm26hu4a7"}]}'] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listassets", "params": [0, 0, '{"asset_guid":3473733}'] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

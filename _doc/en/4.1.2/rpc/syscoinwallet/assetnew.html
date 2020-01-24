@@ -1,0 +1,42 @@
+---
+name: assetnew
+btcversion: 4.1.2
+btcgroup: syscoinwallet
+permalink: en/doc/4.1.2/rpc/syscoinwallet/assetnew/
+---
+
+assetnew "address" "symbol" "description" "contract" precision total_supply max_supply update_flags {"address":"str","fee_struct":["","",...]} "witness"
+
+Create a new asset
+
+Arguments:
+1. address                  (string, required) An address that you own.
+2. symbol                   (string, required) Asset symbol (1-8 characters)
+3. description              (string, required) Public description of the token.
+4. contract                 (string, required) Ethereum token contract for SyscoinX bridge. Must be in hex and not include the '0x' format tag. For example contract '0xb060ddb93707d2bc2f8bcc39451a5a28852f8d1d' should be set as 'b060ddb93707d2bc2f8bcc39451a5a28852f8d1d'. Leave empty for no smart contract bridge.
+5. precision                (numeric, required) Precision of balances. Must be between 0 and 8. The lower it is the higher possible max_supply is available since the supply is represented as a 64 bit integer. With a precision of 8 the max supply is 10 billion.
+6. total_supply             (numeric or string, required) Initial supply of asset. Can mint more supply up to total_supply amount or if total_supply is -1 then minting is uncapped.
+7. max_supply               (numeric or string, required) Maximum supply of this asset. Set to -1 for uncapped. Depends on the precision value that is set, the lower the precision the higher max_supply can be.
+8. update_flags             (numeric, required) Ability to update certain fields. Must be decimal value which is a bitmask for certain rights to update. The bitmask represents 0x01(1) to give admin status (needed to update flags), 0x10(2) for updating public data field, 0x100(4) for updating the smart contract field, 0x1000(8) for updating supply, 0x10000(16) for being able to update flags (need admin access to update flags as well). 0x11111(31) for all.
+9. aux_fees                 (json object, required) Auxiliary fee structure
+     {
+       "address": "str",    (string, required) Address to pay auxiliary fees to
+       "fee_struct": [      (json array, required) Auxiliary fee structure
+         "",                (string) Bound (in amount) for for the fee level based on total transaction amount
+         "",                (string) Percentage of total transaction amount applied as a fee
+         ...
+       ],
+     }
+10. witness                 (string, required) Witness address that will sign for web-of-trust notarization of this transaction.
+
+Result:
+{
+  "hex": "hexstring"       (string) the unsigned transaction hexstring.
+  "assetguid": xxxx        (numeric) The guid of asset to be created
+}
+
+Examples:
+> syscoin-cli assetnew "myaddress" "CAT" "publicvalue" "contractaddr" 8 100 1000 31 {} ""
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "assetnew", "params": ["myaddress", "CAT", "publicvalue", "contractaddr", 8, 100, 1000, 31, {}, ""] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

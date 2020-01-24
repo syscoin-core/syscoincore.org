@@ -1,0 +1,38 @@
+---
+name: assetupdate
+btcversion: 4.1.2
+btcgroup: syscoinwallet
+permalink: en/doc/4.1.2/rpc/syscoinwallet/assetupdate/
+---
+
+assetupdate asset_guid "description" "contract" supply update_flags {"address":"str","fee_struct":["","",...]} "witness"
+
+Perform an update on an asset you control.
+
+Arguments:
+1. asset_guid               (numeric, required) Asset guid
+2. description              (string, required) Public description of the token.
+3. contract                 (string, required) Ethereum token contract for SyscoinX bridge. Leave empty for no smart contract bridg.
+4. supply                   (numeric or string, required) New supply of asset. Can mint more supply up to total_supply amount or if max_supply is -1 then minting is uncapped. If greater than zero, minting is assumed otherwise set to 0 to not mint any additional tokens.
+5. update_flags             (numeric, required) Ability to update certain fields. Must be decimal value which is a bitmask for certain rights to update. The bitmask represents 0x01(1) to give admin status (needed to update flags), 0x10(2) for updating public data field, 0x100(4) for updating the smart contract field, 0x1000(8) for updating supply, 0x10000(16) for being able to update flags (need admin access to update flags as well). 0x11111(31) for all.
+6. aux_fees                 (json object, required) Auxiliary fee structure
+     {
+       "address": "str",    (string, required) Address to pay auxiliary fees to
+       "fee_struct": [      (json array, required) Auxiliary fee structure
+         "",                (string) Bound (in amount) for for the fee level based on total transaction amount
+         "",                (string) Percentage of total transaction amount applied as a fee
+         ...
+       ],
+     }
+7. witness                  (string, required) Witness address that will sign for web-of-trust notarization of this transaction.
+
+Result:
+{
+  "hex": "hexstring"       (string) the unsigned transaction hexstring.
+}
+
+Examples:
+> syscoin-cli assetupdate "assetguid" "publicvalue" "contractaddress" "supply" "update_flags" {} ""
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "assetupdate", "params": ["assetguid", "publicvalue", "contractaddress", "supply", "update_flags", {}, ""] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+
