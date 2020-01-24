@@ -216,4 +216,3 @@ A number of free and open source software Syscoin wallets and packages besides S
 [dev guide]: #syscoin-software-developers
 [user guide]: #wallet-users
 [segwit dev guide]: /en/segwit_wallet_dev/
-[versionbits faq]: /en/2016/06/08/version-bits-miners-faq/
