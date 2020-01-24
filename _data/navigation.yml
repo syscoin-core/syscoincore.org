@@ -50,9 +50,6 @@ en:
       contribute-code:
         title: "contributing code"
         url:   "/en/faq/contributing-code/"
-      meetings:
-        title: "meetings"
-        url:   "/en/meetings/"
       eol:
         title: "Lifecycle"
         url:   "/en/lifecycle"
@@ -66,9 +63,6 @@ en:
       announcements:
         title: "Announcements"
         url: "/en/list/announcements/join/"
-      twitter_impersonation:
-        title: "Twitter impersonation"
-        url: "/en/twitter-impersonation"
 zh_CN:
   home:
     title: "Syscoin Core"
