@@ -1,0 +1,24 @@
+---
+name: addressbalance
+btcversion: 4.1.2
+btcgroup: syscoin
+permalink: en/doc/4.1.2/rpc/syscoin/addressbalance/
+---
+
+addressbalance "address"
+
+Show the Syscoin balance of an address
+
+Arguments:
+1. address    (string, required) Address to holding the balance
+
+Result:
+{
+  "amount": xx            (numeric) Syscoin balance of the address
+}
+
+Examples:
+> syscoin-cli addressbalance "sysrt1qea3v4dj5kjxjgtysdxd3mszjz56530ugw467dq"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addressbalance", "params": ["sysrt1qea3v4dj5kjxjgtysdxd3mszjz56530ugw467dq"] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

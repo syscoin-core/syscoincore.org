@@ -1,0 +1,25 @@
+---
+name: assetallocationbalance
+btcversion: 4.1.2
+btcgroup: syscoin
+permalink: en/doc/4.1.2/rpc/syscoin/assetallocationbalance/
+---
+
+assetallocationbalance asset_guid "address"
+
+Show stored balance of a single asset allocation.
+
+Arguments:
+1. asset_guid    (numeric, required) The guid of the asset
+2. address       (string, required) The address of the allocation owner
+
+Result:
+{
+  "amount": xx        (numeric) The balance of a single asset allocation.
+}
+
+Examples:
+> syscoin-cli assetallocationbalance "asset_guid" "address"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "assetallocationbalance", "params": ["asset_guid", "address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

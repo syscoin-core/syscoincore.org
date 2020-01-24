@@ -1,0 +1,28 @@
+---
+name: assetallocationlock
+btcversion: 4.1.2
+btcgroup: syscoinwallet
+permalink: en/doc/4.1.2/rpc/syscoinwallet/assetallocationlock/
+---
+
+assetallocationlock asset_guid "addressfrom" "txid" output_index ( "witness" )
+
+Lock an asset allocation to a specific UTXO (txid/output). This is useful for things such as hashlock and CLTV type operations where script checks are done on UTXO prior to spending which extend to an assetallocationsend.
+
+Arguments:
+1. asset_guid      (numeric, required) Asset guid
+2. addressfrom     (string, required) Address that owns this asset allocation
+3. txid            (string, required) Transaction hash
+4. output_index    (numeric, required) Output index inside the transaction output array
+5. witness         (string, optional, default="") Witness address that will sign for web-of-trust notarization of this transaction
+
+Result:
+{
+  "hex": "hexstring"       (string) the unsigned transaction hexstring.
+}
+
+Examples:
+> syscoin-cli assetallocationlock "asset_guid" "addressfrom" "txid" "output_index" ""
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "assetallocationlock", "params": ["asset_guid","addressfrom","txid","output_index",""] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

@@ -1,0 +1,23 @@
+---
+name: generate
+btcversion: 4.1.2
+btcgroup: generating
+permalink: en/doc/4.1.2/rpc/generating/generate/
+---
+
+generate nblocks ( maxtries )
+
+Mine up to nblocks blocks immediately (before the RPC call returns) to an address in the wallet.
+
+Arguments:
+1. nblocks     (numeric, required) How many blocks are generated immediately.
+2. maxtries    (numeric, optional, default=100000) How many iterations to try.
+
+Result:
+[ blockhashes ]     (array) hashes of blocks generated
+
+Examples:
+> syscoin-cli generate 11
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "generate", "params": [11] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

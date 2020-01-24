@@ -1,0 +1,31 @@
+---
+name: assetallocationinfo
+btcversion: 4.1.2
+btcgroup: syscoin
+permalink: en/doc/4.1.2/rpc/syscoin/assetallocationinfo/
+---
+
+assetallocationinfo asset_guid "address"
+
+Show stored values of a single asset allocation.
+
+Arguments:
+1. asset_guid    (numeric, required) The guid of the asset
+2. address       (string, required) The address of the owner
+
+Result:
+{
+    "asset_allocation":   (string) The unique key for this allocation
+    "asset_guid":         (string) The guid of the asset
+    "symbol":             (string) The asset symbol
+    "address":            (string) The address of the owner of this allocation
+    "balance":            (numeric) The current balance
+    "balance_zdag":       (numeric) The zdag balance
+    "locked_outpoint":    (string) The locked UTXO if applicable for this allocation
+}
+
+Examples:
+> syscoin-cli assetallocationinfo "assetguid" "address"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "assetallocationinfo", "params": ["assetguid", "address"] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

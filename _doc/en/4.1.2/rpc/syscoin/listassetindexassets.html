@@ -1,0 +1,37 @@
+---
+name: listassetindexassets
+btcversion: 4.1.2
+btcgroup: syscoin
+permalink: en/doc/4.1.2/rpc/syscoin/listassetindexassets/
+---
+
+listassetindexassets address
+
+Return a list of assets an address is associated with.
+
+Arguments:
+1. address    (numeric, required) Address to find assets associated with.
+
+Result:
+[
+  {
+    "asset_guid":   (numeric) The asset guid
+    "symbol":       (string) The asset symbol
+    "txid":         (string) The transaction id that created this asset
+    "public_value":  (string) The public value attached to this asset
+    "address":      (string) The address that controls this asset
+    "contract":     (string) The ethereum contract address
+    "balance":      (numeric) The current balance
+    "total_supply": (numeric) The total supply of this asset
+    "max_supply":   (numeric) The maximum supply of this asset
+    "update_flag":  (numeric) The flag in decimal 
+    "precision":    (numeric) The precision of this asset 
+  },
+  ...
+]
+
+Examples:
+> syscoin-cli listassetindexassets sys1qw40fdue7g7r5ugw0epzk7xy24tywncm26hu4a7
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listassetindexassets", "params": [sys1qw40fdue7g7r5ugw0epzk7xy24tywncm26hu4a7] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+
