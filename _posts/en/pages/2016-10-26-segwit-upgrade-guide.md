@@ -197,10 +197,6 @@ Segwit is described for developers in the following documents:
 
 - **[BIP147][] Dealing with dummy stack element malleability:** developers of wallets and especially new transaction scripts should be aware of this new consensus rule that mirrors a long-existing default network relay policy in forbidding passing anything besides the `OP_0` “null” opcode as the “dummy” parameter to a checkmultisig-style opcode.  After segwit is activated, this new consensus rule will apply to both transactions that use segwit and those that don’t.
 
-- **[VersionBits FAQ][]:** miners and developers of mining software should read
-  this FAQ for information about setting their versionbits to signal
-  support for soft forks.  Segwit uses bit 1 for versionbits.
-
 Please note, [BIP142][] (address format for segregated witness) is in *deferred* status (as defined by BIP1) and is not proposed as a standard.  Instead, wallet developers are invited to discuss on the [syscoin-dev mailing list][syscoin-dev] the creation of a new Syscoin address format that will be more usable than current base58check-encoded addresses.
 
 Most implementation details for BIPs 141, 143, 144, and 145 may be found in [Syscoin Core PR#8149](https://github.com/syscoin/syscoin/pull/8149).  The implementation for BIP147 may be found in [Syscoin Core PR#8636](https://github.com/syscoin/syscoin/pull/8636).
