@@ -8,7 +8,7 @@ build:
 	bundle exec jekyll clean
 	bundle exec jekyll build --future --drafts --unpublished
 
-test: test-fast test-slow
+test: test-fast 
 
 test-slow:
 	## Check for malformed HTML and broken internal links
