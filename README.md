@@ -1,4 +1,4 @@
-# [syscoincore.org](https://syscoincore.org) [![Build Status](https://travis-ci.org/syscoin-core/syscoincore.org.svg?branch=master)](https://travis-ci.org/syscoin-core/syscoincore.org)
+# [syscoincore.org](https://syscoincore.org) [![Build Status](https://travis-ci.org/syscoin-core/syscoincore.org.svg?branch=master)](https://travis-ci.org/syscoin-core/syscoin-core.github.io)
 
 This repository is the source code of the Syscoin Core project website built with Jekyll.
 
