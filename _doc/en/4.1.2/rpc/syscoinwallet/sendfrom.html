@@ -1,0 +1,27 @@
+---
+name: sendfrom
+btcversion: 4.1.2
+btcgroup: syscoinwallet
+permalink: en/doc/4.1.2/rpc/syscoinwallet/sendfrom/
+---
+
+sendfrom "funding_address" "address" amount
+
+Send an amount to a given address from a specified address.
+Arguments:
+1. funding_address    (string, required) The syscoin address is sending from.
+2. address            (string, required) The syscoin address to send to.
+3. amount             (numeric or string, required) The amount in SYS to send. eg 0.1
+
+Result:
+{
+  "hex": "hexstring"       (string) the unsigned transaction hexstring.
+}
+
+Examples:
+> syscoin-cli sendfrom "sys1qtyf33aa2tl62xhrzhralpytka0krxvt0a4e8ee" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1
+> syscoin-cli sendfrom "sys1qtyf33aa2tl62xhrzhralpytka0krxvt0a4e8ee" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1
+> syscoin-cli sendfrom "sys1qtyf33aa2tl62xhrzhralpytka0krxvt0a4e8ee" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 0.1
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendfrom", "params": ["sys1qtyf33aa2tl62xhrzhralpytka0krxvt0a4e8ee" "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd", 0.1] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

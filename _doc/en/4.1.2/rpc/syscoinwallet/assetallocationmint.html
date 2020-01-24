@@ -1,0 +1,35 @@
+---
+name: assetallocationmint
+btcversion: 4.1.2
+btcgroup: syscoinwallet
+permalink: en/doc/4.1.2/rpc/syscoinwallet/assetallocationmint/
+---
+
+assetallocationmint asset_guid "address" amount blocknumber "tx_hex" "txroot_hex" "txmerkleproof_hex" "merklerootpath_hex" "receipt_hex" "receiptroot_hex" "receiptmerkleproof_hex" ( "witness" )
+
+Mint assetallocation to come back from the bridge
+
+Arguments:
+1. asset_guid                 (numeric, required) Asset guid
+2. address                    (string, required) Mint to this address.
+3. amount                     (numeric or string, required) Amount of asset to mint.  Note that fees (in SYS) will be taken from the owner address
+4. blocknumber                (numeric, required) Block number of the block that included the burn transaction on Ethereum.
+5. tx_hex                     (string, required) Transaction hex.
+6. txroot_hex                 (string, required) The transaction merkle root that commits this transaction to the block header.
+7. txmerkleproof_hex          (string, required) The list of parent nodes of the Merkle Patricia Tree for SPV proof of transaction merkle root.
+8. merklerootpath_hex         (string, required) The merkle path to walk through the tree to recreate the merkle hash for both transaction and receipt root.
+9. receipt_hex                (string, required) Transaction Receipt Hex.
+10. receiptroot_hex           (string, required) The transaction receipt merkle root that commits this receipt to the block header.
+11. receiptmerkleproof_hex    (string, required) The list of parent nodes of the Merkle Patricia Tree for SPV proof of transaction receipt merkle root.
+12. witness                   (string, optional, default="") Witness address that will sign for web-of-trust notarization of this transaction.
+
+Result:
+{
+  "hex": "hexstring"       (string) the unsigned transaction hexstring.
+}
+
+Examples:
+> syscoin-cli assetallocationmint "assetguid" "address" "amount" "blocknumber" "tx_hex" "txroot_hex" "txmerkleproof_hex" "txmerkleproofpath_hex" "receipt_hex" "receiptroot_hex" "receiptmerkleproof" "witness"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "assetallocationmint", "params": ["assetguid", "address", "amount", "blocknumber", "tx_hex", "txroot_hex", "txmerkleproof_hex", "txmerkleproofpath_hex", "receipt_hex", "receiptroot_hex", "receiptmerkleproof", ""] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

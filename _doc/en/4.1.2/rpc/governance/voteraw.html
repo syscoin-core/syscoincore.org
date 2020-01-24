@@ -1,0 +1,27 @@
+---
+name: voteraw
+btcversion: 4.1.2
+btcgroup: governance
+permalink: en/doc/4.1.2/rpc/governance/voteraw/
+---
+
+voteraw "masaternode-tx-hash" masternode-tx-index "governancehash" "vote-signal" "vote" time "vote-sig"
+
+Compile and relay a governance vote with provided external signature instead of signing vote internally
+
+Arguments:
+1. masaternode-tx-hash    (string, required) The masternode transaction hash
+2. masternode-tx-index    (numeric, required) The masterndoe transaction index
+3. governancehash         (string, required) The governance gobject hash
+4. vote-signal            (string, required) The vote-signal (funding|valid|delete|endorsed)
+5. vote                   (string, required) The vote (yes|no|abstain)
+6. time                   (numeric, required) The linux epoche time
+7. vote-sig               (string, required) The external signature of the vote
+
+Result:
+"result"      (string) Result
+Examples:
+> syscoin-cli voteraw "tx-hash" "tx-index" "gov-hash" "funding" "yes" "time" "vote-sig"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "voteraw", "params": ["tx-hash", "tx-index", "gov-hash", "funding", "yes", "time", "vote-sig"] }' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+
