@@ -1,41 +1,26 @@
 # Authors
 
-laanwj:
-  name: Wladimir van der Laan
-  web:
-  email:
-  bio:
-  avatar: https://avatars3.githubusercontent.com/u/126646?v=3&s=460
-  twitter: orionwl
-  github: laanwj
-  google:
-    plus:
+sidhujag:
+  name: Jag Sidhu
+  email: sidhujag@syscoin.org
+  avatar: https://avatars2.githubusercontent.com/u/6238042?s=460&v=4
+  twitter: realSidhuJag
+  github: sidhujag
 
-sipa:
-  name: Pieter Wuille
-  email:
-  bio:
-  avatar: https://avatars2.githubusercontent.com/u/548488?v=3&s=460
-  github: sipa
+willyko:
+  name: Willy Ko
+  email: wko@syscoin.org
+  avatar: https://avatars3.githubusercontent.com/u/11524904?s=460&v=4
+  github: willyk
   twitter: pwuille
-  google:
-    plus:
 
-0xadada:
-  name: Ron. A
-  email: syscoincore.org@0xadada.pub
-  avatar: https://github.com/0xadada.png
-  github: "0xADADA"
-  twitter: "0xADADA"
-  bio: Software writer, privacy and encryption advocate. Open web enthusiast.
+danosphere:
+  name: Dan Wasyluk
+  email: dwasyluk@syscoin.org
+  avatar: https://avatars0.githubusercontent.com/u/987186?s=460&v=4
+  github: dwasyluk
+  twitter: BlockchainDan
+ 
 
-gmaxwell:
-  name: Gregory Maxwell
-  email:
-  bio:
-  avatar: https://avatars0.githubusercontent.com/u/858454?v=3&s=400
-  github: gmaxwell
-  twitter:
-  google:
-    plus:
+
 
