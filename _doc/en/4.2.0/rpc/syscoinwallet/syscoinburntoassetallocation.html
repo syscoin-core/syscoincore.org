@@ -1,0 +1,25 @@
+---
+name: syscoinburntoassetallocation
+btcversion: 4.2.0
+btcgroup: syscoinwallet
+permalink: en/doc/4.2.0/rpc/syscoinwallet/syscoinburntoassetallocation/
+---
+
+syscoinburntoassetallocation asset_guid amount
+
+Burns Syscoin to the SYSX asset
+
+Arguments:
+1. asset_guid    (numeric, required) Asset guid of SYSX
+2. amount        (numeric or string, required) Amount of SYS to burn.
+
+Result:
+{                    (json object)
+  "txid" : "hex"     (string) The transaction id
+}
+
+Examples:
+> syscoin-cli syscoinburntoassetallocation "asset_guid" "amount"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "syscoinburntoassetallocation", "params": ["asset_guid", "amount"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

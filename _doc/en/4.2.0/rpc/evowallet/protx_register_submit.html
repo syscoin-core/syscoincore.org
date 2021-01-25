@@ -1,0 +1,27 @@
+---
+name: protx_register_submit
+btcversion: 4.2.0
+btcgroup: evowallet
+permalink: en/doc/4.2.0/rpc/evowallet/protx_register_submit/
+---
+
+protx_register_submit "tx" "sig"
+
+Submits the specified ProTx to the network. This command will also sign the inputs of the transaction
+which were previously added by "protx_register_prepare" to cover transaction fees
+and outputs to cover fees.
+
+Arguments:
+1. tx     (string, required) The serialized transaction previously returned by "protx_register_prepare".
+2. sig    (string, required) The signature signed with the collateral key. Must be in base64 format.
+
+Result:
+{                    (json object)
+  "hash" : "hex"     (string) txid
+}
+
+Examples:
+> syscoin-cli protx_register_submit 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "protx_register_submit", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

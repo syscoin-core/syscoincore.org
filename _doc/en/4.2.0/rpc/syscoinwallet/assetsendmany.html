@@ -1,0 +1,35 @@
+---
+name: assetsendmany
+btcversion: 4.2.0
+btcgroup: syscoinwallet
+permalink: en/doc/4.2.0/rpc/syscoinwallet/assetsendmany/
+---
+
+assetsendmany asset_guid [assetsendobjects,...]
+
+Send an asset you own to another address/addresses as an asset allocation. Maximum recipients is 250.
+
+Arguments:
+1. asset_guid                 (numeric, required) Asset guid.
+2. amounts                    (json array, required) Array of asset send objects.
+     [
+       {                      (json object, required) An assetsend obj
+         "address": n,        (numeric, required) Address to transfer to
+         "amount": amount,    (numeric or string, required) Amount of asset to send
+         "NFTID": n,          (numeric) Optional NFT ID to send
+       },
+       ...
+     ]
+
+Result:
+{                    (json object)
+  "txid" : "hex"     (string) The transaction id
+}
+
+Examples:
+> syscoin-cli assetsendmany "asset_guid" '[{"address":"sysaddress1","amount":100},{"address":"sysaddress2","amount":200}]'
+> syscoin-cli assetsendmany "asset_guid" "[{\"address\":\"sysaddress1\",\"amount\":100},{\"address\":\"sysaddress2\",\"amount\":200}]"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assetsendmany", "params": ["asset_guid",'[{"address":"sysaddress1","amount":100},{"address":"sysaddress2","amount":200}]']}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assetsendmany", "params": ["asset_guid","[{\"address\":\"sysaddress1\",\"amount\":100},{\"address\":\"sysaddress2\",\"amount\":200}]"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

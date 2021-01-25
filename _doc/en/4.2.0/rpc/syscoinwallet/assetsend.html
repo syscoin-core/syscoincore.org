@@ -1,0 +1,27 @@
+---
+name: assetsend
+btcversion: 4.2.0
+btcgroup: syscoinwallet
+permalink: en/doc/4.2.0/rpc/syscoinwallet/assetsend/
+---
+
+assetsend asset_guid "address" amount ( NFTID )
+
+Send an asset you own to another address.
+
+Arguments:
+1. asset_guid    (numeric, required) The asset guid.
+2. address       (string, required) The address to send the asset to (creates an asset allocation).
+3. amount        (numeric or string, required) Amount of asset to send.
+4. NFTID         (numeric) Optional NFT ID to send
+
+Result:
+{                    (json object)
+  "txid" : "hex"     (string) The transaction id
+}
+
+Examples:
+> syscoin-cli assetsend "asset_guid" "address" "amount" "NFTID"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assetsend", "params": ["asset_guid", "address", "amount", "NFTID"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

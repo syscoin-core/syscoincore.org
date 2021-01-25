@@ -1,0 +1,25 @@
+---
+name: syscoingettxroots
+btcversion: 4.2.0
+btcgroup: syscoin
+permalink: en/doc/4.2.0/rpc/syscoin/syscoingettxroots/
+---
+
+syscoingettxroots height
+
+Get Ethereum transaction and receipt roots based on block height.
+
+Arguments:
+1. height    (numeric, required) The block height to lookup.
+
+Result:
+{                           (json object)
+  "txroot" : "hex",         (string) The transaction merkle root
+  "receiptroot" : "hex"     (string) The receipt merkle root
+}
+
+Examples:
+> syscoin-cli syscoingettxroots 23232322
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "syscoingettxroots", "params": [23232322]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

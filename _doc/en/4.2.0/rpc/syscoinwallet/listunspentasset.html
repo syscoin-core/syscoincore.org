@@ -1,0 +1,22 @@
+---
+name: listunspentasset
+btcversion: 4.2.0
+btcgroup: syscoinwallet
+permalink: en/doc/4.2.0/rpc/syscoinwallet/listunspentasset/
+---
+
+listunspentasset asset_guid ( minconf )
+
+Helper function which just calls listunspent to find unspent UTXO's for an asset.
+Arguments:
+1. asset_guid    (numeric, required) The syscoin asset guid to get the information of.
+2. minconf       (numeric, optional, default=1) The minimum confirmations to filter
+
+Result:
+"str"    (string) Result
+
+Examples:
+> syscoin-cli listunspentasset 2328882 0
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "listunspentasset", "params": [2328882 0]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

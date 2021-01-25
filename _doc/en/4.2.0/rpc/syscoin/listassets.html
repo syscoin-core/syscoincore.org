@@ -1,0 +1,41 @@
+---
+name: listassets
+btcversion: 4.2.0
+btcgroup: syscoin
+permalink: en/doc/4.2.0/rpc/syscoin/listassets/
+---
+
+listassets ( count from {"asset_guid":n} )
+
+Scan through all assets.
+
+Arguments:
+1. count                   (numeric, optional, default=10) The number of results to return.
+2. from                    (numeric, optional, default=0) The number of results to skip.
+3. options                 (json object) A json object with options to filter results.
+     {
+       "asset_guid": n,    (numeric) Asset GUID to filter
+     }
+
+Result:
+[                                    (json array)
+  {                                  (json object)
+    "asset_guid" : n,                (numeric) The guid of the asset
+    "symbol" : "str",                (string) The asset symbol
+    "public_value" : "str",          (string) The public value attached to this asset
+    "contract" : "hex",              (string) The ethereum contract address
+    "total_supply" : n,              (numeric) The total supply of this asset
+    "max_supply" : n,                (numeric) The maximum supply of this asset
+    "updatecapability_flags" : n,    (numeric) The capability flag in decimal
+    "precision" : n                  (numeric) The precision of this asset
+  },
+  ...
+]
+
+Examples:
+> syscoin-cli listassets 0
+> syscoin-cli listassets 10 10
+> syscoin-cli listassets 0 0 '{"asset_guid":3473733}'
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "listassets", "params": [0, 0, '{"asset_guid":3473733}']}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

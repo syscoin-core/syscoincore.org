@@ -1,0 +1,22 @@
+---
+name: gobject_deserialize
+btcversion: 4.2.0
+btcgroup: governance
+permalink: en/doc/4.2.0/rpc/governance/gobject_deserialize/
+---
+
+gobject_deserialize "hex_data"
+
+Deserialize governance object from hex string to JSON
+
+Arguments:
+1. hex_data    (string, required) Data in hex string form.
+
+Result:
+null    (json null)
+
+Examples:
+> syscoin-cli gobject_deserialize 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "gobject_deserialize", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

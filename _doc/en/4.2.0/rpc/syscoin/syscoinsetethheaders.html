@@ -1,0 +1,36 @@
+---
+name: syscoinsetethheaders
+btcversion: 4.2.0
+btcgroup: syscoin
+permalink: en/doc/4.2.0/rpc/syscoin/syscoinsetethheaders/
+---
+
+syscoinsetethheaders [blocknumber, blockhash, previoushash, txroot, txreceiptroot, timestamp] ...
+
+Sets Ethereum headers in Syscoin to validate transactions through the SYSX bridge.
+
+Arguments:
+1. headers                   (json array, required) An array of arrays (block number, tx root) from Ethereum blockchain
+     [
+       [                     (json array) An array of [block number, tx root] 
+         block_number,       (numeric) The block height number
+         "block_hash",       (string) Hash of the block
+         "previous_hash",    (string) Hash of the previous block
+         "tx_root",          (string) The Ethereum TX root of the block height
+         "receipt_root",     (string) The Ethereum TX Receipt root of the block height
+         timestamp,          (numeric) The Ethereum block timestamp
+         ...
+       ],
+       ...
+     ]
+
+Result:
+{                      (json object)
+  "status" : "str"     (string) Result
+}
+
+Examples:
+> syscoin-cli syscoinsetethheaders "[[7043888,\"0xd8ac75c7b4084c85a89d6e28219ff162661efb8b794d4b66e6e9ea52b4139b10\",\"0xd8ac75c7b4084c85a89d6e28219ff162661efb8b794d4b66e6e9ea52b4139b10\",\"0xd8ac75c7b4084c85a89d6e28219ff162661efb8b794d4b66e6e9ea52b4139b10\"],...]"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "syscoinsetethheaders", "params": ["[[7043888,\"0xd8ac75c7b4084c85a89d6e28219ff162661efb8b794d4b66e6e9ea52b4139b10\",\"0xd8ac75c7b4084c85a89d6e28219ff162661efb8b794d4b66e6e9ea52b4139b10\",\"0xd8ac75c7b4084c85a89d6e28219ff162661efb8b794d4b66e6e9ea52b4139b10\"],...]"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

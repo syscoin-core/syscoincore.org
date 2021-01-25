@@ -1,0 +1,31 @@
+---
+name: createauxblock
+btcversion: 4.2.0
+btcgroup: mining
+permalink: en/doc/4.2.0/rpc/mining/createauxblock/
+---
+
+createauxblock "address"
+
+Creates a new block and returns information required to merge-mine it.
+
+Arguments:
+1. address    (string, required) Payout address for the coinbase transaction
+
+Result:
+{                                 (json object)
+  "hash" : "hex",                 (string) hash of the created block
+  "chainid" : n,                  (numeric) chain ID for this block
+  "previousblockhash" : "hex",    (string) hash of the previous block
+  "coinbasevalue" : n,            (numeric) value of the block's coinbase
+  "bits" : "str",                 (string) compressed target of the block
+  "height" : n,                   (numeric) height of the block
+  "chain" : "str",                (string) current network name (main, test, regtest)
+  "_target" : "hex"               (string) target in reversed byte order, deprecated
+}
+
+Examples:
+> syscoin-cli createauxblock "address"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "createauxblock", "params": ["address"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

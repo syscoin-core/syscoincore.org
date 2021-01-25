@@ -1,0 +1,19 @@
+---
+name: bls_generate
+btcversion: 4.2.0
+btcgroup: evo
+permalink: en/doc/4.2.0/rpc/evo/bls_generate/
+---
+
+bls_generate
+
+Returns a BLS secret/public key pair.
+
+Result:
+null    (json null)
+
+Examples:
+> syscoin-cli bls_generate 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "bls_generate", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

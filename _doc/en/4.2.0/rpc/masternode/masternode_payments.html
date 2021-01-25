@@ -1,0 +1,25 @@
+---
+name: masternode_payments
+btcversion: 4.2.0
+btcgroup: masternode
+permalink: en/doc/4.2.0/rpc/masternode/masternode_payments/
+---
+
+masternode_payments ( "blockhash" count )
+
+Returns an array of deterministic masternodes and their payments for the specified block
+
+Arguments:
+1. blockhash    (string) The hash of the starting block.
+2. count        (numeric) The number of blocks to return.
+                Will return <count> previous blocks if <count> is negative.
+                Both 1 and -1 correspond to the chain tip.
+
+Result:
+null    (json null)
+
+Examples:
+> syscoin-cli masternode_payments 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "masternode_payments", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+
