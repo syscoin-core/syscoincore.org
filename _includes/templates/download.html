@@ -70,7 +70,7 @@
 </div>
 
   <h2 style="text-align: center">{{ page.patient }}</h2>
-  <p>{{ page.notesync | replace: '$(DATADIR_SIZE)', site.data.stats.datadir_gb | replace: '$(PRUNED_SIZE)', site.data.stats.pruned_gb | replace: '$(MONTHLY_RANGE_GB)', site.data.stats.monthly_storage_increase_range_gb }} {{ page.full_node_guide }}</p>
+  <p>{{ page.notesync | replace: '$(DATADIR_SIZE)', site.data.stats.datadir_gb | replace: '$(PRUNED_SIZE)', site.data.stats.pruned_gb | replace: '$(MONTHLY_RANGE_GB)', site.data.stats.monthly_storage_increase_range_gb }}</p>
 
 {% if page.version > 1 %}
   <h2 style="text-align: center" id="{{page.verify_download | slugify}}">{{page.verify_download}}</h2>
