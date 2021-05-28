@@ -1,0 +1,36 @@
+---
+name: syscoindecoderawtransaction
+btcversion: 4.2.2
+btcgroup: syscoin
+permalink: en/doc/4.2.2/rpc/syscoin/syscoindecoderawtransaction/
+---
+
+syscoindecoderawtransaction "hexstring"
+
+Decode raw syscoin transaction (serialized, hex-encoded) and display information pertaining to the service that is included in the transactiion data output(OP_RETURN)
+
+Arguments:
+1. hexstring    (string, required) The transaction hex string.
+
+Result:
+{                           (json object)
+  "txtype" : "str",         (string) The syscoin transaction type
+  "txid" : "hex",           (string) The transaction id
+  "blockhash" : "hex",      (string) Block confirming the transaction, if any
+  "asset_guid" : "str",     (string) The guid of the asset
+  "symbol" : "str",         (string) The asset symbol
+  "allocations" : [         (json array) (array of json receiver objects)
+    {                       (json object)
+      "address" : "str",    (string) The address of the receiver
+      "amount" : n          (numeric) The amount of the transaction
+    },
+    ...
+  ],
+  "total" : n               (numeric) The total amount in this transaction
+}
+
+Examples:
+> syscoin-cli syscoindecoderawtransaction "hexstring"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "syscoindecoderawtransaction", "params": ["hexstring"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

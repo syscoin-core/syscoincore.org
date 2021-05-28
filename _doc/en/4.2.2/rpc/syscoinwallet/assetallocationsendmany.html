@@ -1,0 +1,42 @@
+---
+name: assetallocationsendmany
+btcversion: 4.2.2
+btcgroup: syscoinwallet
+permalink: en/doc/4.2.2/rpc/syscoinwallet/assetallocationsendmany/
+---
+
+assetallocationsendmany [assetallocationsend object]... ( replaceable "comment" conf_target "estimate_mode" )
+
+Send an asset allocation you own to another address. Maximum recipients is 250.
+
+Arguments:
+1. amounts                        (json array, required) Array of assetallocationsend objects
+     [
+       {                          (json object) The assetallocationsend object
+         "asset_guid": "str",     (string, required) Asset guid
+         "address": "str",        (string, required) Address to transfer to
+         "amount": amount,        (numeric or string, required) Amount of asset to send
+         "sys_amount": amount,    (numeric or string) Amount of Syscoin to send
+       },
+       ...
+     ]
+2. replaceable                    (boolean, optional, default=wallet default) Allow this transaction to be replaced by a transaction with higher fees via BIP 125. ZDAG is only possible if RBF is disabled.
+3. comment                        (string, optional) A comment
+4. conf_target                    (numeric, optional, default=wallet default) Confirmation target (in blocks)
+5. estimate_mode                  (string, optional, default="unset") The fee estimate mode, must be one of (case insensitive):
+                                  "unset"
+                                  "economical"
+                                  "conservative"
+
+Result:
+{                    (json object)
+  "txid" : "hex"     (string) The transaction id
+}
+
+Examples:
+> syscoin-cli assetallocationsendmany '[{"asset_guid":"1045909988","address":"sysaddress1","amount":100},{"asset_guid":"1045909988","address":"sysaddress2","amount":200}]' "false"
+> syscoin-cli assetallocationsendmany "[{\"asset_guid\":"1045909988",\"address\":\"sysaddress1\",\"amount\":100},{\"asset_guid\":"1045909988",\"address\":\"sysaddress2\",\"amount\":200}]" "true"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assetallocationsendmany", "params": ['[{"asset_guid":"1045909988","address":"sysaddress1","amount":100},{"asset_guid":"1045909988","address":"sysaddress2","amount":200}]',"false"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assetallocationsendmany", "params": ["[{\"asset_guid\":"1045909988",\"address\":\"sysaddress1\",\"amount\":100},{\"asset_guid\":"1045909988",\"address\":\"sysaddress2\",\"amount\":200}]","true"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

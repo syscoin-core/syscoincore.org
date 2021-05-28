@@ -1,0 +1,28 @@
+---
+name: assetallocationsend
+btcversion: 4.2.2
+btcgroup: syscoinwallet
+permalink: en/doc/4.2.2/rpc/syscoinwallet/assetallocationsend/
+---
+
+assetallocationsend "asset_guid" "address" amount ( sys_amount replaceable )
+
+Send an asset allocation you own to another address.
+
+Arguments:
+1. asset_guid     (string, required) The asset guid
+2. address        (string, required) The address to send the allocation to
+3. amount         (numeric or string, required) Amount of asset to send
+4. sys_amount     (numeric or string) Amount of syscoin to send
+5. replaceable    (boolean, optional, default=wallet default) Allow this transaction to be replaced by a transaction with higher fees via BIP 125. ZDAG is only possible if RBF is disabled.
+
+Result:
+{                    (json object)
+  "txid" : "hex"     (string) The transaction id
+}
+
+Examples:
+> syscoin-cli assetallocationsend "asset_guid" "address" "amount" "sys_amount" "false"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assetallocationsend", "params": ["asset_guid", "address", "amount", "sys_amount", "false"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

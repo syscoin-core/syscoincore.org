@@ -1,0 +1,44 @@
+---
+name: listunspentasset
+btcversion: 4.2.2
+btcgroup: syscoinwallet
+permalink: en/doc/4.2.2/rpc/syscoinwallet/listunspentasset/
+---
+
+listunspentasset "asset_guid" ( minconf )
+
+Helper function which just calls listunspent to find unspent UTXO's for an asset.
+Arguments:
+1. asset_guid    (string, required) The syscoin asset guid to get the information of.
+2. minconf       (numeric, optional, default=1) The minimum confirmations to filter
+
+Result:
+[                                (json array)
+  {                              (json object)
+    "txid" : "hex",              (string) the transaction id
+    "vout" : n,                  (numeric) the vout value
+    "address" : "str",           (string) the syscoin address
+    "label" : "str",             (string) The associated label, or "" for the default label
+    "scriptPubKey" : "str",      (string) the script key
+    "amount" : n,                (numeric) the transaction output amount in SYS
+    "asset_guid" : "str",        (string) the transaction output asset guid if asset output
+    "asset_amount" : n,          (numeric) the transaction output asset amount in satoshis if asset output
+    "confirmations" : n,         (numeric) The number of confirmations
+    "redeemScript" : "hex",      (string) The redeemScript if scriptPubKey is P2SH
+    "witnessScript" : "str",     (string) witnessScript if the scriptPubKey is P2WSH or P2SH-P2WSH
+    "spendable" : true|false,    (boolean) Whether we have the private keys to spend this output
+    "solvable" : true|false,     (boolean) Whether we know how to spend this output, ignoring the lack of keys
+    "reused" : true|false,       (boolean) (only present if avoid_reuse is set) Whether this output is reused/dirty (sent to an address that was previously spent from)
+    "desc" : "str",              (string) (only when solvable) A descriptor for spending this output
+    "safe" : true|false          (boolean) Whether this output is considered safe to spend. Unconfirmed transactions
+                                 from outside keys and unconfirmed replacement transactions are considered unsafe
+                                 and are not eligible for spending by fundrawtransaction and sendtoaddress.
+  },
+  ...
+]
+
+Examples:
+> syscoin-cli listunspentasset 2328882 0
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "listunspentasset", "params": [2328882 0]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

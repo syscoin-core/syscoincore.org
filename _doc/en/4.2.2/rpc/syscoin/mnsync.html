@@ -1,0 +1,19 @@
+---
+name: mnsync
+btcversion: 4.2.2
+btcgroup: syscoin
+permalink: en/doc/4.2.2/rpc/syscoin/mnsync/
+---
+
+mnsync "command"
+
+Returns the sync status, updates to the next step or resets it entirely.
+
+Arguments:
+1. command    (string, required) The command to issue (status|next|reset)
+
+Examples:
+> syscoin-cli mnsync status
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "mnsync", "params": [status]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

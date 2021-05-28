@@ -1,0 +1,26 @@
+---
+name: assetallocationburn
+btcversion: 4.2.2
+btcgroup: syscoinwallet
+permalink: en/doc/4.2.2/rpc/syscoinwallet/assetallocationburn/
+---
+
+assetallocationburn "asset_guid" amount ( "ethereum_destination_address" )
+
+Burn an asset allocation in order to use the bridge or move back to Syscoin
+
+Arguments:
+1. asset_guid                      (string, required) Asset guid
+2. amount                          (numeric or string, required) Amount of asset to burn to SYSX
+3. ethereum_destination_address    (string) The 20 byte (40 character) hex string of the ethereum destination address. Omit or leave empty to burn to Syscoin.
+
+Result:
+{                    (json object)
+  "txid" : "hex"     (string) The transaction id
+}
+
+Examples:
+> syscoin-cli assetallocationburn "asset_guid" "amount" "ethereum_destination_address"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assetallocationburn", "params": ["asset_guid", "amount", "ethereum_destination_address"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

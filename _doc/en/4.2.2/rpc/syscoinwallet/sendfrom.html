@@ -1,0 +1,28 @@
+---
+name: sendfrom
+btcversion: 4.2.2
+btcgroup: syscoinwallet
+permalink: en/doc/4.2.2/rpc/syscoinwallet/sendfrom/
+---
+
+sendfrom "funding_address" "address" amount ( minconf maxconf )
+
+Send an amount to a given address from a specified address.
+
+Arguments:
+1. funding_address    (string, required) The syscoin address to send from
+2. address            (string, required) The syscoin address to send to.
+3. amount             (numeric or string, required) The amount in SYS to send. eg 0.1
+4. minconf            (numeric, optional, default=1) The minimum confirmations to filter
+5. maxconf            (numeric, optional, default=9999999) The maximum confirmations to filter
+
+Result:
+{                    (json object)
+  "txid" : "hex"     (string) The transaction id.
+}
+
+Examples:
+> syscoin-cli sendfrom \"sys1q09vm5lfy0j5reeulh4x5752q25uqqvz34hufdl\" \"sys1qtyf33aa2tl62xhrzhralpytka0krxvt0a4e8ee\" 0.1
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "sendfrom", "params": [\"sys1q09vm5lfy0j5reeulh4x5752q25uqqvz34hufdl\",\"sys1qtyf33aa2tl62xhrzhralpytka0krxvt0a4e8ee\", 0.1]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

@@ -1,0 +1,19 @@
+---
+name: syscoingetspvproof
+btcversion: 4.2.2
+btcgroup: syscoin
+permalink: en/doc/4.2.2/rpc/syscoin/syscoingetspvproof/
+---
+
+syscoingetspvproof "txid" ( "blockhash" )
+
+Returns SPV proof for use with inter-chain transfers.
+
+Arguments:
+1. txid         (string, required) A transaction that is in the block
+2. blockhash    (string, optional) If specified, looks for txid in the block with this hash
+
+Result:
+"str"    (string) JSON representation of merkle proof (transaction index, siblings and block header and some other information useful for moving coins/assets to another chain)
+
+

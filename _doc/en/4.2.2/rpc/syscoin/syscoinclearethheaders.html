@@ -1,0 +1,21 @@
+---
+name: syscoinclearethheaders
+btcversion: 4.2.2
+btcgroup: syscoin
+permalink: en/doc/4.2.2/rpc/syscoin/syscoinclearethheaders/
+---
+
+syscoinclearethheaders
+
+Clears Ethereum headers in Syscoin.
+
+Result:
+{                      (json object)
+  "status" : "str"     (string) Result
+}
+
+Examples:
+> syscoin-cli syscoinclearethheaders 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "syscoinclearethheaders", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

@@ -1,0 +1,24 @@
+---
+name: syscoincheckmint
+btcversion: 4.2.2
+btcgroup: syscoin
+permalink: en/doc/4.2.2/rpc/syscoin/syscoincheckmint/
+---
+
+syscoincheckmint bridge_transfer_id
+
+Get the Syscoin mint transaction by looking up using Bridge Transfer ID.
+
+Arguments:
+1. bridge_transfer_id    (numeric, required) Ethereum Bridge Transfer ID used to burn funds to move to Syscoin.
+
+Result:
+{                    (json object)
+  "txid" : "hex"     (string) The transaction id
+}
+
+Examples:
+> syscoin-cli syscoincheckmint 1221
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "syscoincheckmint", "params": [1221]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

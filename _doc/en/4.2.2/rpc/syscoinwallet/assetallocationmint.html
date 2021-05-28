@@ -1,0 +1,36 @@
+---
+name: assetallocationmint
+btcversion: 4.2.2
+btcgroup: syscoinwallet
+permalink: en/doc/4.2.2/rpc/syscoinwallet/assetallocationmint/
+---
+
+assetallocationmint "asset_guid" "address" amount blocknumber bridge_transfer_id "tx_hex" "txroot_hex" "txmerkleproof_hex" "merklerootpath_hex" "receipt_hex" "receiptroot_hex" "receiptmerkleproof_hex" ( auxfee_test )
+
+Mint assetallocation to come back from the bridge
+
+Arguments:
+1. asset_guid                 (string, required) Asset guid
+2. address                    (string, required) Mint to this address.
+3. amount                     (numeric or string, required) Amount of asset to mint.  Note that fees (in SYS) will be taken from the owner address
+4. blocknumber                (numeric, required) Block number of the block that included the burn transaction on Ethereum.
+5. bridge_transfer_id         (numeric, required) Unique Bridge Transfer ID for this event from Ethereum. It is the low 32 bits of the transferIdAndPrecisions field in the TokenFreeze Event on freezeBurnERC20 call.
+6. tx_hex                     (string, required) Transaction hex.
+7. txroot_hex                 (string, required) The transaction merkle root that commits this transaction to the block header.
+8. txmerkleproof_hex          (string, required) The list of parent nodes of the Merkle Patricia Tree for SPV proof of transaction merkle root.
+9. merklerootpath_hex         (string, required) The merkle path to walk through the tree to recreate the merkle hash for both transaction and receipt root.
+10. receipt_hex               (string, required) Transaction Receipt Hex.
+11. receiptroot_hex           (string, required) The transaction receipt merkle root that commits this receipt to the block header.
+12. receiptmerkleproof_hex    (string, required) The list of parent nodes of the Merkle Patricia Tree for SPV proof of transaction receipt merkle root.
+13. auxfee_test               (boolean) Used for internal testing only.
+
+Result:
+{                    (json object)
+  "txid" : "hex"     (string) The transaction id
+}
+
+Examples:
+> syscoin-cli assetallocationmint "asset_guid" "address" "amount" "blocknumber" "bridge_transfer_id" "tx_hex" "txroot_hex" "txmerkleproof_hex" "txmerkleproofpath_hex" "receipt_hex" "receiptroot_hex" "receiptmerkleproof"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assetallocationmint", "params": ["asset_guid", "address", "amount", "blocknumber", "bridge_transfer_id", "tx_hex", "txroot_hex", "txmerkleproof_hex", "txmerkleproofpath_hex", "receipt_hex", "receiptroot_hex", "receiptmerkleproof"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

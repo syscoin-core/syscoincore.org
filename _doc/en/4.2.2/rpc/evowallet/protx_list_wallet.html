@@ -1,0 +1,21 @@
+---
+name: protx_list_wallet
+btcversion: 4.2.2
+btcgroup: evowallet
+permalink: en/doc/4.2.2/rpc/evowallet/protx_list_wallet/
+---
+
+protx_list_wallet ( detailed height )
+
+List only ProTx which are found in your wallet at the given chain height.
+This will also include ProTx which failed PoSe verification.
+
+Arguments:
+1. detailed    (numeric, optional, default=0) If 0, only the hashes of the ProTx will be returned. If 1 returns voting details for each DMN and keys and if 2 returns full details of each DMN
+2. height      (numeric) Height to look for ProTx transactions, if not specified defaults to current chain-tip
+
+Examples:
+> syscoin-cli protx_list_wallet true
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "protx_list_wallet", "params": [true]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

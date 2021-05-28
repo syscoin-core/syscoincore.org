@@ -1,0 +1,25 @@
+---
+name: assettransfer
+btcversion: 4.2.2
+btcgroup: syscoinwallet
+permalink: en/doc/4.2.2/rpc/syscoinwallet/assettransfer/
+---
+
+assettransfer "asset_guid" "address"
+
+Perform a transfer of ownership on an asset you control.
+
+Arguments:
+1. asset_guid    (string, required) Asset guid
+2. address       (string, required) New owner of asset.
+
+Result:
+{                    (json object)
+  "txid" : "hex"     (string) The transaction id
+}
+
+Examples:
+> syscoin-cli assettransfer "asset_guid" "address"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assettransfer", "params": ["asset_guid", "address"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

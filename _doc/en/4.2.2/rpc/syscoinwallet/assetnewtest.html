@@ -1,0 +1,49 @@
+---
+name: assetnewtest
+btcversion: 4.2.2
+btcgroup: syscoinwallet
+permalink: en/doc/4.2.2/rpc/syscoinwallet/assetnewtest/
+---
+
+assetnewtest "asset_guid" funding_amount "symbol" "description" "contract" precision max_supply ( updatecapability_flags "notary_address" {"endpoint":"str","instant_transfers":bool,"hd_required":bool} {"auxfee_address":"str","fee_struct":[,,...]} )
+
+Create a new asset for testing purposes with a specific asset_guid. Used by functional tests.
+
+Arguments:
+1. asset_guid                        (string, required) Create asset with this GUID. Only on regtest.
+2. funding_amount                    (numeric or string, required) Fund resulting UTXO owning the asset by this much SYS for gas.
+3. symbol                            (string, required) Asset symbol (1-8 characters)
+4. description                       (string, required) Public description of the token.
+5. contract                          (string, required) Ethereum token contract for SyscoinX bridge. Must be in hex and not include the '0x' format tag. For example contract '0xb060ddb93707d2bc2f8bcc39451a5a28852f8d1d' should be set as 'b060ddb93707d2bc2f8bcc39451a5a28852f8d1d'. Leave empty for no smart contract bridge.
+6. precision                         (numeric, required) Precision of balances. Must be between 0 and 8. The lower it is the higher possible max_supply is available since the supply is represented as a 64 bit integer. With a precision of 8 the max supply is 10 billion.
+7. max_supply                        (numeric or string, required) Maximum supply of this asset. Depends on the precision value that is set, the lower the precision the higher max_supply can be.
+8. updatecapability_flags            (numeric) Ability to update certain fields. Must be decimal value which is a bitmask for certain rights to update. The bitmask 1 represents the ability to update public data field, 2 for updating the smart contract field, 4 for updating supply, 8 for updating notary address, 16 for updating notary details, 32 for updating auxfee details, 64 for ability to update the capability flags (this field). 127 for all. 0 for none (not updatable).
+9. notary_address                    (string) Notary address
+10. notary_details                   (json object) Notary details structure (if notary_address is set)
+     {
+       "endpoint": "str",            (string, required) Notary API endpoint (if applicable)
+       "instant_transfers": bool,    (boolean, required) Enforced double-spend prevention on Notary for Instant Transfers
+       "hd_required": bool,          (boolean, required) If Notary requires HD Wallet approval (for sender approval specifically applicable to change address schemes), usually in the form of account XPUB or Verifiable Credential of account XPUB using DID
+     }
+11. auxfee_details                   (json object) Auxiliary fee structure (may be enforced if notary is set)
+     {
+       "auxfee_address": "str",      (string, required) AuxFee address
+       "fee_struct": [               (json array, required) Auxiliary fee structure
+         ,                           (numeric or string, required) Bound (in amount) for for the fee level based on total transaction amount
+         ,                           (numeric, required) The percentage in %% to share with the operator. The value must be
+                                     between 0.00(0%%) and 0.65535(65.535%%).
+         ...
+       ],
+     }
+
+Result:
+{                          (json object)
+  "txid" : "hex",          (string) The transaction id
+  "asset_guid" : "str"     (string) The unique identifier of the new asset
+}
+
+Examples:
+> syscoin-cli assetnew 1 "CAT" "publicvalue" "contractaddr" 8 1000 127 "notary_address" {} {}
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assetnew", "params": [1, "CAT", "publicvalue", "contractaddr", 8, 1000, 127, "notary_address", {}, {}]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

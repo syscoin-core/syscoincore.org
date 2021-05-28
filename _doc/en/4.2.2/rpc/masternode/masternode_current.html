@@ -1,0 +1,16 @@
+---
+name: masternode_current
+btcversion: 4.2.2
+btcgroup: masternode
+permalink: en/doc/4.2.2/rpc/masternode/masternode_current/
+---
+
+masternode_current
+
+Print info on current masternode winner to be paid the next block (calculated locally)
+
+Examples:
+> syscoin-cli masternode_current 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "masternode_current", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

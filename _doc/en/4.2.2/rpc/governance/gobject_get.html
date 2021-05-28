@@ -1,0 +1,19 @@
+---
+name: gobject_get
+btcversion: 4.2.2
+btcgroup: governance
+permalink: en/doc/4.2.2/rpc/governance/gobject_get/
+---
+
+gobject_get "governanceHash"
+
+Get governance object by hash
+
+Arguments:
+1. governanceHash    (string, required) Object id.
+
+Examples:
+> syscoin-cli gobject_get 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "gobject_get", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+
