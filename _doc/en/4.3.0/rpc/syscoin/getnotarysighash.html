@@ -1,0 +1,23 @@
+---
+name: getnotarysighash
+btcversion: 4.3.0
+btcgroup: syscoin
+permalink: en/doc/4.3.0/rpc/syscoin/getnotarysighash/
+---
+
+getnotarysighash "hex" "asset_guid"
+
+Get sighash for notary to sign off on, use assettransactionnotarize to update the transaction after re-singing once sighash is used to create a notarized signature.
+
+Arguments:
+1. hex           (string, required) Transaction to get sighash for.
+2. asset_guid    (string, required) The guid of the asset to sighash for.
+
+Result:
+"hex"    (string) Notary sighash (uint256)
+
+Examples:
+> syscoin-cli getnotarysighash "hex" 12121
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "getnotarysighash", "params": ["hex",12121]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

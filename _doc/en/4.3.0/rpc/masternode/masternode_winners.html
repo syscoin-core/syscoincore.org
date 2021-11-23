@@ -1,0 +1,20 @@
+---
+name: masternode_winners
+btcversion: 4.3.0
+btcgroup: masternode
+permalink: en/doc/4.3.0/rpc/masternode/masternode_winners/
+---
+
+masternode_winners ( count "filter" )
+
+Print list of masternode winners
+
+Arguments:
+1. count     (numeric) Number of last winners to return.
+2. filter    (string) Filter for returned winners.
+
+Examples:
+> syscoin-cli masternode_winners 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "masternode_winners", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+
