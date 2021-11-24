@@ -1,0 +1,26 @@
+---
+name: assettransactionnotarize
+btcversion: 4.3.0
+btcgroup: syscoin
+permalink: en/doc/4.3.0/rpc/syscoin/assettransactionnotarize/
+---
+
+assettransactionnotarize "hex" "asset_guid" "signature"
+
+Update notary signature on an asset transaction. Will require re-signing transaction before submitting to network.
+
+Arguments:
+1. hex           (string, required) Transaction to notarize.
+2. asset_guid    (string, required) The guid of the asset to notarize.
+3. signature     (string, required) Base64 encoded notary signature to add to transaction.
+
+Result:
+{                   (json object)
+  "hex" : "hex"     (string) The notarized transaction hex, which you must sign prior to submitting.
+}
+
+Examples:
+> syscoin-cli assettransactionnotarize "hex" 12121 "signature"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assettransactionnotarize", "params": ["hex",12121,"signature"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

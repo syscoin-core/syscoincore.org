@@ -1,0 +1,19 @@
+---
+name: gobject_count
+btcversion: 4.3.0
+btcgroup: governance
+permalink: en/doc/4.3.0/rpc/governance/gobject_count/
+---
+
+gobject_count ( "mode" )
+
+Count governance objects and votes
+
+Arguments:
+1. mode    (string) Output format: json ("json") or string in free form ("all").
+
+Examples:
+> syscoin-cli gobject_count json
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "gobject_count", "params": [json]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

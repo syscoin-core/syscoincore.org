@@ -1,0 +1,21 @@
+---
+name: gobject_vote_conf
+btcversion: 4.3.0
+btcgroup: governance
+permalink: en/doc/4.3.0/rpc/governance/gobject_vote_conf/
+---
+
+gobject_vote_conf "governanceHash" "vote" "voteOutome"
+
+Vote on a governance object by masternode configured in syscoin.conf
+
+Arguments:
+1. governanceHash    (string, required) Hash of the governance object.
+2. vote              (string, required) Vote, possible values: [funding|valid|delete|endorsed].
+3. voteOutome        (string, required) Vote outcome, possible values: [yes|no|abstain].
+
+Examples:
+> syscoin-cli gobject_vote_conf 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "gobject_vote_conf", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

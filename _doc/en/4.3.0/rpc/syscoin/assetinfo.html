@@ -1,0 +1,33 @@
+---
+name: assetinfo
+btcversion: 4.3.0
+btcgroup: syscoin
+permalink: en/doc/4.3.0/rpc/syscoin/assetinfo/
+---
+
+assetinfo "asset_guid"
+
+Show stored values of a single asset and its.
+
+Arguments:
+1. asset_guid    (string, required) The asset guid
+
+Result:
+{                                  (json object)
+  "asset_guid" : "str",            (string) The guid of the asset
+  "symbol" : "str",                (string) The asset symbol
+  "txid" : "hex",                  (string) The transaction id that created this asset
+  "public_value" : "str",          (string) The public value attached to this asset
+  "contract" : "hex",              (string) The nevm contract address
+  "total_supply" : n,              (numeric) The total supply of this asset
+  "max_supply" : n,                (numeric) The maximum supply of this asset
+  "updatecapability_flags" : n,    (numeric) The capability flag in decimal
+  "precision" : n,                 (numeric) The precision of this asset
+  "NFTID" : "str"                  (string) The NFT ID of the asset if applicable
+}
+
+Examples:
+> syscoin-cli assetinfo "assetguid"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assetinfo", "params": ["assetguid"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+
