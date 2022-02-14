@@ -1,0 +1,21 @@
+---
+name: gobject_vote_many
+btcversion: 4.3.0
+btcgroup: governancewallet
+permalink: en/doc/4.3.0/rpc/governancewallet/gobject_vote_many/
+---
+
+gobject_vote_many "governanceHash" "vote" "voteOutome"
+
+Vote on a governance object by all masternodes for which the voting key is present in the local wallet.
+
+Arguments:
+1. governanceHash    (string, required) Hash of the governance object.
+2. vote              (string, required) Vote, possible values: [funding|valid|delete|endorsed].
+3. voteOutome        (string, required) Vote outcome, possible values: [yes|no|abstain].
+
+Examples:
+> syscoin-cli gobject_vote_many 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "gobject_vote_many", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

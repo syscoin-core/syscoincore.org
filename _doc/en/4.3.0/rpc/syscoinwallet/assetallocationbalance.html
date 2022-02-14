@@ -1,0 +1,48 @@
+---
+name: assetallocationbalance
+btcversion: 4.3.0
+btcgroup: syscoinwallet
+permalink: en/doc/4.3.0/rpc/syscoinwallet/assetallocationbalance/
+---
+
+assetallocationbalance "asset_guid" ( ["address",...] minconf maxconf verbose )
+
+Show asset and allocated balance information pertaining to an asset owned in your wallet.
+
+Arguments:
+1. asset_guid        (string, required) The syscoin asset guid to get the information of.
+2. addresses         (json array, optional, default=[]) The syscoin addresses to filter
+     [
+       "address",    (string) syscoin address
+       ...
+     ]
+3. minconf           (numeric, optional, default=1) The minimum confirmations to filter
+4. maxconf           (numeric, optional, default=9999999) The maximum confirmations to filter
+5. verbose           (boolean, optional, default=false) If false, return just balances, otherwise return asset information as well as balances
+
+Result (for verbose = false):
+{                        (json object)
+  "amount" : n,          (numeric) the balance output amount in SYS
+  "asset_amount" : n     (numeric) the balance asset amount in satoshis
+}
+
+Result (for verbose = true):
+{                                  (json object)
+  "asset_guid" : "str",            (string) The guid of the asset
+  "symbol" : "str",                (string) The asset symbol
+  "txid" : "hex",                  (string) The transaction id that created this asset
+  "public_value" : "str",          (string) The public value attached to this asset
+  "contract" : "hex",              (string) The nevm contract address
+  "total_supply" : n,              (numeric) The total supply of this asset
+  "max_supply" : n,                (numeric) The maximum supply of this asset
+  "updatecapability_flags" : n,    (numeric) The capability flag in decimal
+  "precision" : n,                 (numeric) The precision of this asset
+  "amount" : n,                    (numeric) the balance output amount in SYS
+  "asset_amount" : n               (numeric) the balance asset amount in satoshis
+}
+
+Examples:
+> syscoin-cli assetallocationbalance 552723762 "[\"sys1q09vm5lfy0j5reeulh4x5752q25uqqvz34hufdl\",\"sys1qtyf33aa2tl62xhrzhralpytka0krxvt0a4e8ee\"]" 6 9999999
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assetallocationbalance", "params": [552723762, "[\"sys1q09vm5lfy0j5reeulh4x5752q25uqqvz34hufdl\",\"sys1qtyf33aa2tl62xhrzhralpytka0krxvt0a4e8ee\"]", 6, 9999999]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

@@ -1,0 +1,27 @@
+---
+name: gobject_prepare
+btcversion: 4.3.0
+btcgroup: governancewallet
+permalink: en/doc/4.3.0/rpc/governancewallet/gobject_prepare/
+---
+
+gobject_prepare "parentHash" revision time "dataHex" ( "outputHash" outputIndex )
+
+Prepare governance object by signing and creating tx.
+
+Arguments:
+1. parentHash     (string, required) Hash of the parent object, "0" is root.
+2. revision       (numeric, required) Object revision in the system.
+3. time           (numeric, required) Time this object was created.
+4. dataHex        (string, required) Data in hex string form.
+5. outputHash     (string) The single output to submit the proposal fee from.
+6. outputIndex    (numeric) The output index.
+
+Result:
+"hex"    (string) txid
+
+Examples:
+> syscoin-cli gobject_prepare 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "gobject_prepare", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

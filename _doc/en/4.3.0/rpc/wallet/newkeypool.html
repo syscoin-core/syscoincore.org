@@ -1,0 +1,20 @@
+---
+name: newkeypool
+btcversion: 4.3.0
+btcgroup: wallet
+permalink: en/doc/4.3.0/rpc/wallet/newkeypool/
+---
+
+newkeypool
+
+Entirely clears and refills the keypool.
+Requires wallet passphrase to be set with walletpassphrase call if wallet is encrypted.
+
+Result:
+null    (json null)
+
+Examples:
+> syscoin-cli newkeypool 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "newkeypool", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

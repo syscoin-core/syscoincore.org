@@ -10,7 +10,9 @@ savemempool
 Dumps the mempool to disk. It will fail until the previous dump is fully loaded.
 
 Result:
-null    (json null)
+{                        (json object)
+  "filename" : "str"     (string) the directory and file where the mempool was saved
+}
 
 Examples:
 > syscoin-cli savemempool 

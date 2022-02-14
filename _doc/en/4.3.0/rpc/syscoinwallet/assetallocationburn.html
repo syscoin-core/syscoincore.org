@@ -1,0 +1,30 @@
+---
+name: assetallocationburn
+btcversion: 4.3.0
+btcgroup: syscoinwallet
+permalink: en/doc/4.3.0/rpc/syscoinwallet/assetallocationburn/
+---
+
+assetallocationburn "asset_guid" amount ( "nevm_destination_address" "change_address" include_watching )
+
+Burn an asset allocation in order to use the bridge or move back to Syscoin
+
+Arguments:
+1. asset_guid                  (string, required) Asset guid
+2. amount                      (numeric or string, required) Amount of asset to burn to SYSX
+3. nevm_destination_address    (string) The 20 byte (40 character) hex string of the nevm destination address. Omit or leave empty to burn to Syscoin.
+4. change_address              (string) The change address to send to.
+5. include_watching            (boolean, optional, default=true for watch-only wallets, otherwise false) Also select inputs which are watch only.
+                               Only solvable inputs can be used. Watch-only destinations are solvable if the public key and/or output script was imported,
+                               e.g. with 'importpubkey' or 'importmulti' with the 'pubkeys' or 'desc' field.
+
+Result:
+{                    (json object)
+  "txid" : "hex"     (string) The transaction id
+}
+
+Examples:
+> syscoin-cli assetallocationburn "asset_guid" "amount" "nevm_destination_address"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assetallocationburn", "params": ["asset_guid", "amount", "nevm_destination_address"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+
