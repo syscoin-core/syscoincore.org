@@ -1,0 +1,27 @@
+---
+name: convertaddresswallet
+btcversion: 4.4.0
+btcgroup: syscoinwallet
+permalink: en/doc/4.4.0/rpc/syscoinwallet/convertaddresswallet/
+---
+
+convertaddresswallet "address" An optional label ( rescan )
+
+Convert between Syscoin 3 and Syscoin 4 formats. This should only be used with addressed based on compressed private keys only. P2WPKH can be shown as P2PKH in Syscoin 3. Adds to wallet as receiving address under label specified.
+
+Arguments:
+1. address    (string, required) The syscoin address to get the information of.
+2. label      (string, required) Label Syscoin V4 address and store in receiving address. Set to "" to not add to receiving address
+3. rescan     (boolean, optional, default=false) Rescan the wallet for transactions. Useful if you provided label to add to receiving address
+
+Result:
+{                         (json object)
+  "v3address" : "str",    (string) The syscoin 3 address validated
+  "v4address" : "str"     (string) The syscoin 4 address validated
+}
+
+Examples:
+> syscoin-cli convertaddresswallet "sys1qw40fdue7g7r5ugw0epzk7xy24tywncm26hu4a7" "bob" true
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "convertaddresswallet", "params": ["sys1qw40fdue7g7r5ugw0epzk7xy24tywncm26hu4a7" "bob" true]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

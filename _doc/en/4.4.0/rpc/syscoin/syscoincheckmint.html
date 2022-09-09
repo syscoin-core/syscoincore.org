@@ -1,0 +1,24 @@
+---
+name: syscoincheckmint
+btcversion: 4.4.0
+btcgroup: syscoin
+permalink: en/doc/4.4.0/rpc/syscoin/syscoincheckmint/
+---
+
+syscoincheckmint "nevm_txhash"
+
+Get the Syscoin mint transaction by looking up using NEVM tx hash (This is no the txid, it is the sha3 of the transaction bytes value).
+
+Arguments:
+1. nevm_txhash    (string, required) NEVM Tx Hash used to burn funds to move to Syscoin.
+
+Result:
+{                    (json object)
+  "txid" : "hex"     (string) The transaction id
+}
+
+Examples:
+> syscoin-cli syscoincheckmint d8ac75c7b4084c85a89d6e28219ff162661efb8b794d4b66e6e9ea52b4139b10
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "syscoincheckmint", "params": [d8ac75c7b4084c85a89d6e28219ff162661efb8b794d4b66e6e9ea52b4139b10]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

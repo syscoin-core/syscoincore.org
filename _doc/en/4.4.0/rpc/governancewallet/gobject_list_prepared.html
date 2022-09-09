@@ -1,0 +1,19 @@
+---
+name: gobject_list_prepared
+btcversion: 4.4.0
+btcgroup: governancewallet
+permalink: en/doc/4.4.0/rpc/governancewallet/gobject_list_prepared/
+---
+
+gobject_list_prepared ( count )
+
+Returns a list of governance objects prepared by this wallet with "gobject_prepare" sorted by their creation time.
+
+Arguments:
+1. count    (numeric) Maximum number of objects to return.
+
+Examples:
+> syscoin-cli gobject_list_prepared 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "gobject_list_prepared", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

@@ -1,0 +1,19 @@
+---
+name: gobject_check
+btcversion: 4.4.0
+btcgroup: governance
+permalink: en/doc/4.4.0/rpc/governance/gobject_check/
+---
+
+gobject_check "hex_data"
+
+Validate governance object data (proposal only)
+
+Arguments:
+1. hex_data    (string, required) Data in hex string form.
+
+Examples:
+> syscoin-cli gobject_check 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "gobject_check", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+
