@@ -33,15 +33,18 @@ Arguments:
 4. fee_rate                              (numeric or string, optional, default=not set, fall back to wallet fee estimation) Specify a fee rate in sat/vB.
 5. options                               (json object, optional)
      {
-       "version": n,                     (numeric) Custom transaction version.
-       "add_inputs": bool,               (boolean, optional, default=false) If inputs are specified, automatically include more if they are not enough.
+       "version": n,                     (numeric, optional) Custom transaction version.
+       "add_inputs": bool,               (boolean, optional, default=false when "inputs" are specified, true otherwise) Automatically include coins from the wallet to cover the target amount.
+                                         
        "include_unsafe": bool,           (boolean, optional, default=false) Include inputs that are not safe to spend (unconfirmed transactions from outside keys and unconfirmed replacement transactions).
                                          Warning: the resulting transaction may become invalid if one of the unsafe inputs disappears.
                                          If that happens, you will need to fund the transaction with different inputs and republish it.
+       "minconf": n,                     (numeric, optional, default=0) If add_inputs is specified, require inputs with at least this many confirmations.
+       "maxconf": n,                     (numeric, optional) If add_inputs is specified, require inputs with at most this many confirmations.
        "add_to_wallet": bool,            (boolean, optional, default=true) When false, returns a serialized transaction which will not be added to the wallet or broadcast
        "change_address": "str",          (string, optional, default=automatic) The syscoin address to receive the change
        "change_position": n,             (numeric, optional, default=random) The index of the change output
-       "change_type": "str",             (string, optional, default=set by -changetype) The output type to use. Only valid if change_address is not specified. Options are "legacy", "p2sh-segwit", and "bech32".
+       "change_type": "str",             (string, optional, default=set by -changetype) The output type to use. Only valid if change_address is not specified. Options are "legacy", "p2sh-segwit", "bech32" and "bech32m".
        "fee_rate": amount,               (numeric or string, optional, default=not set, fall back to wallet fee estimation) Specify a fee rate in sat/vB.
        "include_watching": bool,         (boolean, optional, default=true for watch-only wallets, otherwise false) Also select inputs which are watch only.
                                          Only solvable inputs can be used. Watch-only destinations are solvable if the public key and/or output script was imported,
@@ -97,16 +100,16 @@ Result:
 
 Examples:
 
-Send 0.1 BTC with a confirmation target of 6 blocks in economical fee estimate mode
+Send 0.1 SYS with a confirmation target of 6 blocks in economical fee estimate mode
 > syscoin-cli send '{"sys1q09vm5lfy0j5reeulh4x5752q25uqqvz34hufdl": 0.1}' 6 economical
 
-Send 0.2 BTC with a fee rate of 1.1 sat/vB using positional arguments
+Send 0.2 SYS with a fee rate of 1.1 sat/vB using positional arguments
 > syscoin-cli send '{"sys1q09vm5lfy0j5reeulh4x5752q25uqqvz34hufdl": 0.2}' null "unset" 1.1
 
-Send 0.2 BTC with a fee rate of 1 sat/vB using the options argument
+Send 0.2 SYS with a fee rate of 1 sat/vB using the options argument
 > syscoin-cli send '{"sys1q09vm5lfy0j5reeulh4x5752q25uqqvz34hufdl": 0.2}' null "unset" null '{"fee_rate": 1}'
 
-Send 0.3 BTC with a fee rate of 25 sat/vB using named arguments
+Send 0.3 SYS with a fee rate of 25 sat/vB using named arguments
 > syscoin-cli -named send outputs='{"sys1q09vm5lfy0j5reeulh4x5752q25uqqvz34hufdl": 0.3}' fee_rate=25
 
 Create a transaction that should confirm the next block, with a specific input, and return result without adding to wallet or broadcasting to the network

@@ -5,7 +5,7 @@ btcgroup: evowallet
 permalink: en/doc/4.4.0/rpc/evowallet/protx_revoke/
 ---
 
-protx_revoke "proTxHash" "operatorKey" ( reason "feeSourceAddress" )
+protx_revoke "proTxHash" "operatorKey" ( reason "feeSourceAddress" legacy )
 
 Creates and sends a ProUpRevTx to the network. This will revoke the operator key of the masternode and
 put it into the PoSe-banned state. It will also set the service field of the masternode
@@ -17,9 +17,10 @@ Arguments:
 2. operatorKey         (string, required) The operator BLS private key associated with the
                        registered operator public key.
 3. reason              (numeric, optional, default=0) The reason for masternode service revocation.
-4. feeSourceAddress    (string) If specified wallet will only use coins from this address to fund ProTx.
+4. feeSourceAddress    (string, optional) If specified wallet will only use coins from this address to fund ProTx.
                        If not specified, payoutAddress is the one that is going to be used.
                        The private key belonging to this address must be known in your wallet.
+5. legacy              (boolean, optional) Use Legacy BLS scheme (false by default
 
 Result:
 "hex"    (string) The transaction hash in hex

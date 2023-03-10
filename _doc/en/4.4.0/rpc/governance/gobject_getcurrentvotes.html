@@ -11,8 +11,8 @@ Get only current (tallying) votes for a governance object hash (does not include
 
 Arguments:
 1. governanceHash    (string, required) Object id.
-2. txid              (string) Masternode collateral txid.
-3. vout              (numeric) Masternode collateral output index, required if <txid> presents.
+2. txid              (string, optional) Masternode collateral txid.
+3. vout              (numeric, optional) Masternode collateral output index, required if <txid> presents.
 
 Examples:
 > syscoin-cli gobject_getcurrentvotes 

@@ -5,7 +5,7 @@ btcgroup: evowallet
 permalink: en/doc/4.4.0/rpc/evowallet/protx_register/
 ---
 
-protx_register "collateralHash" collateralIndex "ipAndPort" "ownerAddress" "operatorPubKey" "votingAddress" operatorReward "payoutAddress" ( "fundAddress" submit )
+protx_register "collateralHash" collateralIndex "ipAndPort" "ownerAddress" "operatorPubKey" "votingAddress" operatorReward "payoutAddress" ( "fundAddress" submit legacy )
 
 Same as "protx_register_fund", but with an externally referenced collateral.
 The collateral is specified through "collateralHash" and "collateralIndex" and must be an unspent
@@ -31,7 +31,8 @@ Arguments:
 9. fundAddress        (string, optional, default="") If specified wallet will only use coins from this address to fund ProTx.
                       If not specified, payoutAddress is the one that is going to be used.
                       The private key belonging to this address must be known in your wallet.
-10. submit            (boolean) If true, the resulting transaction is sent to the network.
+10. submit            (boolean, optional) If true, the resulting transaction is sent to the network.
+11. legacy            (boolean, optional) Use Legacy BLS scheme (false by default
 
 Result:
 "hex"    (string) The transaction hash in hex

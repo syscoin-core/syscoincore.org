@@ -5,7 +5,7 @@ btcgroup: evowallet
 permalink: en/doc/4.4.0/rpc/evowallet/protx_update_service/
 ---
 
-protx_update_service "proTxHash" "ipAndPort" "operatorKey" ( "operatorPayoutAddress" "feeSourceAddress" )
+protx_update_service "proTxHash" "ipAndPort" "operatorKey" ( "operatorPayoutAddress" "feeSourceAddress" legacy )
 
 Creates and sends a ProUpServTx to the network. This will update the IP address
 of a masternode.
@@ -23,6 +23,7 @@ Arguments:
 5. feeSourceAddress         (string, optional, default="") If specified wallet will only use coins from this address to fund ProTx.
                             If not specified, payoutAddress is the one that is going to be used.
                             The private key belonging to this address must be known in your wallet.
+6. legacy                   (boolean, optional) Use Legacy BLS scheme (false by default
 
 Result:
 "hex"    (string) The transaction hash in hex

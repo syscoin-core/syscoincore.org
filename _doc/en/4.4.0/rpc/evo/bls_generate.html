@@ -5,9 +5,12 @@ btcgroup: evo
 permalink: en/doc/4.4.0/rpc/evo/bls_generate/
 ---
 
-bls_generate
+bls_generate ( legacy )
 
 Returns a BLS secret/public key pair.
+
+Arguments:
+1. legacy    (boolean, optional, default=true) Use legacy BLS scheme
 
 Examples:
 > syscoin-cli bls_generate 

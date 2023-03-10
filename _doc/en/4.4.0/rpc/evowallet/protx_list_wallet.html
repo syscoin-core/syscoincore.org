@@ -12,7 +12,7 @@ This will also include ProTx which failed PoSe verification.
 
 Arguments:
 1. detailed    (numeric, optional, default=0) If 0, only the hashes of the ProTx will be returned. If 1 returns voting details for each DMN and keys and if 2 returns full details of each DMN
-2. height      (numeric) Height to look for ProTx transactions, if not specified defaults to current chain-tip
+2. height      (numeric, optional) Height to look for ProTx transactions, if not specified defaults to current chain-tip
 
 Examples:
 > syscoin-cli protx_list_wallet true

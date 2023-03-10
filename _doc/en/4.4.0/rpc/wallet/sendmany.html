@@ -5,13 +5,13 @@ btcgroup: wallet
 permalink: en/doc/4.4.0/rpc/wallet/sendmany/
 ---
 
-sendmany "" {"address":amount,...} ( minconf "comment" ["address",...] replaceable conf_target "estimate_mode" fee_rate verbose )
+sendmany ( "" ) {"address":amount,...} ( minconf "comment" ["address",...] replaceable conf_target "estimate_mode" fee_rate verbose )
 
 Send multiple times. Amounts are double-precision floating point numbers.
 Requires wallet passphrase to be set with walletpassphrase call if wallet is encrypted.
 
 Arguments:
-1. dummy                     (string, required) Must be set to "" for backwards compatibility.
+1. dummy                     (string, optional, default="\"\"") Must be set to "" for backwards compatibility.
 2. amounts                   (json object, required) The addresses and amounts
      {
        "address": amount,    (numeric or string, required) The syscoin address is the key, the numeric amount (can be string) in SYS is the value
@@ -34,7 +34,7 @@ Arguments:
                              "economical"
                              "conservative"
 9. fee_rate                  (numeric or string, optional, default=not set, fall back to wallet fee estimation) Specify a fee rate in sat/vB.
-10. verbose                  (boolean, optional, default=false) If true, return extra infomration about the transaction.
+10. verbose                  (boolean, optional, default=false) If true, return extra information about the transaction.
 
 Result (if verbose is not set or set to false):
 "hex"    (string) The transaction id for the send. Only 1 transaction is created regardless of

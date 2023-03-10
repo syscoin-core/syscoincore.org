@@ -38,16 +38,20 @@ Arguments:
        "include_watching": bool,    (boolean, optional, default=true for watch-only wallets, otherwise false) Also select inputs which are watch-only.
                                     Only solvable inputs can be used. Watch-only destinations are solvable if the public key and/or output script was imported,
                                     e.g. with 'importpubkey' or 'importmulti' with the 'pubkeys' or 'desc' field.
-       "inputs": [                  (json array, optional, default=[]) Use exactly the specified inputs to build the transaction. Specifying inputs is incompatible with send_max. A JSON array of JSON objects
-         "txid",                    (string, required) The transaction id
-         vout,                      (numeric, required) The output number
-         sequence,                  (numeric, required) The sequence number
+       "inputs": [                  (json array, optional, default=[]) Use exactly the specified inputs to build the transaction. Specifying inputs is incompatible with the send_max, minconf, and maxconf options.
+         {                          (json object)
+           "txid": "hex",           (string, required) The transaction id
+           "vout": n,               (numeric, required) The output number
+           "sequence": n,           (numeric, optional, default=depends on the value of the 'replaceable' and 'locktime' arguments) The sequence number
+         },
          ...
        ],
        "locktime": n,               (numeric, optional, default=0) Raw locktime. Non-0 value also locktime-activates inputs
        "lock_unspents": bool,       (boolean, optional, default=false) Lock selected unspent outputs
        "psbt": bool,                (boolean, optional, default=automatic) Always return a PSBT, implies add_to_wallet=false.
        "send_max": bool,            (boolean, optional, default=false) When true, only use UTXOs that can pay for their own fees to maximize the output amount. When 'false' (default), no UTXO is left behind. send_max is incompatible with providing specific inputs.
+       "minconf": n,                (numeric, optional, default=0) Require inputs with at least this many confirmations.
+       "maxconf": n,                (numeric, optional) Require inputs with at most this many confirmations.
        "conf_target": n,            (numeric, optional, default=wallet -txconfirmtarget) Confirmation target in blocks
        "estimate_mode": "str",      (string, optional, default="unset") The fee estimate mode, must be one of (case insensitive):
                                     "unset"

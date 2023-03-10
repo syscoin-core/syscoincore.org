@@ -1,8 +1,8 @@
 ---
 name: getchainlocks
-btcversion: 4.3.0
+btcversion: 4.4.0
 btcgroup: blockchain
-permalink: en/doc/4.3.0/rpc/blockchain/getchainlocks/
+permalink: en/doc/4.4.0/rpc/blockchain/getchainlocks/
 ---
 
 getchainlocks
@@ -14,11 +14,31 @@ enough signatures or its block might not be known by our node yet.
 Throws an error if there is no known chainlock yet.
 
 Result:
-{                                (json object)
-  "blockhash" : "hex",           (string) The block hash hex encoded
-  "height" : n,                  (numeric) Block height
-  "signature" : "hex",           (string) The chainlock's BLS signature
-  "known_block" : true|false     (boolean) True if the block is known by our node
+{                                  (json object)
+  "previous_chainlock" : {         (json object) previous chainlock information
+    "blockhash" : "hex",           (string) Block Hash
+    "height" : n                   (numeric) Block Height
+  },
+  "recent_chainlock" : {           (json object) Most recent chainlock information
+    "blockhash" : "hex",           (string) Block Hash
+    "height" : n,                  (numeric) Block Height
+    "signature" : "hex",           (string) Signature
+    "known_block" : true|false     (boolean) Block Known
+  },
+  "active_chainlock" : {           (json object) Active chainlock information
+    "blockhash" : "hex",           (string) Block Hash
+    "height" : n,                  (numeric) Block Height
+    "signers" : "str",             (string) Signer
+    "signature" : "hex",           (string) Signature
+    "shares" : [                   (json array)
+      {                            (json object) Shares information
+        "quorumHash" : "hex",      (string) Quorum Hash
+        "signers" : "str",         (string) Signers
+        "signature" : "hex"        (string) Signature
+      },
+      ...
+    ]
+  }
 }
 
 Examples:

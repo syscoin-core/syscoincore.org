@@ -5,13 +5,13 @@ btcgroup: syscoin
 permalink: en/doc/4.4.0/rpc/syscoin/getnevmblobdata/
 ---
 
-getnevmblobdata "versionhash" ( getdata )
+getnevmblobdata "versionhash_or_txid" ( getdata )
 
 Return NEVM blob information and status from a version hash.
 
 Arguments:
-1. versionhash    (string, required) The version hash of the NEVM blob
-2. getdata        (boolean) Optional, retrieve the blob data
+1. versionhash_or_txid    (string, required) The version hash or txid of the NEVM blob
+2. getdata                (boolean, optional) Optional, retrieve the blob data
 
 Examples:
 > syscoin-cli getnevmblobdata 

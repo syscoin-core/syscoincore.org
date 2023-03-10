@@ -5,14 +5,14 @@ btcgroup: syscoin
 permalink: en/doc/4.4.0/rpc/syscoin/mnauth/
 ---
 
-mnauth nodeId The authenticated proTxHash as hex string The authenticated public key as hex string
+mnauth nodeId "proTxHash" "publicKey"
 
 Override MNAUTH processing results for the specified node with a user provided data (-regtest only).
 
 Arguments:
 1. nodeId       (numeric, required) Internal peer id of the node the mock data gets added to
-2. proTxHash    (string, required) proTxHash
-3. publicKey    (string, required) publicKey
+2. proTxHash    (string, required) The authenticated proTxHash as hex string
+3. publicKey    (string, required) The authenticated public key as hex string
 
 Result:
 true|false    (boolean) If MNAUTH was overridden or not.
