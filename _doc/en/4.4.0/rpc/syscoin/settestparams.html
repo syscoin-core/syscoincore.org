@@ -1,0 +1,19 @@
+---
+name: settestparams
+btcversion: 4.4.0
+btcgroup: syscoin
+permalink: en/doc/4.4.0/rpc/syscoin/settestparams/
+---
+
+settestparams "setting"
+
+Set test setting. Used in testing only.
+
+Arguments:
+1. setting    (string, required) DIP3 setting
+
+Examples:
+> syscoin-cli settestparams "1"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "settestparams", "params": ["1"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

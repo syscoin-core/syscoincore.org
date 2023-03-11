@@ -1,0 +1,26 @@
+---
+name: syscoincreaterawnevmblob
+btcversion: 4.4.0
+btcgroup: syscoinwallet
+permalink: en/doc/4.4.0/rpc/syscoinwallet/syscoincreaterawnevmblob/
+---
+
+syscoincreaterawnevmblob "versionhash" "data" ( conf_target "estimate_mode" fee_rate )
+
+Create NEVM blob data used by rollups via a custom raw parameters
+
+Arguments:
+1. versionhash      (string, required) Version hash of the blob
+2. data             (string, required) data in hex
+3. conf_target      (numeric, optional, default=wallet -txconfirmtarget) Confirmation target in blocks
+4. estimate_mode    (string, optional, default="unset") The fee estimate mode, must be one of (case insensitive):
+                    "unset"
+                    "economical"
+                    "conservative"
+5. fee_rate         (numeric or string, optional, default=not set, fall back to wallet fee estimation) Specify a fee rate in sat/vB.
+
+Examples:
+> syscoin-cli syscoincreaterawnevmblob "versionhash" "data" 6 economical 25
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "syscoincreaterawnevmblob", "params": ["versionhash" "data" 6 economical 25]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

@@ -1,0 +1,60 @@
+---
+name: listassets
+btcversion: 4.4.0
+btcgroup: syscoin
+permalink: en/doc/4.4.0/rpc/syscoin/listassets/
+---
+
+listassets ( count from {"asset_guid":"str"} )
+
+Scan through all assets.
+
+Arguments:
+1. count                       (numeric, optional, default=10) The number of results to return.
+2. from                        (numeric, optional, default=0) The number of results to skip.
+3. options                     (json object, optional) A json object with options to filter results.
+     {
+       "asset_guid": "str",    (string, optional) Asset GUID to filter
+     }
+
+Result:
+[                                    (json array)
+  {                                  (json object)
+    "asset_guid" : "str",            (string) The guid of the asset
+    "symbol" : "str",                (string) The asset symbol
+    "public_value" : {               (json object) The public value attached to this asset
+      "desc" : "str"                 (string, optional) Public description
+    },
+    "contract" : "hex",              (string) The nevm contract address
+    "total_supply" : n,              (numeric) The total supply of this asset
+    "max_supply" : n,                (numeric) The maximum supply of this asset
+    "updatecapability_flags" : n,    (numeric) The capability flag in decimal
+    "precision" : n,                 (numeric) The precision of this asset
+    "NFTID" : "str",                 (string, optional) The NFT ID of the asset if applicable
+    "notary_address" : "str",        (string) Notary address if specified
+    "notary_details" : {             (json object, optional)
+      "endpoint" : "str",            (string) Notary endpoint
+      "instant_transfers" : n,       (numeric) If notary supports instant confirmations
+      "hd_required" : n              (numeric) If notary requires HD xpub
+    },
+    "auxfee" : {                     (json object, optional)
+      "auxfee_address" : "str",      (string) AuxFee address
+      "fee_struct" : [               (json array)
+        {                            (json object)
+          "bound" : n,               (numeric) AuxFee bound
+          "percentage" : "str"       (string) AuxFee percentage
+        },
+        ...
+      ]
+    }
+  },
+  ...
+]
+
+Examples:
+> syscoin-cli listassets 0
+> syscoin-cli listassets 10 10
+> syscoin-cli listassets 0 0 '{"asset_guid":"3473733"}'
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "listassets", "params": [0, 0, '{"asset_guid":"3473733"}']}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

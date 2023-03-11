@@ -1,0 +1,221 @@
+---
+name: getrawtransaction
+btcversion: 4.4.0
+btcgroup: rawtransactions
+permalink: en/doc/4.4.0/rpc/rawtransactions/getrawtransaction/
+---
+
+getrawtransaction "txid" ( verbosity "blockhash" )
+
+By default, this call only returns a transaction if it is in the mempool. If -txindex is enabled
+and no blockhash argument is passed, it will return the transaction if it is in the mempool or any block.
+If a blockhash argument is passed, it will return the transaction if
+the specified block is available and the transaction is in that block.
+
+Hint: Use gettransaction for wallet transactions.
+
+If verbosity is 0 or omitted, returns the serialized transaction as a hex-encoded string.
+If verbosity is 1, returns a JSON Object with information about the transaction.
+If verbosity is 2, returns a JSON Object with information about the transaction, including fee and prevout information.
+
+Arguments:
+1. txid         (string, required) The transaction id
+2. verbosity    (numeric, optional, default=0) 0 for hex-encoded data, 1 for a JSON object, and 2 for JSON object with fee and prevout
+3. blockhash    (string, optional) The block in which to look for the transaction
+
+Result (if verbosity is not set or set to 0):
+"str"    (string) The serialized transaction as a hex-encoded string for 'txid'
+
+Result (if verbosity is set to 1):
+{                                          (json object)
+  "in_active_chain" : true|false,          (boolean, optional) Whether specified block is in the active chain or not (only present with explicit "blockhash" argument)
+  "blockhash" : "hex",                     (string, optional) the block hash
+  "confirmations" : n,                     (numeric, optional) The confirmations
+  "blocktime" : xxx,                       (numeric, optional) The block time expressed in UNIX epoch time
+  "time" : n,                              (numeric, optional) Same as "blocktime"
+  "hex" : "hex",                           (string) The serialized, hex-encoded data for 'txid'
+  "txid" : "hex",                          (string) The transaction id (same as provided)
+  "hash" : "hex",                          (string) The transaction hash (differs from txid for witness transactions)
+  "size" : n,                              (numeric) The serialized transaction size
+  "vsize" : n,                             (numeric) The virtual transaction size (differs from size for witness transactions)
+  "weight" : n,                            (numeric) The transaction's weight (between vsize*4-3 and vsize*4)
+  "version" : n,                           (numeric) The version
+  "locktime" : xxx,                        (numeric) The lock time
+  "vin" : [                                (json array)
+    {                                      (json object)
+      "coinbase" : "hex",                  (string, optional) The coinbase value (only if coinbase transaction)
+      "txid" : "hex",                      (string, optional) The transaction id (if not coinbase transaction)
+      "vout" : n,                          (numeric, optional) The output number (if not coinbase transaction)
+      "scriptSig" : {                      (json object, optional) The script (if not coinbase transaction)
+        "asm" : "str",                     (string) Disassembly of the signature script
+        "hex" : "hex"                      (string) The raw signature script bytes, hex-encoded
+      },
+      "txinwitness" : [                    (json array, optional)
+        "hex",                             (string) hex-encoded witness data (if any)
+        ...
+      ],
+      "sequence" : n                       (numeric) The script sequence number
+    },
+    ...
+  ],
+  "vout" : [                               (json array)
+    {                                      (json object)
+      "value" : n,                         (numeric) The value in SYS
+      "n" : n,                             (numeric) index
+      "scriptPubKey" : {                   (json object)
+        "asm" : "str",                     (string) Disassembly of the public key script
+        "desc" : "str",                    (string) Inferred descriptor for the output
+        "hex" : "hex",                     (string) The raw public key script bytes, hex-encoded
+        "address" : "str",                 (string, optional) The Syscoin address (only if a well-defined address exists)
+        "type" : "str"                     (string) The type (one of: nonstandard, pubkey, pubkeyhash, scripthash, multisig, nulldata, witness_v0_scripthash, witness_v0_keyhash, witness_v1_taproot, witness_unknown)
+      }
+    },
+    ...
+  ],
+  "systx" : {                              (json object, optional)
+    "txtype" : "str",                      (string) Transaction type
+    "txid" : "hex",                        (string) Transaction id
+    "blockhash" : "hex",                   (string) Block hash
+    "allocations" : [                      (json array, optional)
+      {                                    (json object, optional)
+        "asset_guid" : n,                  (numeric) Asset guid
+        "notary_sig" : "str",              (string, optional) Notary sig
+        "outputs" : [                      (json array)
+          {                                (json object)
+            "n" : n,                       (numeric) n
+            "value" : n                    (numeric) Value
+          },
+          ...
+        ],
+        "total" : n                        (numeric) Total
+      },
+      ...
+    ],
+    "nevm_destination" : "str",            (string, optional) NEVM destination address
+    "spv_proof" : {                        (json object, optional)
+      "txhash" : "hex",                    (string) Transaction Hash
+      "blockhash" : "hex",                 (string) Block Hash
+      "postx" : "hex",                     (string) postx
+      "txroot" : "hex",                    (string) txroot
+      "txparenstnode" : "str",             (string) txparentsnode
+      "txpath" : "str",                    (string) txpath
+      "posReceipt" : "str",                (string) pos receipt
+      "receiptroot" : "str",               (string) receipt root
+      "receiptparentnodes" : "str"         (string) Receipt parent nodes
+    },
+    "symbol" : "str",                      (string, optional) Symbol
+    "max_supply" : n,                      (numeric, optional) Max supply
+    "precision" : n,                       (numeric, optional) Precision
+    "public_value" : "str",                (string, optional) Public value
+    "contract" : "str",                    (string, optional) Contract
+    "notary_address" : "str",              (string, optional) Notary address
+    "notary_detail" : {                    (json object, optional) Notary detail
+      "endpoint" : "str",                  (string) Endpoint
+      "instant_transfers" : true|false,    (boolean) Instant Transfers
+      "hd_required" : true|false           (boolean) HD Required
+    },
+    "aux_fee" : {                          (json object, optional) Aux fee
+      "auxfee_address" : "str",            (string, optional) Auxfee Address
+      "fee_struct" : [                     (json array) Fee Structure
+        {                                  (json object)
+          "bound" : n,                     (numeric) Bound
+          "percentage" : "str"             (string) Percentage
+        },
+        ...
+      ]
+    },
+    "updatecapability_flags" : "str",      (string, optional) Update capability flags
+    "capability_flags" : "str"             (string, optional) Update flags
+  },
+  "proRegTx" : {                           (json object, optional)
+    "version" : n,                         (numeric) Version
+    "collateralHash" : "hex",              (string) Collateral Hash
+    "collateralIndex" : n,                 (numeric) Collateral Index
+    "service" : "str",                     (string) Service IP
+    "ownerAddress" : "str",                (string) Owner Address
+    "votingAddress" : "str",               (string) Voting Address
+    "payoutAddress" : "str",               (string, optional) Payout Address
+    "pubKeyOperator" : "hex",              (string) Operator public key
+    "operatorReward" : n,                  (numeric) Operator reward
+    "inputsHash" : "hex"                   (string) Inputs Hash
+  },
+  "proUpServTx" : {                        (json object, optional)
+    "version" : n,                         (numeric) Version
+    "proTxHash" : "hex",                   (string) proTxHash
+    "service" : "str",                     (string) Service IP
+    "payoutAddress" : "str",               (string, optional) Payout Address
+    "inputsHash" : "hex"                   (string) Inputs Hash
+  },
+  "proUpRegTx" : {                         (json object, optional)
+    "version" : n,                         (numeric) Version
+    "proTxHash" : "hex",                   (string) proTxHash
+    "votingAddress" : "str",               (string) Voting Address
+    "payoutAddress" : "str",               (string, optional) Payout Address
+    "pubKeyOperator" : "hex",              (string) Operator public key
+    "inputsHash" : "hex"                   (string) Inputs Hash
+  },
+  "proUpRevTx" : {                         (json object, optional)
+    "version" : n,                         (numeric) Version
+    "proTxHash" : "hex",                   (string) proTxHash
+    "reason" : n,                          (numeric) Reason code
+    "inputsHash" : "hex"                   (string) Inputs Hash
+  },
+  "cbTx" : {                               (json object, optional)
+    "version" : n,                         (numeric) Version
+    "height" : n,                          (numeric) Height
+    "merkleRootMNList" : "str",            (string) Merkle Root MN List
+    "merkleRootQuorums" : "str"            (string) Merkle Root Quorums
+  },
+  "qcTx" : {                               (json object, optional)
+    "commitments" : [                      (json array, optional) Commitments
+      {                                    (json object, optional) Commitment Object
+        "version" : n,                     (numeric) Version
+        "llmqType" : n,                    (numeric) LLMQ Type
+        "quorumHash" : "str",              (string) Quorum Hash
+        "signersCount" : "str",            (string) Signers Count
+        "signers" : "hex",                 (string) Signers
+        "validMembersCount" : "str",       (string) Valid Members Count
+        "validMembers" : "hex",            (string) Valid Members
+        "quorumPublicKey" : "str",         (string) Quorum Public Key
+        "quorumVvecHash" : "str",          (string) Quorum Vvec Hash
+        "quorumSig" : "str",               (string) Quorum Sig
+        "membersSig" : "str"               (string) Members Sig
+      },
+      ...
+    ]
+  }
+}
+
+Result (for verbosity = 2):
+{                                    (json object)
+  ...,                               Same output as verbosity = 1
+  "fee" : n,                         (numeric, optional) transaction fee in SYS, omitted if block undo data is not available
+  "vin" : [                          (json array)
+    {                                (json object) utxo being spent, omitted if block undo data is not available
+      ...,                           Same output as verbosity = 1
+      "prevout" : {                  (json object, optional) Only if undo information is available)
+        "generated" : true|false,    (boolean) Coinbase or not
+        "height" : n,                (numeric) The height of the prevout
+        "value" : n,                 (numeric) The value in SYS
+        "scriptPubKey" : {           (json object)
+          "asm" : "str",             (string) Disassembly of the public key script
+          "desc" : "str",            (string) Inferred descriptor for the output
+          "hex" : "hex",             (string) The raw public key script bytes, hex-encoded
+          "address" : "str",         (string, optional) The Syscoin address (only if a well-defined address exists)
+          "type" : "str"             (string) The type (one of: nonstandard, pubkey, pubkeyhash, scripthash, multisig, nulldata, witness_v0_scripthash, witness_v0_keyhash, witness_v1_taproot, witness_unknown)
+        }
+      }
+    },
+    ...
+  ]
+}
+
+Examples:
+> syscoin-cli getrawtransaction "mytxid"
+> syscoin-cli getrawtransaction "mytxid" 1
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "getrawtransaction", "params": ["mytxid", 1]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+> syscoin-cli getrawtransaction "mytxid" 0 "myblockhash"
+> syscoin-cli getrawtransaction "mytxid" 1 "myblockhash"
+> syscoin-cli getrawtransaction "mytxid" 2 "myblockhash"
+
+

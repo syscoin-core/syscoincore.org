@@ -1,0 +1,19 @@
+---
+name: masternode_sign
+btcversion: 4.4.0
+btcgroup: masternode
+permalink: en/doc/4.4.0/rpc/masternode/masternode_sign/
+---
+
+masternode_sign "msghash"
+
+Sign BLS message against previous CL + msghash using MN operator BLS key. Must be in winners list as well.
+
+Arguments:
+1. msghash    (string, required) msg hash.
+
+Examples:
+> syscoin-cli masternode_sign 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "masternode_sign", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+
