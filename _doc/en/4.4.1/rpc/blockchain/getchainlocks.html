@@ -1,0 +1,48 @@
+---
+name: getchainlocks
+btcversion: 4.4.1
+btcgroup: blockchain
+permalink: en/doc/4.4.1/rpc/blockchain/getchainlocks/
+---
+
+getchainlocks
+
+Returns information about the active and the most recent chainlocks.
+The active chainlock is the one that has enough signatures and the block
+it tries to lock is known by our node. The recent chainlock might not have
+enough signatures or its block might not be known by our node yet.
+Throws an error if there is no known chainlock yet.
+
+Result:
+{                                  (json object)
+  "previous_chainlock" : {         (json object) previous chainlock information
+    "blockhash" : "hex",           (string) Block Hash
+    "height" : n                   (numeric) Block Height
+  },
+  "recent_chainlock" : {           (json object) Most recent chainlock information
+    "blockhash" : "hex",           (string) Block Hash
+    "height" : n,                  (numeric) Block Height
+    "signature" : "hex",           (string) Signature
+    "known_block" : true|false     (boolean) Block Known
+  },
+  "active_chainlock" : {           (json object) Active chainlock information
+    "blockhash" : "hex",           (string) Block Hash
+    "height" : n,                  (numeric) Block Height
+    "signers" : "str",             (string) Signer
+    "signature" : "hex",           (string) Signature
+    "shares" : [                   (json array)
+      {                            (json object) Shares information
+        "quorumHash" : "hex",      (string) Quorum Hash
+        "signers" : "str",         (string) Signers
+        "signature" : "hex"        (string) Signature
+      },
+      ...
+    ]
+  }
+}
+
+Examples:
+> syscoin-cli getchainlocks 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "getchainlocks", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

@@ -1,0 +1,27 @@
+---
+name: protx_list
+btcversion: 4.4.1
+btcgroup: evo
+permalink: en/doc/4.4.1/rpc/evo/protx_list/
+---
+
+protx_list ( "type" detailed height )
+
+Lists all ProTxs on-chain, depending on the given type.
+This will also include ProTx which failed PoSe verification.
+
+Arguments:
+1. type        (string, optional, default="registered") 
+               Available types:
+               registered   - List all ProTx which are registered at the given chain height.
+               This will also include ProTx which failed PoSe verification.
+               valid        - List only ProTx which are active/valid at the given chain height.
+               
+2. detailed    (boolean, optional, default=false) If true, only the hashes of the ProTx will be returned.
+3. height      (numeric, optional) Height to look for ProTx transactions, if not specified defaults to current chain-tip
+
+Examples:
+> syscoin-cli protx_list registered true
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "protx_list", "params": ["registered", true]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

@@ -1,0 +1,36 @@
+---
+name: listnevmblobdata
+btcversion: 4.4.1
+btcgroup: syscoin
+permalink: en/doc/4.4.1/rpc/syscoin/listnevmblobdata/
+---
+
+listnevmblobdata ( count from {"getdata":bool} )
+
+Scan through all blobs.
+
+Arguments:
+1. count                   (numeric, optional, default=10) The number of results to return.
+2. from                    (numeric, optional, default=0) The number of results to skip.
+3. options                 (json object, optional) A json object with options to filter results.
+     {
+       "getdata": bool,    (boolean, optional) Return data from blob
+     }
+
+Result:
+[                             (json array)
+  {                           (json object)
+    "versionhash" : "hex",    (string) The version hash of the NEVM blob
+    "datasize" : n,           (numeric) Size of data blob in bytes
+    "data" : "hex"            (string) Blob data if getdata is true
+  },
+  ...
+]
+
+Examples:
+> syscoin-cli listnevmblobdata 0
+> syscoin-cli listnevmblobdata 10 10
+> syscoin-cli listnevmblobdata 0 0 '{"getdata":true}'
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "listnevmblobdata", "params": [0, 0, '{"getdata":false}']}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+
