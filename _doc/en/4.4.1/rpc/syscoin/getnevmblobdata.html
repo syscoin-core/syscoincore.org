@@ -1,0 +1,20 @@
+---
+name: getnevmblobdata
+btcversion: 4.4.1
+btcgroup: syscoin
+permalink: en/doc/4.4.1/rpc/syscoin/getnevmblobdata/
+---
+
+getnevmblobdata "versionhash_or_txid" ( getdata )
+
+Return NEVM blob information and status from a version hash.
+
+Arguments:
+1. versionhash_or_txid    (string, required) The version hash or txid of the NEVM blob
+2. getdata                (boolean, optional) Optional, retrieve the blob data
+
+Examples:
+> syscoin-cli getnevmblobdata 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "getnevmblobdata", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

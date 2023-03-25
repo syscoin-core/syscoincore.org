@@ -1,0 +1,31 @@
+---
+name: quorum_dkgsimerror
+btcversion: 4.4.1
+btcgroup: evo
+permalink: en/doc/4.4.1/rpc/evo/quorum_dkgsimerror/
+---
+
+quorum_dkgsimerror "type" rate
+
+This enables simulation of errors and malicious behaviour in the DKG. Do NOT use this on mainnet
+as you will get yourself very likely PoSe banned for this.
+
+Arguments:
+1. type    (string, required) Error type.
+           Supported error types:
+           - contribution-omit
+           - contribution-lie
+           - complain-lie
+           - justify-lie
+           - justify-omit
+           - commit-omit
+           - commit-lie
+           
+2. rate    (numeric, required) Rate at which to simulate this error type.
+           
+
+Examples:
+> syscoin-cli quorum_dkgsimerror contribution-omit 1
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "quorum_dkgsimerror", "params": ["contribution-omit", 1]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

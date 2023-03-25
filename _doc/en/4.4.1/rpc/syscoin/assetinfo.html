@@ -1,0 +1,50 @@
+---
+name: assetinfo
+btcversion: 4.4.1
+btcgroup: syscoin
+permalink: en/doc/4.4.1/rpc/syscoin/assetinfo/
+---
+
+assetinfo "asset_guid"
+
+Show stored values of a single asset and its.
+
+Arguments:
+1. asset_guid    (string, required) The asset guid
+
+Result:
+{                                  (json object)
+  "asset_guid" : "str",            (string) The guid of the asset
+  "symbol" : "str",                (string) The asset symbol
+  "public_value" : {               (json object) The public value attached to this asset
+    "desc" : "str"                 (string, optional) Public description
+  },
+  "contract" : "hex",              (string) The nevm contract address
+  "total_supply" : n,              (numeric) The total supply of this asset
+  "max_supply" : n,                (numeric) The maximum supply of this asset
+  "updatecapability_flags" : n,    (numeric) The capability flag in decimal
+  "precision" : n,                 (numeric) The precision of this asset
+  "NFTID" : "str",                 (string, optional) The NFT ID of the asset if applicable
+  "notary_address" : "str",        (string) Notary address if specified
+  "notary_details" : {             (json object, optional)
+    "endpoint" : "str",            (string) Notary endpoint
+    "instant_transfers" : n,       (numeric) If notary supports instant confirmations
+    "hd_required" : n              (numeric) If notary requires HD xpub
+  },
+  "auxfee" : {                     (json object, optional)
+    "auxfee_address" : "str",      (string) AuxFee address
+    "fee_struct" : [               (json array)
+      {                            (json object)
+        "bound" : n,               (numeric) AuxFee bound
+        "percentage" : "str"       (string) AuxFee percentage
+      },
+      ...
+    ]
+  }
+}
+
+Examples:
+> syscoin-cli assetinfo "assetguid"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "assetinfo", "params": ["assetguid"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

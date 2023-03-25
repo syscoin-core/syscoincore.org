@@ -1,0 +1,24 @@
+---
+name: quorum_isconflicting
+btcversion: 4.4.1
+btcgroup: evo
+permalink: en/doc/4.4.1/rpc/evo/quorum_isconflicting/
+---
+
+quorum_isconflicting llmqType "id" "msgHash"
+
+Test if a conflict exists.
+
+Arguments:
+1. llmqType    (numeric, required) LLMQ type.
+               
+2. id          (string, required) Request id.
+               
+3. msgHash     (string, required) Message hash.
+               
+
+Examples:
+> syscoin-cli quorum_isconflicting 0 1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d 1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "quorum_isconflicting", "params": [0, "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d", "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"]}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+

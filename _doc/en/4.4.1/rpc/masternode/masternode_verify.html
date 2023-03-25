@@ -1,0 +1,21 @@
+---
+name: masternode_verify
+btcversion: 4.4.1
+btcgroup: masternode
+permalink: en/doc/4.4.1/rpc/masternode/masternode_verify/
+---
+
+masternode_verify "msghash" "signature" "blspubkey"
+
+Verify BLS message signed against previous CL + msghash using MN operator BLS key. Must be in winners list as well.
+
+Arguments:
+1. msghash      (string, required) msg hash
+2. signature    (string, required) signature
+3. blspubkey    (string, required) BLS MN operator pubkey
+
+Examples:
+> syscoin-cli masternode_verify 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "masternode_verify", "params": []}' -H 'content-type: text/plain;' http://127.0.0.1:8370/
+
+
